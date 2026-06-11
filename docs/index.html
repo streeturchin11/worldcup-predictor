@@ -474,6 +474,57 @@
     }
     .ko-round .fixture-details { border-bottom: 1px solid #f0f1f5; }
     .ko-round .fixture-details:last-child { border-bottom: none; }
+
+    /* ── Played-match overrides ── */
+    .fixture-details.played > summary {
+      background: #f7f8fa;
+      padding-bottom: 10px;
+    }
+
+    .ft-chip {
+      display: inline-flex;
+      align-items: center;
+      font-size: 9px;
+      font-weight: 700;
+      color: #6b7280;
+      background: #e5e7eb;
+      border-radius: 3px;
+      padding: 2px 5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin: 0 6px;
+      flex-shrink: 0;
+    }
+
+    .actual-score-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .actual-score-row .score-main {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1a1a2e;
+      letter-spacing: -0.5px;
+    }
+    .actual-score-row .score-pred {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .result-badge.badge-correct-score  { background: #dcfce7; color: #15803d; }
+    .result-badge.badge-correct-outcome { background: #fef3c7; color: #92400e; }
+    .result-badge.badge-wrong           { background: #fee2e2; color: #991b1b; }
   </style>
 </head>
 <body>
@@ -511,12 +562,12 @@ function flag(emoji) {
 // ── Fixture renderer ─────────────────────────────────────────────────────────
 
 function renderFixture(fx) {
-  const details = el('details', {className: 'fixture-details'});
+  const details = el('details', {className: fx.played ? 'fixture-details played' : 'fixture-details'});
 
   // ── Summary (always visible) ──
   const summary = el('summary');
 
-  // Teams line
+  // Teams line — FT chip replaces "vs" for played matches
   const teamsDiv = el('div', {className: 'fixture-teams'});
   const homeSpan = el('span', {className: 'team-name'});
   homeSpan.appendChild(flag(fx.home_flag));
@@ -525,35 +576,62 @@ function renderFixture(fx) {
   awaySpan.appendChild(flag(fx.away_flag));
   awaySpan.appendChild(document.createTextNode(fx.away));
   teamsDiv.appendChild(homeSpan);
-  teamsDiv.appendChild(el('span', {className: 'vs'}, 'vs'));
+  teamsDiv.appendChild(fx.played
+    ? el('span', {className: 'ft-chip'}, 'FT')
+    : el('span', {className: 'vs'}, 'vs'));
   teamsDiv.appendChild(awaySpan);
   summary.appendChild(teamsDiv);
 
-  // Probability bar
-  const bar = el('div', {className: 'prob-bar'});
-  function probSeg(cls, pct) {
-    const seg = el('div', {className: 'seg ' + cls, style: `width:${pct}%`});
-    if (pct > 15) seg.textContent = pct + '%';
-    return seg;
-  }
-  bar.appendChild(probSeg('seg-home', fx.home_win_pct));
-  bar.appendChild(probSeg('seg-draw', fx.draw_pct));
-  bar.appendChild(probSeg('seg-away', fx.away_win_pct));
-  summary.appendChild(bar);
+  if (fx.played) {
+    // ── Actual scoreline (large + bold) with predicted score alongside ──
+    const scoreRow = el('div', {className: 'actual-score-row'});
+    scoreRow.appendChild(el('span', {className: 'score-main'},
+      fx.actual_home + ' – ' + fx.actual_away));
+    scoreRow.appendChild(el('span', {className: 'score-pred'},
+      'predicted ' + fx.most_likely_score));
+    summary.appendChild(scoreRow);
 
-  // Outcome line
-  const outcome = el('div', {className: 'fixture-outcome'});
-  let outcomeText;
-  if (fx.home_win_pct >= fx.draw_pct && fx.home_win_pct >= fx.away_win_pct) {
-    outcomeText = fx.home + ' win most likely';
-  } else if (fx.away_win_pct >= fx.home_win_pct && fx.away_win_pct >= fx.draw_pct) {
-    outcomeText = fx.away + ' win most likely';
+    // ── Result badge (replaces prob bar) ──
+    let badgeCls, badgeText;
+    if (fx.correct_score) {
+      badgeCls = 'badge-correct-score';
+      badgeText = '✓ Correct score';
+    } else if (fx.correct_outcome) {
+      badgeCls = 'badge-correct-outcome';
+      badgeText = '~ Score wrong';
+    } else {
+      badgeCls = 'badge-wrong';
+      badgeText = '✗ Outcome wrong';
+    }
+    summary.appendChild(el('div', {className: 'result-badge ' + badgeCls}, badgeText));
+
   } else {
-    outcomeText = 'Draw most likely';
+    // ── Probability bar ──
+    const bar = el('div', {className: 'prob-bar'});
+    function probSeg(cls, pct) {
+      const seg = el('div', {className: 'seg ' + cls, style: `width:${pct}%`});
+      if (pct > 15) seg.textContent = pct + '%';
+      return seg;
+    }
+    bar.appendChild(probSeg('seg-home', fx.home_win_pct));
+    bar.appendChild(probSeg('seg-draw', fx.draw_pct));
+    bar.appendChild(probSeg('seg-away', fx.away_win_pct));
+    summary.appendChild(bar);
+
+    // ── Outcome line ──
+    const outcome = el('div', {className: 'fixture-outcome'});
+    let outcomeText;
+    if (fx.home_win_pct >= fx.draw_pct && fx.home_win_pct >= fx.away_win_pct) {
+      outcomeText = fx.home + ' win most likely';
+    } else if (fx.away_win_pct >= fx.home_win_pct && fx.away_win_pct >= fx.draw_pct) {
+      outcomeText = fx.away + ' win most likely';
+    } else {
+      outcomeText = 'Draw most likely';
+    }
+    outcome.appendChild(el('span', {className: 'outcome-label'}, outcomeText));
+    outcome.appendChild(el('span', {className: 'score-hint'}, '· most likely score ' + fx.most_likely_score));
+    summary.appendChild(outcome);
   }
-  outcome.appendChild(el('span', {className: 'outcome-label'}, outcomeText));
-  outcome.appendChild(el('span', {className: 'score-hint'}, '· most likely score ' + fx.most_likely_score));
-  summary.appendChild(outcome);
 
   // Advance line (knockout only)
   if (fx.pred_winner) {

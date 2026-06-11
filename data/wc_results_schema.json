@@ -1,0 +1,40 @@
+{
+  "description": "Schema for data/wc_results.json — actual 2026 World Cup match results recorded by hand after each game.",
+  "fields": {
+    "group": {
+      "type": "string",
+      "description": "Group letter, e.g. \"A\". Knockout matches are not recorded here."
+    },
+    "home": {
+      "type": "string",
+      "description": "Home team display name, exactly as it appears in data/worldcup_2026.json (e.g. \"USA\", \"Bosnia & Herzegovina\"). The export script maps these to model names via NAME_ALIASES."
+    },
+    "away": {
+      "type": "string",
+      "description": "Away team display name, exactly as it appears in data/worldcup_2026.json."
+    },
+    "home_score": {
+      "type": "integer",
+      "description": "Goals scored by the home team at full time (90 minutes), excluding extra time or penalties."
+    },
+    "away_score": {
+      "type": "integer",
+      "description": "Goals scored by the away team at full time (90 minutes), excluding extra time or penalties."
+    },
+    "date": {
+      "type": "string",
+      "format": "YYYY-MM-DD",
+      "description": "Match date in ISO 8601 format."
+    }
+  },
+  "example": [
+    {
+      "group": "A",
+      "home": "Mexico",
+      "away": "South Africa",
+      "home_score": 2,
+      "away_score": 1,
+      "date": "2026-06-11"
+    }
+  ]
+}

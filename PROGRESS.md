@@ -1,5 +1,116 @@
 # Progress Log
 
+## Session 21 — Played-match UI (2026-06-11)
+
+### Done
+Updated `docs/index.html` to render played and unplayed fixtures differently.
+
+**Played fixture changes (inside `renderFixture()`):**
+- `.fixture-details` gains the `played` class → slightly muted `#f7f8fa` background
+- "vs" replaced by a grey **FT** chip between team names
+- W/D/L probability bar replaced by a large bold actual scoreline (`2 – 1`) with the
+  original predicted score in small grey alongside (`predicted 1-0`)
+- Three-state result badge below the score:
+  - **✓ Correct score** (green) — outcome and exact scoreline both right
+  - **~ Score wrong** (amber) — correct outcome, wrong score
+  - **✗ Outcome wrong** (red) — predicted wrong winner/draw
+- Accordion still expands to the full margin bar + scoreline tile breakdown for played matches
+
+**Unplayed fixtures:** unchanged.
+
+### Verification
+Tested with `Mexico 2–1 South Africa` injected into `wc_results.json`. Model predicted
+`1-0` Mexico win — correct outcome, wrong score → amber "~ Score wrong" badge rendered correctly.
+All unplayed fixtures in Group A still show the standard prob bar.
+
+---
+
+## Session 20 — WC results recording pipeline (2026-06-11)
+
+### Done
+Added the full data pipeline for recording actual match results and feeding them back
+into the model.
+
+**New files:**
+- `data/wc_results.json` — empty array initially; append one object per played match:
+  `{group, home, away, home_score, away_score, date}`
+- `data/wc_results_schema.json` — field-level documentation with an example entry
+
+**`scripts/export_json.py`** — major rewrite (now fully self-contained; no longer imports
+from `app.py`, eliminating the accidental double model-fit from the previous version):
+- `load_wc_results()` — reads `wc_results.json`
+- `wc_results_to_rows()` — converts each result to a DataFrame row: `tournament="FIFA World Cup"`
+  (weight 1.00), `neutral` derived from whether the home team is in `WC_HOME_NATIONS`,
+  name aliases applied via `NAME_ALIASES`; `apply_weights()` computes `match_weight` as normal
+- Appended rows concatenated with historical DataFrame before `fit()` — model continuously
+  refits on real WC scores as they arrive
+- `build_result_index()` + `annotate_fixture()` — annotate each fixture dict with
+  `played`, `actual_home`, `actual_away`, `correct_outcome`, `correct_score`
+
+**Workflow:** add result to `wc_results.json` → run `python3 scripts/export_json.py`
+(or trigger GitHub Actions) → `docs/predictions.json` updated with new odds + annotations.
+
+### Verification
+Single synthetic result (Mexico 2–1 South Africa) injected: model refitted on 11,848 rows,
+output showed `1 played / 71 unplayed`, annotation fields correct. Restored to `[]`.
+
+---
+
+## Session 19 — GitHub Actions workflow (2026-06-11)
+
+### Done
+Created `.github/workflows/update_predictions.yml`:
+- **Trigger:** `workflow_dispatch` only (manual from Actions tab — no schedule, no push trigger)
+- **Steps:** checkout (full history) → Python 3.11 → pip install → run `scripts/export_json.py`
+  → commit + push only if `docs/predictions.json` changed (`git diff --quiet` guard)
+- **Push safety:** `git fetch origin main && git rebase origin/main` before commit to handle
+  concurrent pushes without failing
+- **Auth:** `permissions: contents: write` + built-in `GITHUB_TOKEN` — no PAT needed
+
+---
+
+## Session 18 — Static site / GitHub Pages conversion (2026-06-11)
+
+### Done
+Converted the project from a Flask-served app to a static site that can be hosted
+on GitHub Pages with zero server infrastructure.
+
+**`scripts/export_json.py`** (initial version):
+- Imports model pipeline directly (bypassing Flask app)
+- Calls `build_context()` once, serialises result to `docs/predictions.json` with `json.dump`
+- Excludes `score_matrix` numpy arrays (already processed into `score_tiles`/`margin_pcts`)
+- Prints summary: groups written, matches written, file size
+
+**`docs/index.html`**:
+- Pure HTML/CSS/JS — no framework, no CDN, no build step
+- `fetch('./predictions.json')` on load; loading state while fetching; clear error state
+  on failure (with specific message if opened as `file://` URL)
+- Full feature parity with `app/templates/index.html`:
+  - Two-column group grid, standings with colour-coded progression % and KO odds chain
+  - Expandable team detail panels (click standing row)
+  - Fixtures accordion with prob bar, outcome line, score tiles, margin bar, bests
+  - Predicted knockout bracket (chalk, R32 → Final) with expandable ties
+- Error message detects `file://` protocol and directs user to `python3 -m http.server`
+
+**`.claude/launch.json`**: added `worldcup-static` entry (Python http.server on port 5001)
+for preview panel.
+
+### Verification
+Preview server confirmed: all 12 group cards render, standings expand correctly, fixtures
+accordion opens with correct prob bars and score tiles, bracket section shows R32 → Final.
+
+---
+
+## Session 17 — Data refresh (2026-06-11)
+
+### Done
+- Re-fetched `data/intl_results.csv` from martj42/international_results
+- Row count: 49,446 → 49,477 (+31 new matches, last night's results)
+- Re-ran `scripts/export_json.py` — model re-converged on 11,847 matches; all results stable
+- `docs/predictions.json` regenerated
+
+---
+
 ## Session 16 — Predicted knockout bracket view (2026-06-10)
 
 ### Done
