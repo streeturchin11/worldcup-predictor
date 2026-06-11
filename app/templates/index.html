@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 World Cup Predictor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #f5f6f8;
+      color: #1a1a2e;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 22px 32px;
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    header p {
+      color: #9a9ab0;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      gap: 24px;
+    }
+
+    .group-card {
+      background: #fff;
+      border: 1px solid #e2e4ea;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .group-title {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 11px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    /* Flag chip */
+    .flag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #f0f1f5;
+      font-size: 1em;
+      line-height: 1;
+      flex-shrink: 0;
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+
+    /* Standings — CSS grid (replaces table to allow nested <details>) */
+    .standings-head {
+      display: grid;
+      grid-template-columns: 1fr 58px 40px 192px;
+      padding: 7px 14px;
+      background: #f0f1f5;
+      border-bottom: 1px solid #e2e4ea;
+      font-size: 11px;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .standings-head span:nth-child(2),
+    .standings-head span:nth-child(3),
+    .standings-head span:nth-child(4) { text-align: right; }
+    .standings-head .ko-legend {
+      display: block;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+      color: #9ca3af;
+      margin-top: 1px;
+    }
+
+    .standing-row {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid #f0f1f5;
+    }
+    .standing-row:last-child { border-bottom: none; }
+    /* Qualification line after 2nd row */
+    .standing-row:nth-child(2) {
+      border-bottom: 2px solid #c8cad0;
+    }
+
+    .standing-row > summary {
+      display: block;
+      width: 100%;
+      padding: 0;
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+      background: transparent;
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      font-weight: normal;
+      color: #1a1a2e;
+    }
+    .standing-row > summary::-webkit-details-marker { display: none; }
+    .standing-row > summary::before { display: none; }
+    .standing-row > summary:hover .summary-row { background: #f9fafb; }
+
+    /* Inner grid wrapper — avoids summary list-item display quirks */
+    .summary-row {
+      display: grid;
+      grid-template-columns: 1fr 58px 40px 192px;
+      align-items: center;
+      padding: 9px 14px;
+      font-size: 15px;
+      width: 100%;
+      box-sizing: border-box;
+      color: #1a1a2e;
+      font-weight: normal;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+    .summary-row .prog      { text-align: right; }
+    .summary-row .mean-pts  { text-align: right; color: #374151; }
+
+    /* Tournament odds column: R32 · R16 · QF · SF · F · W */
+    .ko-odds {
+      text-align: right;
+      font-size: 11px;
+      color: #6b7280;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    .ko-odds .ko-sep { color: #d1d5db; margin: 0 1px; }
+    .ko-odds .ko-w        { font-weight: 700; }
+    .ko-odds .ko-w.green  { color: #16a34a; }
+    .ko-odds .ko-w.amber  { color: #d97706; }
+    .ko-odds .ko-w.red    { color: #dc2626; }
+
+    .standing-row > summary:hover { background: #f9fafb; }
+
+    .team-cell {
+      display: flex;
+      align-items: center;
+    }
+
+    .prog {
+      font-weight: 700;
+      font-size: 15px;
+      text-align: right;
+    }
+    .prog.green { color: #16a34a; }
+    .prog.amber { color: #d97706; }
+    .prog.red   { color: #dc2626; }
+
+    .mean-pts {
+      text-align: right;
+      color: #374151;
+    }
+
+    /* Team detail panel */
+    .team-detail {
+      background: #f9fafb;
+      border-top: 1px solid #f0f1f5;
+      padding: 10px 14px 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px 12px;
+    }
+    .detail-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .detail-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .detail-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .detail-value .detail-sub {
+      font-size: 11px;
+      font-weight: 400;
+      color: #6b7280;
+      margin-left: 3px;
+    }
+    .detail-note {
+      grid-column: 1 / -1;
+      font-size: 10px;
+      color: #9ca3af;
+      padding-top: 4px;
+      border-top: 1px solid #e2e4ea;
+      margin-top: 2px;
+    }
+
+    /* Fixtures accordion — outer group-level only */
+    .group-card > details {
+      border-top: 1px solid #e2e4ea;
+    }
+    .group-card > details > summary {
+      list-style: none;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #f0f1f5;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    .group-card > details > summary::-webkit-details-marker { display: none; }
+    .group-card > details > summary::before {
+      content: "▶";
+      font-size: 9px;
+      color: #9a9ab0;
+      transition: transform 0.15s;
+    }
+    .group-card > details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+    .group-card > details > summary .fixture-label {
+      flex: 1;
+    }
+
+    /* Each fixture inside the accordion */
+    .fixture-details {
+      border-bottom: 1px solid #f0f1f5;
+    }
+    .fixture-details:last-child { border-bottom: none; }
+
+    .fixture-teams {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+    .fixture-teams .vs {
+      color: #9a9ab0;
+      font-weight: 400;
+      margin: 0 6px;
+    }
+    .fixture-teams .team-name {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Probability bar */
+    .prob-bar {
+      display: flex;
+      width: 100%;
+      height: 26px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .prob-bar .seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: width 0.2s;
+    }
+    .prob-bar .seg-home { background: #2563eb; border-radius: 5px 0 0 5px; }
+    .prob-bar .seg-draw { background: #9ca3af; }
+    .prob-bar .seg-away { background: #dc2626; border-radius: 0 5px 5px 0; }
+    /* When home is only segment remaining, give it full radius */
+    .prob-bar .seg-home:last-child { border-radius: 5px; }
+
+    /* Outcome summary line */
+    .fixture-outcome {
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .fixture-outcome .outcome-label {
+      color: #374151;
+      font-weight: 500;
+    }
+    .fixture-outcome .score-hint {
+      color: #9ca3af;
+      margin-left: 4px;
+    }
+
+    /* ── Fixture-level nested <details> ──────────────────────────────────── */
+    /* Scope tightly so outer group accordion styles don't leak in */
+    .fixture-details {
+      border: none;
+      margin: 0;
+    }
+    .fixture-details > summary {
+      /* Override outer summary styles completely */
+      list-style: none;
+      padding: 10px 14px 0;
+      background: transparent;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1a1a2e;
+      cursor: pointer;
+      display: block;
+      user-select: none;
+      border-top: none;
+    }
+    .fixture-details > summary::-webkit-details-marker { display: none; }
+    /* No arrow on fixture summary — the whole row is the click target */
+    .fixture-details > summary::before { display: none; }
+
+    /* ── Margin-of-victory bar ───────────────────────────────────────── */
+    .margin-section {
+      padding: 10px 14px 4px;
+    }
+    .margin-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #9ca3af;
+      font-weight: 500;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .margin-bar {
+      display: flex;
+      width: 100%;
+      height: 30px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+    .margin-bar .mseg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      overflow: hidden;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    /* Home buckets: dark → medium → light blue */
+    .mseg.h3p { background: #1d4ed8; border-radius: 5px 0 0 5px; }
+    .mseg.h2  { background: #3b82f6; }
+    .mseg.h1  { background: #93c5fd; color: #1e3a5f; }
+    /* Draw */
+    .mseg.draw { background: #9ca3af; }
+    /* Away buckets: light → medium → dark red */
+    .mseg.a1  { background: #fca5a5; color: #7f1d1d; }
+    .mseg.a2  { background: #ef4444; }
+    .mseg.a3p { background: #b91c1c; border-radius: 0 5px 5px 0; }
+    /* Round the first/last visible segment properly */
+    .mseg:first-child { border-radius: 5px 0 0 5px; }
+    .mseg:last-child  { border-radius: 0 5px 5px 0; }
+
+    .margin-sub-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #9ca3af;
+      margin-bottom: 6px;
+      padding: 0 1px;
+    }
+
+    /* ── Scoreline tiles (secondary detail) ─────────────────────────── */
+    .scoreline-section {
+      padding: 6px 14px 10px;
+      border-top: 1px solid #f0f1f5;
+    }
+    .scoreline-section-label {
+      font-size: 10px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .scoreline-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .score-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 38px;
+      border-radius: 4px;
+      line-height: 1.3;
+    }
+    .score-tile .tile-score { font-size: 12px; font-weight: 700; }
+    .score-tile .tile-pct   { font-size: 9px; font-weight: 500; opacity: 0.75; }
+    .score-tile.home { background: #dbeafe; color: #1d4ed8; }
+    .score-tile.draw { background: #f3f4f6; color: #374151; }
+    .score-tile.away { background: #fee2e2; color: #b91c1c; }
+
+    /* Best-of-outcome summary lines */
+    .scoreline-bests {
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 6px 14px 10px;
+      border-top: 1px solid #f0f1f5;
+    }
+    .scoreline-bests .best-line { display: flex; gap: 6px; }
+    .scoreline-bests .best-label { color: #9ca3af; min-width: 80px; }
+    .scoreline-bests .best-score { font-weight: 600; color: #374151; }
+    .scoreline-bests .best-pct   { color: #9ca3af; }
+
+    /* Predicted-to-advance line (knockout ties only) */
+    .advance-line {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #16a34a;
+    }
+    .advance-line .flag { margin-right: 5px; }
+
+    /* ── Predicted knockout bracket ──────────────────────────────────── */
+    .bracket-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8px 20px 80px;
+    }
+    .bracket-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .bracket-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .bracket-champion {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      display: flex;
+      align-items: center;
+    }
+    .bracket-champion .flag { margin: 0 6px 0 4px; }
+    .bracket-note {
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+    .ko-round {
+      background: #fff;
+      border: 1px solid #e2e4ea;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .ko-round-title {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    /* Inside a round card, each tie is a standard fixture-details row */
+    .ko-round .fixture-details { border-bottom: 1px solid #f0f1f5; }
+    .ko-round .fixture-details:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+{# ── Reusable expandable fixture (group matches + knockout ties) ── #}
+{% macro render_fixture(fx) %}
+      <details class="fixture-details">
+        <summary>
+          <div class="fixture-teams">
+            <span class="team-name"><span class="flag">{{ fx.home_flag }}</span>{{ fx.home }}</span>
+            <span class="vs">vs</span>
+            <span class="team-name"><span class="flag">{{ fx.away_flag }}</span>{{ fx.away }}</span>
+          </div>
+
+          <div class="prob-bar">
+            <div class="seg seg-home" style="width:{{ fx.home_win_pct }}%">
+              {%- if fx.home_win_pct > 15 %}{{ fx.home_win_pct }}%{% endif -%}
+            </div>
+            <div class="seg seg-draw" style="width:{{ fx.draw_pct }}%">
+              {%- if fx.draw_pct > 15 %}{{ fx.draw_pct }}%{% endif -%}
+            </div>
+            <div class="seg seg-away" style="width:{{ fx.away_win_pct }}%">
+              {%- if fx.away_win_pct > 15 %}{{ fx.away_win_pct }}%{% endif -%}
+            </div>
+          </div>
+
+          <div class="fixture-outcome">
+            {%- if fx.home_win_pct >= fx.draw_pct and fx.home_win_pct >= fx.away_win_pct %}
+              <span class="outcome-label">{{ fx.home }} win most likely</span>
+            {%- elif fx.away_win_pct >= fx.home_win_pct and fx.away_win_pct >= fx.draw_pct %}
+              <span class="outcome-label">{{ fx.away }} win most likely</span>
+            {%- else %}
+              <span class="outcome-label">Draw most likely</span>
+            {%- endif %}
+            <span class="score-hint">&middot; most likely score {{ fx.most_likely_score }}</span>
+          </div>
+
+          {% if fx.pred_winner is defined %}
+          <div class="advance-line">
+            Predicted to advance:
+            <span class="flag">{{ fx.pred_winner_flag }}</span>{{ fx.pred_winner }}
+          </div>
+          {% endif %}
+        </summary>
+
+        {# ── Margin of victory bar ── #}
+        <div class="margin-section">
+          <div class="margin-label-row">
+            <span>{{ fx.home }} win by&hellip;</span>
+            <span>{{ fx.away }} win by&hellip;</span>
+          </div>
+          <div class="margin-bar">
+            {% if fx.margin_pcts.h3p > 0 %}
+            <div class="mseg h3p" style="width:{{ fx.margin_pcts.h3p }}%">
+              {%- if fx.margin_pcts.h3p >= 6 %}{{ fx.margin_pcts.h3p }}%{% endif -%}
+            </div>
+            {% endif %}
+            {% if fx.margin_pcts.h2 > 0 %}
+            <div class="mseg h2" style="width:{{ fx.margin_pcts.h2 }}%">
+              {%- if fx.margin_pcts.h2 >= 6 %}{{ fx.margin_pcts.h2 }}%{% endif -%}
+            </div>
+            {% endif %}
+            {% if fx.margin_pcts.h1 > 0 %}
+            <div class="mseg h1" style="width:{{ fx.margin_pcts.h1 }}%">
+              {%- if fx.margin_pcts.h1 >= 6 %}{{ fx.margin_pcts.h1 }}%{% endif -%}
+            </div>
+            {% endif %}
+            {% if fx.margin_pcts.draw > 0 %}
+            <div class="mseg draw" style="width:{{ fx.margin_pcts.draw }}%">
+              {%- if fx.margin_pcts.draw >= 6 %}{{ fx.margin_pcts.draw }}%{% endif -%}
+            </div>
+            {% endif %}
+            {% if fx.margin_pcts.a1 > 0 %}
+            <div class="mseg a1" style="width:{{ fx.margin_pcts.a1 }}%">
+              {%- if fx.margin_pcts.a1 >= 6 %}{{ fx.margin_pcts.a1 }}%{% endif -%}
+            </div>
+            {% endif %}
+            {% if fx.margin_pcts.a2 > 0 %}
+            <div class="mseg a2" style="width:{{ fx.margin_pcts.a2 }}%">
+              {%- if fx.margin_pcts.a2 >= 6 %}{{ fx.margin_pcts.a2 }}%{% endif -%}
+            </div>
+            {% endif %}
+            {% if fx.margin_pcts.a3p > 0 %}
+            <div class="mseg a3p" style="width:{{ fx.margin_pcts.a3p }}%">
+              {%- if fx.margin_pcts.a3p >= 6 %}{{ fx.margin_pcts.a3p }}%{% endif -%}
+            </div>
+            {% endif %}
+          </div>
+          <div class="margin-sub-label">
+            <span>3+ &nbsp; 2 &nbsp; 1</span>
+            <span>Draw</span>
+            <span>1 &nbsp; 2 &nbsp; 3+</span>
+          </div>
+        </div>
+
+        {# ── Scoreline breakdown (secondary detail) ── #}
+        <div class="scoreline-section">
+          <div class="scoreline-section-label">Scorelines (&ge;1%)</div>
+          <div class="scoreline-grid">
+            {% for tile in fx.score_tiles %}
+            <div class="score-tile {{ tile.result }}">
+              <span class="tile-score">{{ tile.score }}</span>
+              <span class="tile-pct">{{ tile.pct }}%</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="scoreline-bests">
+          {% if fx.outcome_bests.home %}
+          <div class="best-line">
+            <span class="best-label">Home win:</span>
+            <span class="best-score">{{ fx.outcome_bests.home.score }}</span>
+            <span class="best-pct">{{ fx.outcome_bests.home.pct }}%</span>
+          </div>
+          {% endif %}
+          {% if fx.outcome_bests.draw %}
+          <div class="best-line">
+            <span class="best-label">Draw:</span>
+            <span class="best-score">{{ fx.outcome_bests.draw.score }}</span>
+            <span class="best-pct">{{ fx.outcome_bests.draw.pct }}%</span>
+          </div>
+          {% endif %}
+          {% if fx.outcome_bests.away %}
+          <div class="best-line">
+            <span class="best-label">Away win:</span>
+            <span class="best-score">{{ fx.outcome_bests.away.score }}</span>
+            <span class="best-pct">{{ fx.outcome_bests.away.pct }}%</span>
+          </div>
+          {% endif %}
+        </div>
+
+      </details>
+{% endmacro %}
+
+<header>
+  <h1>2026 World Cup Predictor</h1>
+  <p>Poisson model &middot; 10,000 simulations &middot; historical results 2014&ndash;2025</p>
+</header>
+
+<main>
+  {% for group in groups %}
+  <div class="group-card">
+    <div class="group-title">{{ group.name }}</div>
+
+    <div class="standings-head">
+      <span>Team</span>
+      <span>Prog</span>
+      <span>Pts</span>
+      <span>Tournament odds<span class="ko-legend">R32 · R16 · QF · SF · F · W</span></span>
+    </div>
+    {% for row in group.standings %}
+    <details class="standing-row">
+      <summary>
+        <div class="summary-row">
+          <div class="team-cell">
+            <span class="flag">{{ row.flag }}</span>{{ row.team }}
+          </div>
+          <span class="prog {{ row.colour }}">{{ row.prog_pct }}%</span>
+          <span class="mean-pts">{{ row.mean_pts }}</span>
+          <span class="ko-odds">{{ row.r32_pct }}<span class="ko-sep">·</span>{{ row.r16_pct }}<span class="ko-sep">·</span>{{ row.qf_pct }}<span class="ko-sep">·</span>{{ row.sf_pct }}<span class="ko-sep">·</span>{{ row.final_pct }}<span class="ko-sep">·</span><span class="ko-w {{ 'green' if row.winner_pct >= 15 else 'amber' if row.winner_pct >= 5 else 'red' }}">{{ row.winner_pct }}</span></span>
+        </div>
+      </summary>
+      <div class="team-detail">
+        <div class="detail-block">
+          <span class="detail-label">Finish 1st</span>
+          <span class="detail-value">{{ row.first_pct }}%</span>
+        </div>
+        <div class="detail-block">
+          <span class="detail-label">Finish 2nd</span>
+          <span class="detail-value">{{ row.second_pct }}%</span>
+        </div>
+        <div class="detail-block">
+          <span class="detail-label">Eliminated</span>
+          <span class="detail-value">{{ row.elim_pct }}%</span>
+        </div>
+        <div class="detail-block">
+          <span class="detail-label">Goals for</span>
+          <span class="detail-value">{{ row.mean_gf }}<span class="detail-sub">per group stage</span></span>
+        </div>
+        <div class="detail-block">
+          <span class="detail-label">Goals against</span>
+          <span class="detail-value">{{ row.mean_ga }}<span class="detail-sub">per group stage</span></span>
+        </div>
+        <div class="detail-block">
+          <span class="detail-label">Record (W / D / L)</span>
+          <span class="detail-value">{{ row.mean_wins }} / {{ row.mean_draws }} / {{ row.mean_losses }}</span>
+        </div>
+        <p class="detail-note">Progression = top-2 group finish. Best third-place qualification is reflected in the Tournament odds (R32&hellip;W).</p>
+      </div>
+    </details>
+    {% endfor %}
+
+    <details>
+      <summary>
+        <span class="fixture-label">Fixtures &mdash; score &middot; W% / D% / L%</span>
+      </summary>
+      {% for fx in group.fixtures %}
+      {{ render_fixture(fx) }}
+      {% endfor %}
+    </details>
+  </div>
+  {% endfor %}
+</main>
+
+{# ── Predicted knockout bracket (chalk: favourites advance) ── #}
+<section class="bracket-section">
+  <div class="bracket-header">
+    <h2>Predicted knockout bracket</h2>
+    <div class="bracket-champion">
+      Predicted champion:
+      <span class="flag">{{ bracket.champion_flag }}</span>{{ bracket.champion }}
+    </div>
+  </div>
+  <p class="bracket-note">
+    A single &ldquo;chalk&rdquo; bracket &mdash; each slot filled by the most-likely team
+    (modal group winners/runners-up plus the eight most-likely third-placers via the
+    FIFA Annex&nbsp;C allocation), with the favourite advancing each round. One plausible
+    scenario, not a probability-weighted bracket. Click any tie for its predicted scoreline.
+  </p>
+
+  {% for round in bracket.rounds %}
+  <div class="ko-round">
+    <div class="ko-round-title">{{ round.name }}</div>
+    {% for fx in round.matches %}
+    {{ render_fixture(fx) }}
+    {% endfor %}
+  </div>
+  {% endfor %}
+</section>
+
+</body>
+</html>

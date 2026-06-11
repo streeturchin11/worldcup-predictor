@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 World Cup Predictor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #f5f6f8;
+      color: #1a1a2e;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 22px 32px;
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    header p {
+      color: #9a9ab0;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    /* ── Loading / error states ── */
+    #state-banner {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-size: 15px;
+      color: #374151;
+    }
+    #state-banner.error { color: #b91c1c; }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      gap: 24px;
+    }
+
+    .group-card {
+      background: #fff;
+      border: 1px solid #e2e4ea;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .group-title {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 11px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .flag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #f0f1f5;
+      font-size: 1em;
+      line-height: 1;
+      flex-shrink: 0;
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+
+    /* ── Standings ── */
+    .standings-head {
+      display: grid;
+      grid-template-columns: 1fr 58px 40px 192px;
+      padding: 7px 14px;
+      background: #f0f1f5;
+      border-bottom: 1px solid #e2e4ea;
+      font-size: 11px;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .standings-head span:nth-child(2),
+    .standings-head span:nth-child(3),
+    .standings-head span:nth-child(4) { text-align: right; }
+    .standings-head .ko-legend {
+      display: block;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+      color: #9ca3af;
+      margin-top: 1px;
+    }
+
+    .standing-row {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid #f0f1f5;
+    }
+    .standing-row:last-child { border-bottom: none; }
+    .standing-row:nth-child(2) { border-bottom: 2px solid #c8cad0; }
+
+    .standing-row > summary {
+      display: block;
+      width: 100%;
+      padding: 0;
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+      background: transparent;
+    }
+    .standing-row > summary::-webkit-details-marker { display: none; }
+    .standing-row > summary::before { display: none; }
+    .standing-row > summary:hover .summary-row { background: #f9fafb; }
+
+    .summary-row {
+      display: grid;
+      grid-template-columns: 1fr 58px 40px 192px;
+      align-items: center;
+      padding: 9px 14px;
+      font-size: 15px;
+      width: 100%;
+    }
+    .summary-row .prog     { text-align: right; }
+    .summary-row .mean-pts { text-align: right; color: #374151; }
+
+    .ko-odds {
+      text-align: right;
+      font-size: 11px;
+      color: #6b7280;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    .ko-odds .ko-sep { color: #d1d5db; margin: 0 1px; }
+    .ko-odds .ko-w        { font-weight: 700; }
+    .ko-odds .ko-w.green  { color: #16a34a; }
+    .ko-odds .ko-w.amber  { color: #d97706; }
+    .ko-odds .ko-w.red    { color: #dc2626; }
+
+    .team-cell {
+      display: flex;
+      align-items: center;
+    }
+
+    .prog {
+      font-weight: 700;
+      font-size: 15px;
+      text-align: right;
+    }
+    .prog.green { color: #16a34a; }
+    .prog.amber { color: #d97706; }
+    .prog.red   { color: #dc2626; }
+
+    .team-detail {
+      background: #f9fafb;
+      border-top: 1px solid #f0f1f5;
+      padding: 10px 14px 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px 12px;
+    }
+    .detail-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .detail-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .detail-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .detail-value .detail-sub {
+      font-size: 11px;
+      font-weight: 400;
+      color: #6b7280;
+      margin-left: 3px;
+    }
+    .detail-note {
+      grid-column: 1 / -1;
+      font-size: 10px;
+      color: #9ca3af;
+      padding-top: 4px;
+      border-top: 1px solid #e2e4ea;
+      margin-top: 2px;
+    }
+
+    /* ── Fixtures accordion ── */
+    .group-card > details {
+      border-top: 1px solid #e2e4ea;
+    }
+    .group-card > details > summary {
+      list-style: none;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #f0f1f5;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    .group-card > details > summary::-webkit-details-marker { display: none; }
+    .group-card > details > summary::before {
+      content: "▶";
+      font-size: 9px;
+      color: #9a9ab0;
+      transition: transform 0.15s;
+    }
+    .group-card > details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+    .group-card > details > summary .fixture-label {
+      flex: 1;
+    }
+
+    /* ── Fixture row ── */
+    .fixture-details {
+      border-bottom: 1px solid #f0f1f5;
+    }
+    .fixture-details:last-child { border-bottom: none; }
+
+    .fixture-teams {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+    .fixture-teams .vs {
+      color: #9a9ab0;
+      font-weight: 400;
+      margin: 0 6px;
+    }
+    .fixture-teams .team-name {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .prob-bar {
+      display: flex;
+      width: 100%;
+      height: 26px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .prob-bar .seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: width 0.2s;
+    }
+    .prob-bar .seg-home { background: #2563eb; border-radius: 5px 0 0 5px; }
+    .prob-bar .seg-draw { background: #9ca3af; }
+    .prob-bar .seg-away { background: #dc2626; border-radius: 0 5px 5px 0; }
+    .prob-bar .seg-home:last-child { border-radius: 5px; }
+
+    .fixture-outcome {
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .fixture-outcome .outcome-label {
+      color: #374151;
+      font-weight: 500;
+    }
+    .fixture-outcome .score-hint {
+      color: #9ca3af;
+      margin-left: 4px;
+    }
+
+    .fixture-details > summary {
+      list-style: none;
+      padding: 10px 14px 0;
+      background: transparent;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1a1a2e;
+      cursor: pointer;
+      display: block;
+      user-select: none;
+    }
+    .fixture-details > summary::-webkit-details-marker { display: none; }
+    .fixture-details > summary::before { display: none; }
+
+    /* ── Margin bar ── */
+    .margin-section {
+      padding: 10px 14px 4px;
+    }
+    .margin-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #9ca3af;
+      font-weight: 500;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .margin-bar {
+      display: flex;
+      width: 100%;
+      height: 30px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+    .margin-bar .mseg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      overflow: hidden;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    .mseg.h3p  { background: #1d4ed8; border-radius: 5px 0 0 5px; }
+    .mseg.h2   { background: #3b82f6; }
+    .mseg.h1   { background: #93c5fd; color: #1e3a5f; }
+    .mseg.draw { background: #9ca3af; }
+    .mseg.a1   { background: #fca5a5; color: #7f1d1d; }
+    .mseg.a2   { background: #ef4444; }
+    .mseg.a3p  { background: #b91c1c; border-radius: 0 5px 5px 0; }
+    .mseg:first-child { border-radius: 5px 0 0 5px; }
+    .mseg:last-child  { border-radius: 0 5px 5px 0; }
+
+    .margin-sub-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #9ca3af;
+      margin-bottom: 6px;
+      padding: 0 1px;
+    }
+
+    /* ── Scoreline tiles ── */
+    .scoreline-section {
+      padding: 6px 14px 10px;
+      border-top: 1px solid #f0f1f5;
+    }
+    .scoreline-section-label {
+      font-size: 10px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .scoreline-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .score-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 38px;
+      border-radius: 4px;
+      line-height: 1.3;
+    }
+    .score-tile .tile-score { font-size: 12px; font-weight: 700; }
+    .score-tile .tile-pct   { font-size: 9px; font-weight: 500; opacity: 0.75; }
+    .score-tile.home { background: #dbeafe; color: #1d4ed8; }
+    .score-tile.draw { background: #f3f4f6; color: #374151; }
+    .score-tile.away { background: #fee2e2; color: #b91c1c; }
+
+    .scoreline-bests {
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 6px 14px 10px;
+      border-top: 1px solid #f0f1f5;
+    }
+    .scoreline-bests .best-line { display: flex; gap: 6px; }
+    .scoreline-bests .best-label { color: #9ca3af; min-width: 80px; }
+    .scoreline-bests .best-score { font-weight: 600; color: #374151; }
+    .scoreline-bests .best-pct   { color: #9ca3af; }
+
+    .advance-line {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #16a34a;
+    }
+    .advance-line .flag { margin-right: 5px; }
+
+    /* ── Knockout bracket section ── */
+    .bracket-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8px 20px 80px;
+    }
+    .bracket-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .bracket-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .bracket-champion {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      display: flex;
+      align-items: center;
+    }
+    .bracket-champion .flag { margin: 0 6px 0 4px; }
+    .bracket-note {
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+    .ko-round {
+      background: #fff;
+      border: 1px solid #e2e4ea;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .ko-round-title {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .ko-round .fixture-details { border-bottom: 1px solid #f0f1f5; }
+    .ko-round .fixture-details:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>2026 World Cup Predictor</h1>
+  <p>Poisson model &middot; 10,000 simulations &middot; historical results 2014&ndash;2025</p>
+</header>
+
+<div id="state-banner">Loading predictions&hellip;</div>
+<main id="groups-grid" style="display:none"></main>
+<section id="bracket-section" class="bracket-section" style="display:none"></section>
+
+<script>
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+function el(tag, attrs, ...children) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (k === 'className') node.className = v;
+    else if (k === 'html')  node.innerHTML = v;
+    else                    node.setAttribute(k, v);
+  }
+  for (const c of children) {
+    if (c == null) continue;
+    node.appendChild(c instanceof Node ? c : document.createTextNode(c));
+  }
+  return node;
+}
+
+function flag(emoji) {
+  return el('span', {className: 'flag'}, emoji);
+}
+
+// ── Fixture renderer ─────────────────────────────────────────────────────────
+
+function renderFixture(fx) {
+  const details = el('details', {className: 'fixture-details'});
+
+  // ── Summary (always visible) ──
+  const summary = el('summary');
+
+  // Teams line
+  const teamsDiv = el('div', {className: 'fixture-teams'});
+  const homeSpan = el('span', {className: 'team-name'});
+  homeSpan.appendChild(flag(fx.home_flag));
+  homeSpan.appendChild(document.createTextNode(fx.home));
+  const awaySpan = el('span', {className: 'team-name'});
+  awaySpan.appendChild(flag(fx.away_flag));
+  awaySpan.appendChild(document.createTextNode(fx.away));
+  teamsDiv.appendChild(homeSpan);
+  teamsDiv.appendChild(el('span', {className: 'vs'}, 'vs'));
+  teamsDiv.appendChild(awaySpan);
+  summary.appendChild(teamsDiv);
+
+  // Probability bar
+  const bar = el('div', {className: 'prob-bar'});
+  function probSeg(cls, pct) {
+    const seg = el('div', {className: 'seg ' + cls, style: `width:${pct}%`});
+    if (pct > 15) seg.textContent = pct + '%';
+    return seg;
+  }
+  bar.appendChild(probSeg('seg-home', fx.home_win_pct));
+  bar.appendChild(probSeg('seg-draw', fx.draw_pct));
+  bar.appendChild(probSeg('seg-away', fx.away_win_pct));
+  summary.appendChild(bar);
+
+  // Outcome line
+  const outcome = el('div', {className: 'fixture-outcome'});
+  let outcomeText;
+  if (fx.home_win_pct >= fx.draw_pct && fx.home_win_pct >= fx.away_win_pct) {
+    outcomeText = fx.home + ' win most likely';
+  } else if (fx.away_win_pct >= fx.home_win_pct && fx.away_win_pct >= fx.draw_pct) {
+    outcomeText = fx.away + ' win most likely';
+  } else {
+    outcomeText = 'Draw most likely';
+  }
+  outcome.appendChild(el('span', {className: 'outcome-label'}, outcomeText));
+  outcome.appendChild(el('span', {className: 'score-hint'}, '· most likely score ' + fx.most_likely_score));
+  summary.appendChild(outcome);
+
+  // Advance line (knockout only)
+  if (fx.pred_winner) {
+    const adv = el('div', {className: 'advance-line'});
+    adv.appendChild(document.createTextNode('Predicted to advance: '));
+    adv.appendChild(flag(fx.pred_winner_flag));
+    adv.appendChild(document.createTextNode(fx.pred_winner));
+    summary.appendChild(adv);
+  }
+
+  details.appendChild(summary);
+
+  // ── Margin bar (inside accordion) ──
+  const mp = fx.margin_pcts;
+  const marginSection = el('div', {className: 'margin-section'});
+  const labelRow = el('div', {className: 'margin-label-row'});
+  labelRow.appendChild(el('span', {}, fx.home + ' win by…'));
+  labelRow.appendChild(el('span', {}, fx.away + ' win by…'));
+  marginSection.appendChild(labelRow);
+
+  const mbar = el('div', {className: 'margin-bar'});
+  const msegs = [
+    ['h3p', mp.h3p], ['h2', mp.h2], ['h1', mp.h1],
+    ['draw', mp.draw],
+    ['a1', mp.a1], ['a2', mp.a2], ['a3p', mp.a3p],
+  ];
+  for (const [cls, pct] of msegs) {
+    if (pct <= 0) continue;
+    const seg = el('div', {className: 'mseg ' + cls, style: `width:${pct}%`});
+    if (pct >= 6) seg.textContent = pct + '%';
+    mbar.appendChild(seg);
+  }
+  marginSection.appendChild(mbar);
+  marginSection.appendChild(el('div', {className: 'margin-sub-label',
+    html: '<span>3+&nbsp;&nbsp;2&nbsp;&nbsp;1</span><span>Draw</span><span>1&nbsp;&nbsp;2&nbsp;&nbsp;3+</span>'}));
+  details.appendChild(marginSection);
+
+  // ── Scoreline tiles ──
+  const scoreSection = el('div', {className: 'scoreline-section'});
+  scoreSection.appendChild(el('div', {className: 'scoreline-section-label'}, 'Scorelines (≥1%)'));
+  const grid = el('div', {className: 'scoreline-grid'});
+  for (const tile of fx.score_tiles) {
+    const t = el('div', {className: 'score-tile ' + tile.result});
+    t.appendChild(el('span', {className: 'tile-score'}, tile.score));
+    t.appendChild(el('span', {className: 'tile-pct'}, tile.pct + '%'));
+    grid.appendChild(t);
+  }
+  scoreSection.appendChild(grid);
+  details.appendChild(scoreSection);
+
+  // ── Scoreline bests ──
+  const bests = el('div', {className: 'scoreline-bests'});
+  const ob = fx.outcome_bests;
+  function bestLine(label, b) {
+    if (!b) return null;
+    const line = el('div', {className: 'best-line'});
+    line.appendChild(el('span', {className: 'best-label'}, label));
+    line.appendChild(el('span', {className: 'best-score'}, b.score));
+    line.appendChild(el('span', {className: 'best-pct'}, b.pct + '%'));
+    return line;
+  }
+  [bestLine('Home win:', ob.home), bestLine('Draw:', ob.draw), bestLine('Away win:', ob.away)]
+    .filter(Boolean).forEach(l => bests.appendChild(l));
+  details.appendChild(bests);
+
+  return details;
+}
+
+// ── Group card renderer ───────────────────────────────────────────────────────
+
+function renderGroup(group) {
+  const card = el('div', {className: 'group-card'});
+  card.appendChild(el('div', {className: 'group-title'}, group.name));
+
+  // Standings header
+  const head = el('div', {className: 'standings-head'});
+  head.appendChild(el('span', {}, 'Team'));
+  head.appendChild(el('span', {}, 'Prog'));
+  head.appendChild(el('span', {}, 'Pts'));
+  const oddsHead = el('span', {});
+  oddsHead.appendChild(document.createTextNode('Tournament odds'));
+  oddsHead.appendChild(el('span', {className: 'ko-legend'}, 'R32 · R16 · QF · SF · F · W'));
+  head.appendChild(oddsHead);
+  card.appendChild(head);
+
+  // Standing rows
+  group.standings.forEach(row => {
+    const details = el('details', {className: 'standing-row'});
+    const summary = el('summary');
+
+    const srow = el('div', {className: 'summary-row'});
+
+    const teamCell = el('div', {className: 'team-cell'});
+    teamCell.appendChild(flag(row.flag));
+    teamCell.appendChild(document.createTextNode(row.team));
+    srow.appendChild(teamCell);
+
+    srow.appendChild(el('span', {className: 'prog ' + row.colour}, row.prog_pct + '%'));
+    srow.appendChild(el('span', {className: 'mean-pts'}, row.mean_pts));
+
+    const wCls = row.winner_pct >= 15 ? 'green' : row.winner_pct >= 5 ? 'amber' : 'red';
+    const koOdds = el('span', {className: 'ko-odds'});
+    const sep = () => el('span', {className: 'ko-sep'}, '·');
+    koOdds.appendChild(document.createTextNode(row.r32_pct));
+    koOdds.appendChild(sep());
+    koOdds.appendChild(document.createTextNode(row.r16_pct));
+    koOdds.appendChild(sep());
+    koOdds.appendChild(document.createTextNode(row.qf_pct));
+    koOdds.appendChild(sep());
+    koOdds.appendChild(document.createTextNode(row.sf_pct));
+    koOdds.appendChild(sep());
+    koOdds.appendChild(document.createTextNode(row.final_pct));
+    koOdds.appendChild(sep());
+    koOdds.appendChild(el('span', {className: 'ko-w ' + wCls}, String(row.winner_pct)));
+    srow.appendChild(koOdds);
+
+    summary.appendChild(srow);
+    details.appendChild(summary);
+
+    // Expanded detail panel
+    const detailPanel = el('div', {className: 'team-detail'});
+    function db(label, value) {
+      const b = el('div', {className: 'detail-block'});
+      b.appendChild(el('span', {className: 'detail-label'}, label));
+      b.appendChild(el('span', {className: 'detail-value'}, value));
+      return b;
+    }
+    detailPanel.appendChild(db('Finish 1st',  row.first_pct  + '%'));
+    detailPanel.appendChild(db('Finish 2nd',  row.second_pct + '%'));
+    detailPanel.appendChild(db('Eliminated',  row.elim_pct   + '%'));
+
+    const gfBlock = el('div', {className: 'detail-block'});
+    gfBlock.appendChild(el('span', {className: 'detail-label'}, 'Goals for'));
+    const gfVal = el('span', {className: 'detail-value'});
+    gfVal.appendChild(document.createTextNode(row.mean_gf));
+    gfVal.appendChild(el('span', {className: 'detail-sub'}, 'per group stage'));
+    gfBlock.appendChild(gfVal);
+    detailPanel.appendChild(gfBlock);
+
+    const gaBlock = el('div', {className: 'detail-block'});
+    gaBlock.appendChild(el('span', {className: 'detail-label'}, 'Goals against'));
+    const gaVal = el('span', {className: 'detail-value'});
+    gaVal.appendChild(document.createTextNode(row.mean_ga));
+    gaVal.appendChild(el('span', {className: 'detail-sub'}, 'per group stage'));
+    gaBlock.appendChild(gaVal);
+    detailPanel.appendChild(gaBlock);
+
+    detailPanel.appendChild(db('Record (W / D / L)',
+      row.mean_wins + ' / ' + row.mean_draws + ' / ' + row.mean_losses));
+    detailPanel.appendChild(el('p', {className: 'detail-note'},
+      'Progression = top-2 group finish. Best third-place qualification is reflected in the Tournament odds (R32…W).'));
+    details.appendChild(detailPanel);
+
+    card.appendChild(details);
+  });
+
+  // Fixtures accordion
+  const fixturesDetails = el('details');
+  const fixSummary = el('summary');
+  fixSummary.appendChild(el('span', {className: 'fixture-label'}, 'Fixtures — score · W% / D% / L%'));
+  fixturesDetails.appendChild(fixSummary);
+  group.fixtures.forEach(fx => fixturesDetails.appendChild(renderFixture(fx)));
+  card.appendChild(fixturesDetails);
+
+  return card;
+}
+
+// ── Bracket section renderer ─────────────────────────────────────────────────
+
+function renderBracket(bracket) {
+  const section = document.getElementById('bracket-section');
+
+  const header = el('div', {className: 'bracket-header'});
+  header.appendChild(el('h2', {}, 'Predicted knockout bracket'));
+
+  const champ = el('div', {className: 'bracket-champion'});
+  champ.appendChild(document.createTextNode('Predicted champion:'));
+  champ.appendChild(flag(bracket.champion_flag));
+  champ.appendChild(document.createTextNode(bracket.champion));
+  header.appendChild(champ);
+  section.appendChild(header);
+
+  section.appendChild(el('p', {className: 'bracket-note'},
+    'A single “chalk” bracket — each slot filled by the most-likely team ' +
+    '(modal group winners/runners-up plus the eight most-likely third-placers via the ' +
+    'FIFA Annex C allocation), with the favourite advancing each round. One plausible ' +
+    'scenario, not a probability-weighted bracket. Click any tie for its predicted scoreline.'));
+
+  for (const round of bracket.rounds) {
+    const roundDiv = el('div', {className: 'ko-round'});
+    roundDiv.appendChild(el('div', {className: 'ko-round-title'}, round.name));
+    for (const fx of round.matches) roundDiv.appendChild(renderFixture(fx));
+    section.appendChild(roundDiv);
+  }
+}
+
+// ── Boot ─────────────────────────────────────────────────────────────────────
+
+fetch('./predictions.json')
+  .then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  })
+  .then(data => {
+    document.getElementById('state-banner').style.display = 'none';
+
+    const grid = document.getElementById('groups-grid');
+    grid.style.display = '';
+    for (const group of data.groups) grid.appendChild(renderGroup(group));
+
+    const bracketSection = document.getElementById('bracket-section');
+    bracketSection.style.display = '';
+    renderBracket(data.bracket);
+  })
+  .catch(err => {
+    const banner = document.getElementById('state-banner');
+    banner.className = 'error';
+    const fileProto = location.protocol === 'file:';
+    banner.textContent = fileProto
+      ? 'Open this page via a web server, not as a file:// URL. ' +
+        'Run: python3 -m http.server 5001 --directory docs  then visit http://localhost:5001'
+      : 'Failed to load predictions: ' + err.message +
+        '. Run python3 scripts/export_json.py to generate predictions.json.';
+  });
+</script>
+
+</body>
+</html>

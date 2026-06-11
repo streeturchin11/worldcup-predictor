@@ -1,0 +1,58 @@
+# update_predictions.yml
+#
+# What it does:
+#   Re-fetches nothing — uses data already in the repo (data/intl_results.csv).
+#   Fits the Poisson model, runs 10,000 group-stage simulations, and writes
+#   docs/predictions.json. If the file changed, commits and pushes to main.
+#
+# How to trigger:
+#   GitHub UI → Actions tab → "Update predictions" → Run workflow → Run workflow
+#   No schedule, no push trigger — manual only.
+
+name: Update predictions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pandas numpy scipy flask
+
+      - name: Generate predictions
+        run: python scripts/export_json.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet docs/predictions.json; then
+            echo "predictions.json unchanged — nothing to commit."
+            exit 0
+          fi
+
+          git add docs/predictions.json
+
+          # Rebase onto latest main before pushing to handle concurrent pushes
+          git fetch origin main
+          git rebase origin/main
+
+          git commit -m "chore: update predictions [skip ci]"
+          git push origin HEAD:main

@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "worldcup-predictor",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["app/app.py"],
+      "port": 5000
+    },
+    {
+      "name": "worldcup-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5001", "--directory", "docs"],
+      "port": 5001
+    }
+  ]
+}
