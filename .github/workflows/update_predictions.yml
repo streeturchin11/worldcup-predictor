@@ -48,12 +48,12 @@ jobs:
             exit 0
           fi
 
-          # Stage first so the working tree is clean before rebase runs
-          git add docs/predictions.json
-
           # Rebase onto latest main before pushing to handle concurrent pushes
           git fetch origin main
           git rebase --autostash origin/main
+
+          # Stage after rebase so autostash-restored changes are included
+          git add docs/predictions.json
 
           git commit -m "chore: update predictions [skip ci]"
           git push origin HEAD:main
