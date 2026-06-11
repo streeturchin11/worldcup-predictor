@@ -1,0 +1,13 @@
+# Data files too large for git
+data/intl_results.csv
+data/intl_shootouts.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Editor
+.DS_Store
+.vscode/
