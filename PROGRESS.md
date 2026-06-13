@@ -1,5 +1,54 @@
 # Progress Log
 
+## Session 22 — Live standings seeding (2026-06-13)
+
+### Done
+Wired actual match results into the group-stage simulator so played fixtures
+contribute fixed, real scorelines rather than Poisson samples.
+
+**`model/simulator.py` — `load_fixtures()`**
+- Added optional `results: list[dict] | None = None` argument
+- Builds a `(home_display, away_display)` lookup from the results list
+- Stamps each fixture with three new fields: `played` (bool), `actual_home` (int|None),
+  `actual_away` (int|None)
+- No change to return type or callers that pass no argument
+
+**`model/simulator.py` — `run()` group-stage loop**
+- Before each group's match iteration, splits `match_idxs` into `played_idxs` and
+  `remaining_idxs`
+- Played fixtures: scalar arithmetic from `actual_home`/`actual_away` added as integer
+  constants to all `n_sims` rows of `pts`, `gd`, `gf`, `ga`, `wins`, `drws`, `loss`
+  — every simulation starts from the same locked-in scoreline
+- Unplayed fixtures: existing vectorised Poisson sampling path unchanged
+- `goals_home`/`goals_away` still sampled for all `n_matches` upfront; played columns
+  are simply never read during accumulation
+
+**`scripts/export_json.py`**
+- Passes the already-loaded `wc_results` list to `load_fixtures(results=wc_results)`
+
+**`app/app.py`**
+- Reads `data/wc_results.json` at startup (falls back to `[]` if file absent)
+- Passes the list to `load_fixtures(results=wc_results)` in `build_context()`
+
+**`scripts/test_live_standings.py`** (new)
+- Injects two synthetic played results in-memory (no disk writes):
+  Mexico 2–0 South Africa and South Korea 1–1 Czech Republic in Group A
+- Asserts: Mexico mean_pts ≥ 3.0, South Africa < 3.0, both draw teams ≥ 1.0,
+  group total in (6, 18)
+- All 5 assertions pass; prints PASS/FAIL per check and a summary line
+
+### Verification
+`python3 scripts/test_live_standings.py` output:
+```
+Mexico          mean_pts=6.436
+South Africa    mean_pts=1.992
+South Korea     mean_pts=3.653
+Czech Republic  mean_pts=3.800
+All 5 tests passed.
+```
+
+---
+
 ## Session 21 — Played-match UI (2026-06-11)
 
 ### Done

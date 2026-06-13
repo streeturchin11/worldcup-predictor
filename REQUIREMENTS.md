@@ -24,6 +24,7 @@ probability of progressing through each round.
 - ~~GitHub Actions one-click regeneration~~ ✓ (Session 19) — manual `workflow_dispatch` trigger
 - ~~Record actual WC results + refit model~~ ✓ (Session 20) — `data/wc_results.json` feeds back into training
 - ~~Display actual results vs predictions in UI~~ ✓ (Session 21) — result badge, actual score, FT label
+- ~~Lock played fixtures into simulator standings~~ ✓ (Session 22) — real scorelines as constants, Poisson sampling only for remaining matches
 
 ## The model
 - Poisson regression on historical international results (2014 onward)
@@ -61,7 +62,8 @@ worldcup-predictor/
 │   └── wc_results_schema.json    # schema documentation
 ├── model/                        # Poisson model code
 ├── scripts/
-│   └── export_json.py            # generates docs/predictions.json
+│   ├── export_json.py            # generates docs/predictions.json
+│   └── test_live_standings.py    # verifies played-result seeding
 ├── docs/
 │   ├── index.html                # static frontend (GitHub Pages)
 │   └── predictions.json          # generated — all predictions + results

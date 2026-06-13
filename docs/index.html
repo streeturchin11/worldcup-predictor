@@ -46,7 +46,7 @@
       margin: 0 auto;
       padding: 28px 20px 60px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(500px, 100%), 1fr));
       gap: 24px;
     }
 
@@ -86,7 +86,7 @@
     /* ── Standings ── */
     .standings-head {
       display: grid;
-      grid-template-columns: 1fr 58px 40px 192px;
+      grid-template-columns: 1fr 62px 52px;
       padding: 7px 14px;
       background: #f0f1f5;
       border-bottom: 1px solid #e2e4ea;
@@ -97,17 +97,7 @@
       letter-spacing: 0.5px;
     }
     .standings-head span:nth-child(2),
-    .standings-head span:nth-child(3),
-    .standings-head span:nth-child(4) { text-align: right; }
-    .standings-head .ko-legend {
-      display: block;
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0;
-      text-transform: none;
-      color: #9ca3af;
-      margin-top: 1px;
-    }
+    .standings-head span:nth-child(3) { text-align: right; }
 
     .standing-row {
       display: block;
@@ -132,27 +122,14 @@
 
     .summary-row {
       display: grid;
-      grid-template-columns: 1fr 58px 40px 192px;
+      grid-template-columns: 1fr 62px 52px;
       align-items: center;
       padding: 9px 14px;
       font-size: 15px;
       width: 100%;
     }
-    .summary-row .prog     { text-align: right; }
-    .summary-row .mean-pts { text-align: right; color: #374151; }
-
-    .ko-odds {
-      text-align: right;
-      font-size: 11px;
-      color: #6b7280;
-      white-space: nowrap;
-      font-variant-numeric: tabular-nums;
-    }
-    .ko-odds .ko-sep { color: #d1d5db; margin: 0 1px; }
-    .ko-odds .ko-w        { font-weight: 700; }
-    .ko-odds .ko-w.green  { color: #16a34a; }
-    .ko-odds .ko-w.amber  { color: #d97706; }
-    .ko-odds .ko-w.red    { color: #dc2626; }
+    .summary-row .prog      { text-align: right; }
+    .summary-row .first-pct { text-align: right; font-size: 13px; color: #374151; }
 
     .team-cell {
       display: flex;
@@ -207,6 +184,38 @@
       border-top: 1px solid #e2e4ea;
       margin-top: 2px;
     }
+    .ko-chain-row {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px 2px;
+      padding-top: 6px;
+      border-top: 1px solid #e2e4ea;
+      margin-top: 2px;
+    }
+    .ko-chain-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-right: 6px;
+    }
+    .ko-chip {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 36px;
+      padding: 3px 5px;
+      border-radius: 4px;
+      background: #f0f1f5;
+    }
+    .ko-chip-label { font-size: 9px; color: #9ca3af; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; }
+    .ko-chip-val   { font-size: 12px; font-weight: 700; color: #374151; }
+    .ko-chip-val.green { color: #16a34a; }
+    .ko-chip-val.amber { color: #d97706; }
+    .ko-chip-val.red   { color: #dc2626; }
 
     /* ── Fixtures accordion ── */
     .group-card > details {
@@ -513,6 +522,13 @@
       color: #9ca3af;
     }
 
+    .result-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
     .result-badge {
       display: inline-flex;
       align-items: center;
@@ -522,9 +538,18 @@
       padding: 4px 10px;
       border-radius: 4px;
     }
-    .result-badge.badge-correct-score  { background: #dcfce7; color: #15803d; }
-    .result-badge.badge-correct-outcome { background: #fef3c7; color: #92400e; }
-    .result-badge.badge-wrong           { background: #fee2e2; color: #991b1b; }
+    .result-badge.badge-correct-score { background: #dcfce7; color: #15803d; }
+    .result-badge.badge-score-wrong   { background: #fef3c7; color: #92400e; }
+    .result-badge.badge-wrong         { background: #fee2e2; color: #991b1b; }
+
+    /* ── Fixture / bracket mobile fixes ── */
+    .fixture-teams .team-name { min-width: 0; }
+    @media (max-width: 600px) {
+      .bracket-section { padding: 8px 12px 60px; }
+      .fixture-teams   { font-size: 13px; flex-wrap: wrap; row-gap: 4px; }
+      .fixture-details > summary { padding: 8px 12px 0; }
+      .margin-section, .scoreline-section, .scoreline-bests { padding-left: 12px; padding-right: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -591,19 +616,17 @@ function renderFixture(fx) {
       'predicted ' + fx.most_likely_score));
     summary.appendChild(scoreRow);
 
-    // ── Result badge (replaces prob bar) ──
-    let badgeCls, badgeText;
+    // ── Result badges (replaces prob bar) ──
+    const badgeRow = el('div', {className: 'result-badge-row'});
     if (fx.correct_score) {
-      badgeCls = 'badge-correct-score';
-      badgeText = '✓ Correct score';
+      badgeRow.appendChild(el('span', {className: 'result-badge badge-correct-score'}, '✓ Correct score'));
     } else if (fx.correct_outcome) {
-      badgeCls = 'badge-correct-outcome';
-      badgeText = '~ Score wrong';
+      badgeRow.appendChild(el('span', {className: 'result-badge badge-correct-score'}, '✓ Right result'));
+      badgeRow.appendChild(el('span', {className: 'result-badge badge-score-wrong'}, '~ Score wrong'));
     } else {
-      badgeCls = 'badge-wrong';
-      badgeText = '✗ Outcome wrong';
+      badgeRow.appendChild(el('span', {className: 'result-badge badge-wrong'}, '✗ Outcome wrong'));
     }
-    summary.appendChild(el('div', {className: 'result-badge ' + badgeCls}, badgeText));
+    summary.appendChild(badgeRow);
 
   } else {
     // ── Probability bar ──
@@ -710,11 +733,7 @@ function renderGroup(group) {
   const head = el('div', {className: 'standings-head'});
   head.appendChild(el('span', {}, 'Team'));
   head.appendChild(el('span', {}, 'Prog'));
-  head.appendChild(el('span', {}, 'Pts'));
-  const oddsHead = el('span', {});
-  oddsHead.appendChild(document.createTextNode('Tournament odds'));
-  oddsHead.appendChild(el('span', {className: 'ko-legend'}, 'R32 · R16 · QF · SF · F · W'));
-  head.appendChild(oddsHead);
+  head.appendChild(el('span', {}, '1st'));
   card.appendChild(head);
 
   // Standing rows
@@ -730,23 +749,7 @@ function renderGroup(group) {
     srow.appendChild(teamCell);
 
     srow.appendChild(el('span', {className: 'prog ' + row.colour}, row.prog_pct + '%'));
-    srow.appendChild(el('span', {className: 'mean-pts'}, row.mean_pts));
-
-    const wCls = row.winner_pct >= 15 ? 'green' : row.winner_pct >= 5 ? 'amber' : 'red';
-    const koOdds = el('span', {className: 'ko-odds'});
-    const sep = () => el('span', {className: 'ko-sep'}, '·');
-    koOdds.appendChild(document.createTextNode(row.r32_pct));
-    koOdds.appendChild(sep());
-    koOdds.appendChild(document.createTextNode(row.r16_pct));
-    koOdds.appendChild(sep());
-    koOdds.appendChild(document.createTextNode(row.qf_pct));
-    koOdds.appendChild(sep());
-    koOdds.appendChild(document.createTextNode(row.sf_pct));
-    koOdds.appendChild(sep());
-    koOdds.appendChild(document.createTextNode(row.final_pct));
-    koOdds.appendChild(sep());
-    koOdds.appendChild(el('span', {className: 'ko-w ' + wCls}, String(row.winner_pct)));
-    srow.appendChild(koOdds);
+    srow.appendChild(el('span', {className: 'first-pct'}, row.first_pct + '%'));
 
     summary.appendChild(srow);
     details.appendChild(summary);
@@ -781,8 +784,25 @@ function renderGroup(group) {
 
     detailPanel.appendChild(db('Record (W / D / L)',
       row.mean_wins + ' / ' + row.mean_draws + ' / ' + row.mean_losses));
+
+    // KO odds chain
+    const koRow = el('div', {className: 'ko-chain-row'});
+    koRow.appendChild(el('span', {className: 'ko-chain-label'}, 'Tournament odds'));
+    const koStages = [
+      ['R32', row.r32_pct], ['R16', row.r16_pct], ['QF', row.qf_pct],
+      ['SF', row.sf_pct], ['Final', row.final_pct], ['Win', row.winner_pct],
+    ];
+    for (const [label, val] of koStages) {
+      const wCls = label === 'Win' ? (val >= 15 ? 'green' : val >= 5 ? 'amber' : 'red') : '';
+      const chip = el('div', {className: 'ko-chip'});
+      chip.appendChild(el('span', {className: 'ko-chip-label'}, label));
+      chip.appendChild(el('span', {className: 'ko-chip-val' + (wCls ? ' ' + wCls : '')}, val + '%'));
+      koRow.appendChild(chip);
+    }
+    detailPanel.appendChild(koRow);
+
     detailPanel.appendChild(el('p', {className: 'detail-note'},
-      'Progression = top-2 group finish. Best third-place qualification is reflected in the Tournament odds (R32…W).'));
+      'Prog = top-2 finish + best third-place qualification. Tournament odds from 10,000 simulations.'));
     details.appendChild(detailPanel);
 
     card.appendChild(details);
