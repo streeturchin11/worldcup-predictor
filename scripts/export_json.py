@@ -301,7 +301,7 @@ def main():
     print(f"  Converged: {model['converged']}")
 
     print("Loading fixtures...")
-    fixtures = load_fixtures()
+    fixtures = load_fixtures(results=wc_results)
 
     print("Running group stage + knockout simulator (10,000 iterations)...")
     sim_output  = simulate(fixtures, model)

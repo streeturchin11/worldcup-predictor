@@ -34,10 +34,19 @@ MAX_GOALS  = 15   # ceiling for Poisson sampling (negligible probability beyond 
 # Fixture loading
 # ---------------------------------------------------------------------------
 
-def load_fixtures() -> list[dict]:
-    """Return group-stage fixtures with model-ready team names."""
+def load_fixtures(results: list[dict] | None = None) -> list[dict]:
+    """Return group-stage fixtures with model-ready team names.
+
+    If results is provided (parsed contents of data/wc_results.json), each
+    fixture is annotated with played/actual_home/actual_away from that list.
+    """
     with open(DATA_DIR / "worldcup_2026.json") as f:
         data = json.load(f)
+
+    played_lookup: dict[tuple[str, str], tuple[int, int]] = {}
+    if results:
+        for r in results:
+            played_lookup[(r["home"], r["away"])] = (r["home_score"], r["away_score"])
 
     fixtures = []
     for m in data["matches"]:
@@ -47,6 +56,13 @@ def load_fixtures() -> list[dict]:
         away = NAME_ALIASES.get(m["team2"], m["team2"])
         # Home advantage only when a host nation is the designated home team (team1)
         is_home_fixture = m["team1"] in WC_HOME_NATIONS or home in WC_HOME_NATIONS
+        key = (m["team1"], m["team2"])
+        if key in played_lookup:
+            actual_home, actual_away = played_lookup[key]
+            played = True
+        else:
+            actual_home = actual_away = None
+            played = False
         fixtures.append({
             "group":        m["group"],
             "home_display": m["team1"],
@@ -54,6 +70,9 @@ def load_fixtures() -> list[dict]:
             "home":         home,
             "away":         away,
             "neutral":      not is_home_fixture,
+            "played":       played,
+            "actual_home":  actual_home,
+            "actual_away":  actual_away,
         })
     return fixtures
 
@@ -145,7 +164,35 @@ def run(fixtures: list[dict], model: dict, n_sims: int = N_SIMS) -> dict:
         drws = np.zeros((n_sims, n_teams), dtype=np.int32)
         loss = np.zeros((n_sims, n_teams), dtype=np.int32)
 
-        for i in match_idxs:
+        played_idxs    = [i for i in match_idxs if fixtures[i]["played"]]
+        remaining_idxs = [i for i in match_idxs if not fixtures[i]["played"]]
+
+        for i in played_idxs:
+            hi  = team_idx[fixtures[i]["home"]]
+            ai  = team_idx[fixtures[i]["away"]]
+            gh  = fixtures[i]["actual_home"]
+            gaw = fixtures[i]["actual_away"]
+
+            home_win = int(gh > gaw)
+            draw     = int(gh == gaw)
+            away_win = int(gh < gaw)
+
+            pts[:, hi]  += 3 * home_win + draw
+            pts[:, ai]  += 3 * away_win + draw
+            gd[:, hi]   += gh - gaw
+            gd[:, ai]   += gaw - gh
+            gf[:, hi]   += gh
+            gf[:, ai]   += gaw
+            ga[:, hi]   += gaw
+            ga[:, ai]   += gh
+            wins[:, hi] += home_win
+            wins[:, ai] += away_win
+            drws[:, hi] += draw
+            drws[:, ai] += draw
+            loss[:, hi] += away_win
+            loss[:, ai] += home_win
+
+        for i in remaining_idxs:
             hi = team_idx[fixtures[i]["home"]]
             ai = team_idx[fixtures[i]["away"]]
             gh = goals_home[:, i]   # (n_sims,)

@@ -5,6 +5,7 @@ All predictions are pre-computed once at startup and held in memory.
 The single route GET / renders index.html with all data passed as context.
 """
 
+import json
 import sys
 from pathlib import Path
 
@@ -245,7 +246,9 @@ def build_context() -> dict:
     print(f"  Converged: {model['converged']}")
 
     print("Loading fixtures...")
-    fixtures = load_fixtures()
+    wc_results_path = ROOT / "data" / "wc_results.json"
+    wc_results = json.loads(wc_results_path.read_text()) if wc_results_path.exists() else []
+    fixtures = load_fixtures(results=wc_results)
 
     print("Running group stage + knockout simulator (10,000 iterations)...")
     sim_output   = simulate(fixtures, model)
