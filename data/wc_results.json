@@ -24,11 +24,43 @@
     "date": "2026-06-12"
   },
   {
-    "group": "C",
+    "group": "D",
     "home": "USA",
     "away": "Paraguay",
     "home_score": 4,
     "away_score": 1,
     "date": "2026-06-12"
+  },
+  {
+    "group": "B",
+    "home": "Qatar",
+    "away": "Switzerland",
+    "home_score": 1,
+    "away_score": 1,
+    "date": "2026-06-13"
+  },
+  {
+    "group": "C",
+    "home": "Brazil",
+    "away": "Morocco",
+    "home_score": 1,
+    "away_score": 1,
+    "date": "2026-06-13"
+  },
+  {
+    "group": "C",
+    "home": "Haiti",
+    "away": "Scotland",
+    "home_score": 0,
+    "away_score": 1,
+    "date": "2026-06-13"
+  },
+  {
+    "group": "D",
+    "home": "Australia",
+    "away": "Turkey",
+    "home_score": 2,
+    "away_score": 0,
+    "date": "2026-06-13"
   }
 ]
