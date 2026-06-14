@@ -1,242 +1,6 @@
 {
   "today": [
     {
-      "home": "Ivory Coast",
-      "away": "Ecuador",
-      "home_flag": "\ud83c\udde8\ud83c\uddee",
-      "away_flag": "\ud83c\uddea\ud83c\udde8",
-      "most_likely_score": "0-1",
-      "home_win_pct": 20.5,
-      "draw_pct": 29.6,
-      "away_win_pct": 49.8,
-      "lambda_home": 0.693,
-      "lambda_away": 1.255,
-      "score_tiles": [
-        {
-          "score": "0-1",
-          "pct": 17.9,
-          "result": "away"
-        },
-        {
-          "score": "0-0",
-          "pct": 14.3,
-          "result": "draw"
-        },
-        {
-          "score": "1-1",
-          "pct": 12.4,
-          "result": "draw"
-        },
-        {
-          "score": "0-2",
-          "pct": 11.2,
-          "result": "away"
-        },
-        {
-          "score": "1-0",
-          "pct": 9.9,
-          "result": "home"
-        },
-        {
-          "score": "1-2",
-          "pct": 7.8,
-          "result": "away"
-        },
-        {
-          "score": "0-3",
-          "pct": 4.7,
-          "result": "away"
-        },
-        {
-          "score": "2-1",
-          "pct": 4.3,
-          "result": "home"
-        },
-        {
-          "score": "2-0",
-          "pct": 3.4,
-          "result": "home"
-        },
-        {
-          "score": "1-3",
-          "pct": 3.3,
-          "result": "away"
-        },
-        {
-          "score": "2-2",
-          "pct": 2.7,
-          "result": "draw"
-        },
-        {
-          "score": "0-4",
-          "pct": 1.5,
-          "result": "away"
-        },
-        {
-          "score": "2-3",
-          "pct": 1.1,
-          "result": "away"
-        },
-        {
-          "score": "1-4",
-          "pct": 1.0,
-          "result": "away"
-        }
-      ],
-      "outcome_bests": {
-        "home": {
-          "score": "1-0",
-          "pct": 9.9,
-          "result": "home"
-        },
-        "draw": {
-          "score": "0-0",
-          "pct": 14.3,
-          "result": "draw"
-        },
-        "away": {
-          "score": "0-1",
-          "pct": 17.9,
-          "result": "away"
-        }
-      },
-      "margin_pcts": {
-        "h3p": 1.2,
-        "h2": 4.5,
-        "h1": 14.8,
-        "draw": 29.6,
-        "a1": 26.9,
-        "a2": 14.9,
-        "a3p": 8.1
-      },
-      "time_uk": "00:00 BST",
-      "time_local": "19:00",
-      "date": "2026-06-14"
-    },
-    {
-      "home": "Sweden",
-      "away": "Tunisia",
-      "home_flag": "\ud83c\uddf8\ud83c\uddea",
-      "away_flag": "\ud83c\uddf9\ud83c\uddf3",
-      "most_likely_score": "1-0",
-      "home_win_pct": 44.0,
-      "draw_pct": 29.4,
-      "away_win_pct": 26.7,
-      "lambda_home": 1.22,
-      "lambda_away": 0.882,
-      "score_tiles": [
-        {
-          "score": "1-0",
-          "pct": 14.9,
-          "result": "home"
-        },
-        {
-          "score": "1-1",
-          "pct": 13.2,
-          "result": "draw"
-        },
-        {
-          "score": "0-0",
-          "pct": 12.2,
-          "result": "draw"
-        },
-        {
-          "score": "0-1",
-          "pct": 10.8,
-          "result": "away"
-        },
-        {
-          "score": "2-0",
-          "pct": 9.1,
-          "result": "home"
-        },
-        {
-          "score": "2-1",
-          "pct": 8.0,
-          "result": "home"
-        },
-        {
-          "score": "1-2",
-          "pct": 5.8,
-          "result": "away"
-        },
-        {
-          "score": "0-2",
-          "pct": 4.8,
-          "result": "away"
-        },
-        {
-          "score": "3-0",
-          "pct": 3.7,
-          "result": "home"
-        },
-        {
-          "score": "2-2",
-          "pct": 3.5,
-          "result": "draw"
-        },
-        {
-          "score": "3-1",
-          "pct": 3.3,
-          "result": "home"
-        },
-        {
-          "score": "1-3",
-          "pct": 1.7,
-          "result": "away"
-        },
-        {
-          "score": "0-3",
-          "pct": 1.4,
-          "result": "away"
-        },
-        {
-          "score": "3-2",
-          "pct": 1.4,
-          "result": "home"
-        },
-        {
-          "score": "4-0",
-          "pct": 1.1,
-          "result": "home"
-        },
-        {
-          "score": "2-3",
-          "pct": 1.0,
-          "result": "away"
-        }
-      ],
-      "outcome_bests": {
-        "home": {
-          "score": "1-0",
-          "pct": 14.9,
-          "result": "home"
-        },
-        "draw": {
-          "score": "1-1",
-          "pct": 13.2,
-          "result": "draw"
-        },
-        "away": {
-          "score": "0-1",
-          "pct": 10.8,
-          "result": "away"
-        }
-      },
-      "margin_pcts": {
-        "h3p": 6.6,
-        "h2": 12.8,
-        "h1": 24.5,
-        "draw": 29.4,
-        "a1": 17.7,
-        "a2": 6.7,
-        "a3p": 2.3
-      },
-      "time_uk": "03:00 BST",
-      "time_local": "20:00",
-      "date": "2026-06-14"
-    },
-    {
       "home": "Germany",
       "away": "Cura\u00e7ao",
       "home_flag": "\ud83c\udde9\ud83c\uddea",
@@ -505,6 +269,242 @@
       },
       "time_uk": "21:00 BST",
       "time_local": "15:00",
+      "date": "2026-06-14"
+    },
+    {
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "home_flag": "\ud83c\udde8\ud83c\uddee",
+      "away_flag": "\ud83c\uddea\ud83c\udde8",
+      "most_likely_score": "0-1",
+      "home_win_pct": 20.5,
+      "draw_pct": 29.6,
+      "away_win_pct": 49.8,
+      "lambda_home": 0.693,
+      "lambda_away": 1.255,
+      "score_tiles": [
+        {
+          "score": "0-1",
+          "pct": 17.9,
+          "result": "away"
+        },
+        {
+          "score": "0-0",
+          "pct": 14.3,
+          "result": "draw"
+        },
+        {
+          "score": "1-1",
+          "pct": 12.4,
+          "result": "draw"
+        },
+        {
+          "score": "0-2",
+          "pct": 11.2,
+          "result": "away"
+        },
+        {
+          "score": "1-0",
+          "pct": 9.9,
+          "result": "home"
+        },
+        {
+          "score": "1-2",
+          "pct": 7.8,
+          "result": "away"
+        },
+        {
+          "score": "0-3",
+          "pct": 4.7,
+          "result": "away"
+        },
+        {
+          "score": "2-1",
+          "pct": 4.3,
+          "result": "home"
+        },
+        {
+          "score": "2-0",
+          "pct": 3.4,
+          "result": "home"
+        },
+        {
+          "score": "1-3",
+          "pct": 3.3,
+          "result": "away"
+        },
+        {
+          "score": "2-2",
+          "pct": 2.7,
+          "result": "draw"
+        },
+        {
+          "score": "0-4",
+          "pct": 1.5,
+          "result": "away"
+        },
+        {
+          "score": "2-3",
+          "pct": 1.1,
+          "result": "away"
+        },
+        {
+          "score": "1-4",
+          "pct": 1.0,
+          "result": "away"
+        }
+      ],
+      "outcome_bests": {
+        "home": {
+          "score": "1-0",
+          "pct": 9.9,
+          "result": "home"
+        },
+        "draw": {
+          "score": "0-0",
+          "pct": 14.3,
+          "result": "draw"
+        },
+        "away": {
+          "score": "0-1",
+          "pct": 17.9,
+          "result": "away"
+        }
+      },
+      "margin_pcts": {
+        "h3p": 1.2,
+        "h2": 4.5,
+        "h1": 14.8,
+        "draw": 29.6,
+        "a1": 26.9,
+        "a2": 14.9,
+        "a3p": 8.1
+      },
+      "time_uk": "00:00 BST",
+      "time_local": "19:00",
+      "date": "2026-06-14"
+    },
+    {
+      "home": "Sweden",
+      "away": "Tunisia",
+      "home_flag": "\ud83c\uddf8\ud83c\uddea",
+      "away_flag": "\ud83c\uddf9\ud83c\uddf3",
+      "most_likely_score": "1-0",
+      "home_win_pct": 44.0,
+      "draw_pct": 29.4,
+      "away_win_pct": 26.7,
+      "lambda_home": 1.22,
+      "lambda_away": 0.882,
+      "score_tiles": [
+        {
+          "score": "1-0",
+          "pct": 14.9,
+          "result": "home"
+        },
+        {
+          "score": "1-1",
+          "pct": 13.2,
+          "result": "draw"
+        },
+        {
+          "score": "0-0",
+          "pct": 12.2,
+          "result": "draw"
+        },
+        {
+          "score": "0-1",
+          "pct": 10.8,
+          "result": "away"
+        },
+        {
+          "score": "2-0",
+          "pct": 9.1,
+          "result": "home"
+        },
+        {
+          "score": "2-1",
+          "pct": 8.0,
+          "result": "home"
+        },
+        {
+          "score": "1-2",
+          "pct": 5.8,
+          "result": "away"
+        },
+        {
+          "score": "0-2",
+          "pct": 4.8,
+          "result": "away"
+        },
+        {
+          "score": "3-0",
+          "pct": 3.7,
+          "result": "home"
+        },
+        {
+          "score": "2-2",
+          "pct": 3.5,
+          "result": "draw"
+        },
+        {
+          "score": "3-1",
+          "pct": 3.3,
+          "result": "home"
+        },
+        {
+          "score": "1-3",
+          "pct": 1.7,
+          "result": "away"
+        },
+        {
+          "score": "0-3",
+          "pct": 1.4,
+          "result": "away"
+        },
+        {
+          "score": "3-2",
+          "pct": 1.4,
+          "result": "home"
+        },
+        {
+          "score": "4-0",
+          "pct": 1.1,
+          "result": "home"
+        },
+        {
+          "score": "2-3",
+          "pct": 1.0,
+          "result": "away"
+        }
+      ],
+      "outcome_bests": {
+        "home": {
+          "score": "1-0",
+          "pct": 14.9,
+          "result": "home"
+        },
+        "draw": {
+          "score": "1-1",
+          "pct": 13.2,
+          "result": "draw"
+        },
+        "away": {
+          "score": "0-1",
+          "pct": 10.8,
+          "result": "away"
+        }
+      },
+      "margin_pcts": {
+        "h3p": 6.6,
+        "h2": 12.8,
+        "h1": 24.5,
+        "draw": 29.4,
+        "a1": 17.7,
+        "a2": 6.7,
+        "a3p": 2.3
+      },
+      "time_uk": "03:00 BST",
+      "time_local": "20:00",
       "date": "2026-06-14"
     }
   ],

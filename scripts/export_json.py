@@ -234,7 +234,15 @@ def parse_time(time_str: str) -> tuple[int, int, int]:
 
 
 def compute_times(time_str: str) -> dict:
-    """Return {"time_uk": "HH:MM BST", "time_local": "HH:MM"} for a fixture."""
+    """Return time display strings and a sort key for a fixture.
+
+    Returns:
+        time_uk    — "HH:MM BST" display string
+        time_local — "HH:MM" venue-local display string
+        bst_mins   — integer minutes from midnight for sorting; past-midnight
+                     BST times (≥1440) are left un-wrapped so they sort after
+                     same-matchday evening kick-offs.
+    """
     h, m, offset = parse_time(time_str)
     # UTC = venue_time − offset
     utc_total_min = h * 60 + m - offset * 60
@@ -245,6 +253,7 @@ def compute_times(time_str: str) -> dict:
     return {
         "time_uk":    f"{bst_h:02d}:{bst_m:02d} BST",
         "time_local": f"{h:02d}:{m:02d}",
+        "bst_mins":   bst_total_min,   # not wrapped: 1500 > 1260 so 01:00 sorts after 21:00
     }
 
 
@@ -295,7 +304,9 @@ def build_today(fixtures_raw: list[dict], wc_results: list[dict], model: dict) -
         pred["date"] = today_date
         result.append(pred)
 
-    result.sort(key=lambda x: x["time_uk"])
+    result.sort(key=lambda x: x["bst_mins"])
+    for fx in result:
+        del fx["bst_mins"]   # internal sort key — not needed in JSON output
     return result
 
 
