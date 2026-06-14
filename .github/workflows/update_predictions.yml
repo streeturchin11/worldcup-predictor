@@ -1,17 +1,21 @@
 # update_predictions.yml
 #
 # What it does:
-#   Re-fetches nothing — uses data already in the repo (data/intl_results.csv).
-#   Fits the Poisson model, runs 10,000 group-stage simulations, and writes
-#   docs/predictions.json. If the file changed, commits and pushes to main.
+#   1. Re-fetches data/intl_results.csv from martj42/international_results
+#   2. Runs scripts/sync_wc_results.py — writes any played WC matches from
+#      the CSV into data/wc_results.json (replaces manual entry)
+#   3. Fits the Poisson model and runs 10,000 simulations via export_json.py
+#   4. Commits and pushes wc_results.json and predictions.json if either changed
 #
-# How to trigger:
-#   GitHub UI → Actions tab → "Update predictions" → Run workflow → Run workflow
-#   No schedule, no push trigger — manual only.
+# Triggers:
+#   - Daily at 07:00 UTC (catches overnight + early morning results)
+#   - Manual: GitHub UI → Actions → "Update predictions" → Run workflow
 
 name: Update predictions
 
 on:
+  schedule:
+    - cron: '0 7 * * *'
   workflow_dispatch:
 
 jobs:
@@ -35,25 +39,33 @@ jobs:
       - name: Install dependencies
         run: pip install pandas numpy scipy flask
 
+      - name: Re-fetch historical results CSV
+        run: |
+          curl -sSf -o data/intl_results.csv \
+            https://raw.githubusercontent.com/martj42/international_results/master/results.csv
+          echo "Rows: $(wc -l < data/intl_results.csv)"
+
+      - name: Sync WC match results from CSV
+        run: python3 scripts/sync_wc_results.py
+
       - name: Generate predictions
-        run: python scripts/export_json.py
+        run: python3 scripts/export_json.py
 
       - name: Commit and push if changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          if git diff --quiet docs/predictions.json; then
-            echo "predictions.json unchanged — nothing to commit."
+          git add data/wc_results.json docs/predictions.json
+
+          if git diff --cached --quiet; then
+            echo "Nothing changed — no commit needed."
             exit 0
           fi
 
-          # Rebase onto latest main before pushing to handle concurrent pushes
           git fetch origin main
           git rebase --autostash origin/main
 
-          # Stage after rebase so autostash-restored changes are included
-          git add docs/predictions.json
-
+          git add data/wc_results.json docs/predictions.json
           git commit -m "chore: update predictions [skip ci]"
           git push origin HEAD:main

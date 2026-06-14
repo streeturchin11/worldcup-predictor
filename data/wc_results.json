@@ -1,32 +1,29 @@
 [
-	 {
+  {
     "group": "A",
     "home": "Mexico",
     "away": "South Africa",
     "home_score": 2,
     "away_score": 0,
     "date": "2026-06-11"
-  }
-     ,
-     {
+  },
+  {
     "group": "A",
     "home": "South Korea",
     "away": "Czech Republic",
     "home_score": 2,
     "away_score": 1,
     "date": "2026-06-11"
-  }
-       ,
-     {
+  },
+  {
     "group": "B",
     "home": "Canada",
     "away": "Bosnia & Herzegovina",
     "home_score": 1,
     "away_score": 1,
     "date": "2026-06-12"
-  }
-     ,
-     {
+  },
+  {
     "group": "C",
     "home": "USA",
     "away": "Paraguay",
