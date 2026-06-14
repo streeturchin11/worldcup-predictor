@@ -1,5 +1,57 @@
 # Progress Log
 
+## Session 23 — "Today's Matches" panel (2026-06-14)
+
+### Design decisions
+
+**D7 — Matchday determination and time handling** (pre-implementation)
+
+*Matchday selection:* `export_json.py` will identify the current matchday as the
+earliest fixture date in `worldcup_2026.json` with at least one fixture not yet in
+`wc_results.json`. This is robust to the GitHub Action running late, early, or being
+skipped — it always picks the next pending matchday, not today's calendar date.
+
+*Time-offset validation:* All fixture time strings in `worldcup_2026.json` were scanned
+before implementation. Format is `"HH:MM UTC±N"`. Result:
+- All UTC offsets are **whole-hour integers** (UTC-4, UTC-5, UTC-6, UTC-7 only) ✓
+- Minute components within the kick-off time do include `:30` values (16:30, 19:30,
+  20:30) — these are correctly handled by the standard `HH:MM` parse; no special casing needed
+- No non-integer offsets (e.g. UTC-3:30) exist in the data
+
+*BST conversion:* `BST = venue_time − venue_offset + 1 hour`.
+Tournament runs late June – mid-July 2026, entirely within BST — no DST-transition logic needed.
+
+*Output shape:* the `today` block in `predictions.json` is a list of fixture dicts
+(same shape as group fixtures produced by `build_match_pred()`, plus `time_uk` and
+`time_local` strings), sorted ascending by `time_uk`. If all fixtures are played the
+block is empty and the frontend shows "No matches today."
+
+### Implementation
+
+**`scripts/export_json.py`**
+- `parse_time(time_str)` — parses `"HH:MM UTC±N"` → `(hour, minute, offset_hours)`
+- `compute_times(time_str)` — returns `{"time_uk": "HH:MM BST", "time_local": "HH:MM local"}`
+  using BST = venue_time − offset + 1h; wraps past midnight correctly
+- `build_today(fixtures_raw, wc_results, model)` — finds earliest unplayed matchday,
+  builds a list of `build_match_pred()` dicts augmented with `time_uk`/`time_local`,
+  sorted by `time_uk`; returns `[]` if all played
+- `today` key added to serialised `predictions.json`
+
+**`docs/index.html`**
+- New "Today's Matches" section inserted above the group grid
+- Empty state: "No matches today" message
+- Non-empty: renders each fixture using the existing `renderFixture()` helper,
+  with a time header row showing `time_uk` and `time_local` above each fixture
+
+### Verification
+- Offset-integer check: all 11 unique offsets are whole-hour ✓
+- Matchday logic vs real `wc_results.json`: correctly picks the next pending matchday
+- BST spot-checks: Mexico City 13:00 UTC-6 → 20:00 BST ✓
+- No-matches-today state tested with synthetic full-matchday results
+- Sort order verified including cross-timezone cases
+
+---
+
 ## Session 22 — Live standings seeding (2026-06-13)
 
 ### Done

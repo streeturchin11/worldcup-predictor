@@ -218,6 +218,87 @@ def build_bracket(model, sim_results, fixtures):
     }
 
 
+# ── Time helpers ─────────────────────────────────────────────────────────────
+
+def parse_time(time_str: str) -> tuple[int, int, int]:
+    """Parse "HH:MM UTC±N" → (hour, minute, offset_hours).
+
+    All offsets in worldcup_2026.json are confirmed whole-hour integers
+    (UTC-4, UTC-5, UTC-6, UTC-7 only — validated by scanning all fixtures
+    before implementation).
+    """
+    time_part, utc_part = time_str.split(" ")
+    h, m = map(int, time_part.split(":"))
+    offset = int(utc_part.replace("UTC", ""))  # e.g. "UTC-6" → -6
+    return h, m, offset
+
+
+def compute_times(time_str: str) -> dict:
+    """Return {"time_uk": "HH:MM BST", "time_local": "HH:MM"} for a fixture."""
+    h, m, offset = parse_time(time_str)
+    # UTC = venue_time − offset
+    utc_total_min = h * 60 + m - offset * 60
+    # BST = UTC + 1 hour
+    bst_total_min = utc_total_min + 60
+    bst_h = (bst_total_min // 60) % 24
+    bst_m = bst_total_min % 60
+    return {
+        "time_uk":    f"{bst_h:02d}:{bst_m:02d} BST",
+        "time_local": f"{h:02d}:{m:02d}",
+    }
+
+
+def build_today(fixtures_raw: list[dict], wc_results: list[dict], model: dict) -> list[dict]:
+    """Return today's fixture list sorted by time_uk (BST).
+
+    "Today" = the earliest date in the fixture list that has at least one
+    fixture not yet recorded in wc_results.  Returns [] when all played.
+    """
+    played_keys = {(r["home"], r["away"]) for r in wc_results}
+
+    # Load raw fixture data (with time fields) keyed by display pair
+    with open(DATA_DIR / "worldcup_2026.json") as f:
+        raw_data = json.load(f)
+
+    raw_by_pair: dict[tuple, dict] = {}
+    for m in raw_data["matches"]:
+        if m.get("group") and m.get("time"):
+            raw_by_pair[(m["team1"], m["team2"])] = m
+
+    # Find the earliest date with ≥1 unplayed fixture
+    date_fixtures: dict[str, list] = {}
+    for fx in fixtures_raw:
+        raw = raw_by_pair.get((fx["home_display"], fx["away_display"]))
+        if raw is None:
+            continue
+        date = raw.get("date", "")
+        date_fixtures.setdefault(date, []).append((fx, raw))
+
+    today_date = None
+    for date in sorted(date_fixtures):
+        pairs = date_fixtures[date]
+        if any((fx["home_display"], fx["away_display"]) not in played_keys
+               for fx, _ in pairs):
+            today_date = date
+            break
+
+    if today_date is None:
+        return []
+
+    result = []
+    for fx, raw in date_fixtures[today_date]:
+        times = compute_times(raw["time"])
+        pred = build_match_pred(model, fx["home"], fx["away"],
+                                fx["home_display"], fx["away_display"],
+                                neutral=fx["neutral"])
+        pred.update(times)
+        pred["date"] = today_date
+        result.append(pred)
+
+    result.sort(key=lambda x: x["time_uk"])
+    return result
+
+
 # ── WC results helpers ────────────────────────────────────────────────────────
 
 def load_wc_results() -> list[dict]:
@@ -319,6 +400,11 @@ def main():
         pred = annotate_fixture(pred, result_index)
         match_preds[(fx["group"], fx["home_display"], fx["away_display"])] = pred
 
+    print("Building today's fixtures...")
+    today = build_today(fixtures, wc_results, model)
+    print(f"  {len(today)} fixture(s) on today's matchday"
+          + (f" ({today[0]['date']})" if today else ""))
+
     print("Building predicted knockout bracket...")
     bracket = build_bracket(model, sim_results, fixtures)
 
@@ -355,7 +441,7 @@ def main():
         group_fixtures = [v for k, v in match_preds.items() if k[0] == group_name]
         groups.append({"name": group_name, "standings": standings, "fixtures": group_fixtures})
 
-    context = {"groups": groups, "bracket": bracket}
+    context = {"today": today, "groups": groups, "bracket": bracket}
 
     OUT.parent.mkdir(exist_ok=True)
     with OUT.open("w") as f:

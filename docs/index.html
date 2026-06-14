@@ -431,6 +431,58 @@
     }
     .advance-line .flag { margin-right: 5px; }
 
+    /* ── Today's matches section ── */
+    .today-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 4px;
+    }
+    .today-header {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+    .today-date {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 14px;
+    }
+    .today-empty {
+      font-size: 14px;
+      color: #9ca3af;
+      padding: 12px 0 8px;
+    }
+    .today-card {
+      background: #fff;
+      border: 1px solid #e2e4ea;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .today-fixture-wrap {
+      border-bottom: 1px solid #f0f1f5;
+    }
+    .today-fixture-wrap:last-child { border-bottom: none; }
+    .kickoff-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px 0;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .kickoff-uk {
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .kickoff-local {
+      color: #9ca3af;
+    }
+    @media (max-width: 600px) {
+      .today-section { padding: 20px 12px 4px; }
+    }
+
     /* ── Knockout bracket section ── */
     .bracket-section {
       max-width: 1100px;
@@ -560,6 +612,7 @@
 </header>
 
 <div id="state-banner">Loading predictions&hellip;</div>
+<section id="today-section" class="today-section" style="display:none"></section>
 <main id="groups-grid" style="display:none"></main>
 <section id="bracket-section" class="bracket-section" style="display:none"></section>
 
@@ -723,6 +776,42 @@ function renderFixture(fx) {
   return details;
 }
 
+// ── Today's matches renderer ─────────────────────────────────────────────────
+
+function renderToday(today) {
+  const section = document.getElementById('today-section');
+  section.style.display = '';
+
+  section.appendChild(el('h2', {className: 'today-header'}, "Today's Matches"));
+
+  if (!today || today.length === 0) {
+    section.appendChild(el('p', {className: 'today-empty'}, 'No matches today.'));
+    return;
+  }
+
+  const dateStr = today[0].date;
+  const dateLabel = new Date(dateStr + 'T12:00:00Z').toLocaleDateString('en-GB', {
+    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+  });
+  section.appendChild(el('p', {className: 'today-date'}, dateLabel));
+
+  const card = el('div', {className: 'today-card'});
+
+  for (const fx of today) {
+    const wrap = el('div', {className: 'today-fixture-wrap'});
+
+    const kickoff = el('div', {className: 'kickoff-row'});
+    kickoff.appendChild(el('span', {className: 'kickoff-uk'}, fx.time_uk));
+    kickoff.appendChild(el('span', {className: 'kickoff-local'}, fx.time_local + ' local'));
+    wrap.appendChild(kickoff);
+
+    wrap.appendChild(renderFixture(fx));
+    card.appendChild(wrap);
+  }
+
+  section.appendChild(card);
+}
+
 // ── Group card renderer ───────────────────────────────────────────────────────
 
 function renderGroup(group) {
@@ -857,6 +946,8 @@ fetch('./predictions.json')
   })
   .then(data => {
     document.getElementById('state-banner').style.display = 'none';
+
+    renderToday(data.today || []);
 
     const grid = document.getElementById('groups-grid');
     grid.style.display = '';

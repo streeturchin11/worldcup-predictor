@@ -25,6 +25,7 @@ probability of progressing through each round.
 - ~~Record actual WC results + refit model~~ ✓ (Session 20) — `data/wc_results.json` feeds back into training
 - ~~Display actual results vs predictions in UI~~ ✓ (Session 21) — result badge, actual score, FT label
 - ~~Lock played fixtures into simulator standings~~ ✓ (Session 22) — real scorelines as constants, Poisson sampling only for remaining matches
+- "Today's matches" panel — shown above the group grid, sorted by UK kickoff time (BST), showing UK time and venue-local time side by side
 
 ## The model
 - Poisson regression on historical international results (2014 onward)
@@ -45,7 +46,7 @@ probability of progressing through each round.
 - Plain HTML/JS frontend (no framework, no CDN)
 - Pandas + Scipy for stats
 - `scripts/export_json.py` generates `docs/predictions.json` — all model output serialised once
-- GitHub Actions (`workflow_dispatch`) for one-click cloud regeneration
+- GitHub Actions (`workflow_dispatch` + daily schedule at 07:00 UTC) for automated regeneration
 - Fixture data: openfootball/worldcup.json (GitHub, no API key needed)
 - Historical results: martj42/international_results (GitHub, no API key needed)
   (Note: football-data.co.uk ruled out — club/league focused, not international)
@@ -59,10 +60,11 @@ worldcup-predictor/
 │   ├── intl_results.csv          # historical match data (49,477 rows)
 │   ├── worldcup_2026.json        # 2026 fixture data
 │   ├── wc_results.json           # actual WC scores recorded by hand
-│   └── wc_results_schema.json    # schema documentation
+│   └── wc_results_schema.json    # schema documentation (manual entry now replaced by sync_wc_results.py)
 ├── model/                        # Poisson model code
 ├── scripts/
 │   ├── export_json.py            # generates docs/predictions.json
+│   ├── sync_wc_results.py        # syncs wc_results.json from intl_results.csv
 │   └── test_live_standings.py    # verifies played-result seeding
 ├── docs/
 │   ├── index.html                # static frontend (GitHub Pages)
@@ -73,7 +75,30 @@ worldcup-predictor/
 │       └── index.html            # Jinja2 template (mirrors docs/index.html logic)
 └── .github/
     └── workflows/
-        └── update_predictions.yml  # manual trigger: refit + push predictions.json
+        └── update_predictions.yml  # daily + manual trigger: sync results, refit, push
+
+## Design decisions
+
+**D7 — "Today's matches" matchday determination and time handling**
+
+*Matchday selection:* `export_json.py` determines the current matchday as the earliest
+fixture date in `worldcup_2026.json` that has at least one fixture not yet recorded in
+`wc_results.json`. This is robust to the Action running late, early, or being skipped —
+it always picks the next pending matchday rather than today's calendar date.
+If all fixtures are played, the `today` block is empty and the frontend shows "No matches today."
+
+*Time parsing:* fixture times in `worldcup_2026.json` are formatted `"HH:MM UTC±N"`.
+Before implementation, all offsets were scanned and confirmed to be whole-hour integers
+(UTC-4, UTC-5, UTC-6, UTC-7). Minute components within the time (e.g. 16:30, 19:30, 20:30)
+are correctly parsed by the `HH:MM` portion.
+
+*BST conversion:* `BST = venue_time − venue_offset + 1 hour`.
+The tournament runs entirely within BST (late June – mid-July 2026), so no DST-transition
+logic is needed.
+
+*Output:* the `today` block in `predictions.json` is a list of fixture dicts (same shape
+as group fixtures, plus `time_uk` and `time_local` strings), sorted by `time_uk`.
+The frontend reuses `renderFixture()` so scoreline tiles and prob bars work identically.
 
 ## Risks
 - Data quality for smaller nations may be patchy — mitigated by shrinkage
