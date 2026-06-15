@@ -62,5 +62,37 @@
     "home_score": 2,
     "away_score": 0,
     "date": "2026-06-13"
+  },
+  {
+    "group": "E",
+    "home": "Germany",
+    "away": "Cura\u00e7ao",
+    "home_score": 7,
+    "away_score": 1,
+    "date": "2026-06-14"
+  },
+  {
+    "group": "E",
+    "home": "Ivory Coast",
+    "away": "Ecuador",
+    "home_score": 1,
+    "away_score": 0,
+    "date": "2026-06-14"
+  },
+  {
+    "group": "F",
+    "home": "Netherlands",
+    "away": "Japan",
+    "home_score": 2,
+    "away_score": 2,
+    "date": "2026-06-14"
+  },
+  {
+    "group": "F",
+    "home": "Sweden",
+    "away": "Tunisia",
+    "home_score": 5,
+    "away_score": 1,
+    "date": "2026-06-14"
   }
 ]
