@@ -94,5 +94,37 @@
     "home_score": 5,
     "away_score": 1,
     "date": "2026-06-14"
+  },
+  {
+    "group": "G",
+    "home": "Belgium",
+    "away": "Egypt",
+    "home_score": 1,
+    "away_score": 1,
+    "date": "2026-06-15"
+  },
+  {
+    "group": "G",
+    "home": "Iran",
+    "away": "New Zealand",
+    "home_score": 2,
+    "away_score": 2,
+    "date": "2026-06-15"
+  },
+  {
+    "group": "H",
+    "home": "Spain",
+    "away": "Cape Verde",
+    "home_score": 0,
+    "away_score": 0,
+    "date": "2026-06-15"
+  },
+  {
+    "group": "H",
+    "home": "Saudi Arabia",
+    "away": "Uruguay",
+    "home_score": 1,
+    "away_score": 1,
+    "date": "2026-06-15"
   }
 ]
