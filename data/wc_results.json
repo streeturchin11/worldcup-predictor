@@ -190,5 +190,37 @@
     "home_score": 1,
     "away_score": 0,
     "date": "2026-06-17"
+  },
+  {
+    "group": "A",
+    "home": "Czech Republic",
+    "away": "South Africa",
+    "home_score": 1,
+    "away_score": 1,
+    "date": "2026-06-18"
+  },
+  {
+    "group": "A",
+    "home": "Mexico",
+    "away": "South Korea",
+    "home_score": 1,
+    "away_score": 0,
+    "date": "2026-06-18"
+  },
+  {
+    "group": "B",
+    "home": "Switzerland",
+    "away": "Bosnia & Herzegovina",
+    "home_score": 4,
+    "away_score": 1,
+    "date": "2026-06-18"
+  },
+  {
+    "group": "B",
+    "home": "Canada",
+    "away": "Qatar",
+    "home_score": 6,
+    "away_score": 0,
+    "date": "2026-06-18"
   }
 ]
