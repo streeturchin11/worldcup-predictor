@@ -6,11 +6,11 @@
       "home_flag": "\ud83c\udde8\ud83c\udded",
       "away_flag": "\ud83c\udde8\ud83c\udde6",
       "most_likely_score": "1-0",
-      "home_win_pct": 49.8,
+      "home_win_pct": 49.9,
       "draw_pct": 25.8,
       "away_win_pct": 24.3,
       "lambda_home": 1.519,
-      "lambda_away": 0.978,
+      "lambda_away": 0.977,
       "score_tiles": [
         {
           "score": "1-0",
@@ -747,20 +747,20 @@
           "team": "Mexico",
           "flag": "\ud83c\uddf2\ud83c\uddfd",
           "prog_pct": 100.0,
-          "mean_pts": 7.74,
+          "mean_pts": 7.73,
           "colour": "green",
           "first_pct": 100.0,
           "second_pct": 0.0,
           "elim_pct": 0.0,
           "mean_gf": 4.34,
           "mean_ga": 0.84,
-          "mean_wins": 2.49,
+          "mean_wins": 2.48,
           "mean_draws": 0.28,
-          "mean_losses": 0.23,
+          "mean_losses": 0.24,
           "r32_pct": 100.0,
-          "r16_pct": 55.9,
-          "qf_pct": 25.4,
-          "sf_pct": 10.4,
+          "r16_pct": 56.1,
+          "qf_pct": 25.5,
+          "sf_pct": 10.2,
           "final_pct": 4.1,
           "winner_pct": 1.6
         },
@@ -771,7 +771,7 @@
           "mean_pts": 4.0,
           "colour": "green",
           "first_pct": 0.0,
-          "second_pct": 76.6,
+          "second_pct": 76.5,
           "elim_pct": 0.0,
           "mean_gf": 2.0,
           "mean_ga": 3.0,
@@ -779,32 +779,32 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 31.2,
-          "qf_pct": 8.4,
-          "sf_pct": 1.9,
-          "final_pct": 0.5,
+          "r16_pct": 30.5,
+          "qf_pct": 8.2,
+          "sf_pct": 1.8,
+          "final_pct": 0.4,
           "winner_pct": 0.1
         },
         {
           "team": "Czech Republic",
           "flag": "\ud83c\udde8\ud83c\uddff",
-          "prog_pct": 23.4,
-          "mean_pts": 1.98,
+          "prog_pct": 23.5,
+          "mean_pts": 1.99,
           "colour": "red",
           "first_pct": 0.0,
-          "second_pct": 23.4,
-          "elim_pct": 76.6,
+          "second_pct": 23.5,
+          "elim_pct": 76.5,
           "mean_gf": 2.84,
           "mean_ga": 4.34,
-          "mean_wins": 0.23,
+          "mean_wins": 0.24,
           "mean_draws": 1.28,
-          "mean_losses": 1.49,
-          "r32_pct": 23.4,
+          "mean_losses": 1.48,
+          "r32_pct": 23.5,
           "r16_pct": 9.3,
-          "qf_pct": 2.7,
+          "qf_pct": 2.9,
           "sf_pct": 0.7,
-          "final_pct": 0.1,
-          "winner_pct": 0.0
+          "final_pct": 0.2,
+          "winner_pct": 0.1
         },
         {
           "team": "South Korea",
@@ -1554,22 +1554,22 @@
           "team": "Canada",
           "flag": "\ud83c\udde8\ud83c\udde6",
           "prog_pct": 100.0,
-          "mean_pts": 4.99,
+          "mean_pts": 5.01,
           "colour": "green",
-          "first_pct": 50.5,
-          "second_pct": 49.5,
+          "first_pct": 50.7,
+          "second_pct": 49.3,
           "elim_pct": 0.0,
-          "mean_gf": 7.98,
-          "mean_ga": 2.5,
-          "mean_wins": 1.24,
+          "mean_gf": 7.99,
+          "mean_ga": 2.48,
+          "mean_wins": 1.25,
           "mean_draws": 1.26,
-          "mean_losses": 0.5,
+          "mean_losses": 0.49,
           "r32_pct": 100.0,
-          "r16_pct": 59.9,
-          "qf_pct": 24.3,
-          "sf_pct": 8.1,
-          "final_pct": 2.4,
-          "winner_pct": 0.7
+          "r16_pct": 61.0,
+          "qf_pct": 25.2,
+          "sf_pct": 8.6,
+          "final_pct": 2.6,
+          "winner_pct": 0.9
         },
         {
           "team": "Bosnia & Herzegovina",
@@ -1586,8 +1586,8 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 25.6,
-          "qf_pct": 5.7,
+          "r16_pct": 25.7,
+          "qf_pct": 5.6,
           "sf_pct": 0.7,
           "final_pct": 0.1,
           "winner_pct": 0.0
@@ -1596,22 +1596,22 @@
           "team": "Switzerland",
           "flag": "\ud83c\udde8\ud83c\udded",
           "prog_pct": 100.0,
-          "mean_pts": 5.75,
+          "mean_pts": 5.74,
           "colour": "green",
-          "first_pct": 49.5,
-          "second_pct": 50.1,
+          "first_pct": 49.3,
+          "second_pct": 50.2,
           "elim_pct": 0.0,
-          "mean_gf": 6.5,
-          "mean_ga": 2.98,
-          "mean_wins": 1.5,
+          "mean_gf": 6.48,
+          "mean_ga": 2.99,
+          "mean_wins": 1.49,
           "mean_draws": 1.26,
-          "mean_losses": 0.24,
+          "mean_losses": 0.25,
           "r32_pct": 100.0,
-          "r16_pct": 68.6,
-          "qf_pct": 31.8,
-          "sf_pct": 13.3,
-          "final_pct": 5.5,
-          "winner_pct": 2.2
+          "r16_pct": 68.1,
+          "qf_pct": 31.9,
+          "sf_pct": 13.6,
+          "final_pct": 5.9,
+          "winner_pct": 2.3
         },
         {
           "team": "Qatar",
@@ -2190,7 +2190,7 @@
             "h3p": 32.3,
             "h2": 21.1,
             "h1": 21.3,
-            "draw": 15.1,
+            "draw": 15.2,
             "a1": 7.1,
             "a2": 2.3,
             "a3p": 0.7
@@ -2207,11 +2207,11 @@
           "home_flag": "\ud83c\udde8\ud83c\udded",
           "away_flag": "\ud83c\udde8\ud83c\udde6",
           "most_likely_score": "1-0",
-          "home_win_pct": 49.8,
+          "home_win_pct": 49.9,
           "draw_pct": 25.8,
           "away_win_pct": 24.3,
           "lambda_home": 1.519,
-          "lambda_away": 0.978,
+          "lambda_away": 0.977,
           "score_tiles": [
             {
               "score": "1-0",
@@ -2487,11 +2487,11 @@
           "mean_draws": 1.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 73.0,
+          "r16_pct": 72.7,
           "qf_pct": 55.3,
           "sf_pct": 35.1,
-          "final_pct": 22.0,
-          "winner_pct": 12.4
+          "final_pct": 21.1,
+          "winner_pct": 11.9
         },
         {
           "team": "Morocco",
@@ -2509,10 +2509,10 @@
           "mean_losses": 0.0,
           "r32_pct": 100.0,
           "r16_pct": 46.4,
-          "qf_pct": 28.5,
-          "sf_pct": 12.6,
-          "final_pct": 6.1,
-          "winner_pct": 2.5
+          "qf_pct": 28.0,
+          "sf_pct": 11.9,
+          "final_pct": 5.7,
+          "winner_pct": 2.4
         },
         {
           "team": "Haiti",
@@ -2790,7 +2790,7 @@
             "draw": 22.8,
             "a1": 25.3,
             "a2": 18.5,
-            "a3p": 16.0
+            "a3p": 16.1
           },
           "played": true,
           "actual_home": 0,
@@ -3287,22 +3287,22 @@
           "team": "USA",
           "flag": "\ud83c\uddfa\ud83c\uddf8",
           "prog_pct": 100.0,
-          "mean_pts": 7.49,
+          "mean_pts": 7.5,
           "colour": "green",
           "first_pct": 100.0,
           "second_pct": 0.0,
           "elim_pct": 0.0,
-          "mean_gf": 7.37,
-          "mean_ga": 2.21,
+          "mean_gf": 7.38,
+          "mean_ga": 2.2,
           "mean_wins": 2.41,
           "mean_draws": 0.27,
-          "mean_losses": 0.33,
+          "mean_losses": 0.32,
           "r32_pct": 100.0,
           "r16_pct": 74.3,
-          "qf_pct": 32.6,
-          "sf_pct": 8.7,
-          "final_pct": 3.4,
-          "winner_pct": 1.1
+          "qf_pct": 31.8,
+          "sf_pct": 8.5,
+          "final_pct": 3.3,
+          "winner_pct": 1.0
         },
         {
           "team": "Paraguay",
@@ -3319,9 +3319,9 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 27.9,
-          "qf_pct": 8.0,
-          "sf_pct": 2.9,
+          "r16_pct": 28.0,
+          "qf_pct": 8.2,
+          "sf_pct": 3.0,
           "final_pct": 0.9,
           "winner_pct": 0.2
         },
@@ -3340,11 +3340,11 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 51.1,
+          "r16_pct": 51.5,
           "qf_pct": 15.7,
-          "sf_pct": 6.4,
+          "sf_pct": 6.8,
           "final_pct": 1.9,
-          "winner_pct": 0.7
+          "winner_pct": 0.6
         },
         {
           "team": "Turkey",
@@ -3355,9 +3355,9 @@
           "first_pct": 0.0,
           "second_pct": 0.0,
           "elim_pct": 100.0,
-          "mean_gf": 1.21,
-          "mean_ga": 4.37,
-          "mean_wins": 0.33,
+          "mean_gf": 1.2,
+          "mean_ga": 4.38,
+          "mean_wins": 0.32,
           "mean_draws": 0.27,
           "mean_losses": 2.41,
           "r32_pct": 0,
@@ -3948,7 +3948,7 @@
             },
             {
               "score": "3-0",
-              "pct": 2.2,
+              "pct": 2.3,
               "result": "home"
             },
             {
@@ -4125,11 +4125,11 @@
           "mean_draws": 0.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 72.1,
-          "qf_pct": 35.0,
-          "sf_pct": 20.6,
-          "final_pct": 10.2,
-          "winner_pct": 4.6
+          "r16_pct": 72.0,
+          "qf_pct": 35.1,
+          "sf_pct": 20.5,
+          "final_pct": 10.4,
+          "winner_pct": 5.0
         },
         {
           "team": "Ivory Coast",
@@ -4146,8 +4146,8 @@
           "mean_draws": 0.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 43.4,
-          "qf_pct": 12.1,
+          "r16_pct": 43.3,
+          "qf_pct": 11.8,
           "sf_pct": 4.0,
           "final_pct": 1.4,
           "winner_pct": 0.4
@@ -4167,11 +4167,11 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 44.1,
-          "qf_pct": 17.1,
-          "sf_pct": 6.8,
-          "final_pct": 2.7,
-          "winner_pct": 0.9
+          "r16_pct": 43.9,
+          "qf_pct": 18.2,
+          "sf_pct": 7.5,
+          "final_pct": 3.0,
+          "winner_pct": 1.0
         },
         {
           "team": "Cura\u00e7ao",
@@ -4274,14 +4274,14 @@
               "result": "home"
             },
             {
-              "score": "0-0",
-              "pct": 1.7,
-              "result": "draw"
-            },
-            {
               "score": "3-2",
               "pct": 1.7,
               "result": "home"
+            },
+            {
+              "score": "0-0",
+              "pct": 1.6,
+              "result": "draw"
             },
             {
               "score": "4-2",
@@ -4343,7 +4343,7 @@
           "home_flag": "\ud83c\udde8\ud83c\uddee",
           "away_flag": "\ud83c\uddea\ud83c\udde8",
           "most_likely_score": "0-1",
-          "home_win_pct": 25.7,
+          "home_win_pct": 25.6,
           "draw_pct": 33.0,
           "away_win_pct": 41.3,
           "lambda_home": 0.73,
@@ -4456,7 +4456,7 @@
           "home_win_pct": 61.1,
           "draw_pct": 22.1,
           "away_win_pct": 16.8,
-          "lambda_home": 1.866,
+          "lambda_home": 1.867,
           "lambda_away": 0.86,
           "score_tiles": [
             {
@@ -4829,7 +4829,7 @@
           "away_flag": "\ud83c\udde9\ud83c\uddea",
           "most_likely_score": "0-1",
           "home_win_pct": 24.2,
-          "draw_pct": 26.6,
+          "draw_pct": 26.5,
           "away_win_pct": 49.3,
           "lambda_home": 0.934,
           "lambda_away": 1.457,
@@ -4943,7 +4943,7 @@
             "h1": 15.8,
             "draw": 26.5,
             "a1": 24.7,
-            "a2": 14.9,
+            "a2": 15.0,
             "a3p": 9.6
           },
           "played": true,
@@ -4973,10 +4973,10 @@
           "mean_losses": 0.0,
           "r32_pct": 100.0,
           "r16_pct": 53.6,
-          "qf_pct": 35.2,
-          "sf_pct": 16.9,
-          "final_pct": 8.0,
-          "winner_pct": 3.8
+          "qf_pct": 35.6,
+          "sf_pct": 17.2,
+          "final_pct": 8.2,
+          "winner_pct": 4.0
         },
         {
           "team": "Japan",
@@ -4993,10 +4993,10 @@
           "mean_draws": 2.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 27.0,
-          "qf_pct": 14.8,
-          "sf_pct": 6.2,
-          "final_pct": 2.2,
+          "r16_pct": 27.3,
+          "qf_pct": 15.2,
+          "sf_pct": 6.3,
+          "final_pct": 2.3,
           "winner_pct": 0.8
         },
         {
@@ -5014,9 +5014,9 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 24.7,
-          "qf_pct": 8.9,
-          "sf_pct": 3.5,
+          "r16_pct": 24.0,
+          "qf_pct": 8.5,
+          "sf_pct": 3.4,
           "final_pct": 1.1,
           "winner_pct": 0.3
         },
@@ -5193,7 +5193,7 @@
           "draw_pct": 23.8,
           "away_win_pct": 21.1,
           "lambda_home": 1.717,
-          "lambda_away": 0.966,
+          "lambda_away": 0.965,
           "score_tiles": [
             {
               "score": "1-0",
@@ -5477,7 +5477,7 @@
           "home_win_pct": 18.0,
           "draw_pct": 23.9,
           "away_win_pct": 58.1,
-          "lambda_home": 0.825,
+          "lambda_home": 0.824,
           "lambda_away": 1.698,
           "score_tiles": [
             {
@@ -5600,9 +5600,9 @@
           "away_flag": "\ud83c\uddf8\ud83c\uddea",
           "most_likely_score": "1-1",
           "home_win_pct": 41.6,
-          "draw_pct": 25.8,
+          "draw_pct": 25.9,
           "away_win_pct": 32.6,
-          "lambda_home": 1.433,
+          "lambda_home": 1.432,
           "lambda_away": 1.237,
           "score_tiles": [
             {
@@ -5883,11 +5883,11 @@
           "mean_draws": 2.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 68.8,
-          "qf_pct": 46.5,
+          "r16_pct": 69.0,
+          "qf_pct": 47.5,
           "sf_pct": 21.3,
           "final_pct": 11.2,
-          "winner_pct": 5.7
+          "winner_pct": 5.4
         },
         {
           "team": "Egypt",
@@ -5904,10 +5904,10 @@
           "mean_draws": 2.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 48.9,
-          "qf_pct": 14.8,
-          "sf_pct": 5.8,
-          "final_pct": 1.8,
+          "r16_pct": 48.5,
+          "qf_pct": 14.6,
+          "sf_pct": 5.7,
+          "final_pct": 1.7,
           "winner_pct": 0.6
         },
         {
@@ -5960,15 +5960,15 @@
           "home_flag": "\ud83c\udde7\ud83c\uddea",
           "away_flag": "\ud83c\uddea\ud83c\uddec",
           "most_likely_score": "1-0",
-          "home_win_pct": 57.9,
+          "home_win_pct": 57.8,
           "draw_pct": 25.2,
-          "away_win_pct": 16.9,
-          "lambda_home": 1.572,
-          "lambda_away": 0.715,
+          "away_win_pct": 17.0,
+          "lambda_home": 1.573,
+          "lambda_away": 0.721,
           "score_tiles": [
             {
               "score": "1-0",
-              "pct": 16.0,
+              "pct": 15.9,
               "result": "home"
             },
             {
@@ -5983,7 +5983,7 @@
             },
             {
               "score": "0-0",
-              "pct": 10.2,
+              "pct": 10.1,
               "result": "draw"
             },
             {
@@ -5998,7 +5998,7 @@
             },
             {
               "score": "3-0",
-              "pct": 6.6,
+              "pct": 6.5,
               "result": "home"
             },
             {
@@ -6028,7 +6028,7 @@
             },
             {
               "score": "4-1",
-              "pct": 1.8,
+              "pct": 1.9,
               "result": "home"
             },
             {
@@ -6040,7 +6040,7 @@
           "outcome_bests": {
             "home": {
               "score": "1-0",
-              "pct": 16.0,
+              "pct": 15.9,
               "result": "home"
             },
             "draw": {
@@ -6055,12 +6055,12 @@
             }
           },
           "margin_pcts": {
-            "h3p": 13.2,
-            "h2": 18.0,
-            "h1": 26.8,
+            "h3p": 13.1,
+            "h2": 17.9,
+            "h1": 26.7,
             "draw": 25.2,
-            "a1": 12.2,
-            "a2": 3.7,
+            "a1": 12.3,
+            "a2": 3.8,
             "a3p": 1.0
           },
           "played": true,
@@ -6192,7 +6192,7 @@
           "margin_pcts": {
             "h3p": 11.9,
             "h2": 16.1,
-            "h1": 24.5,
+            "h1": 24.6,
             "draw": 24.8,
             "a1": 14.7,
             "a2": 5.8,
@@ -6210,20 +6210,20 @@
           "home_flag": "\ud83c\udde7\ud83c\uddea",
           "away_flag": "\ud83c\uddee\ud83c\uddf7",
           "most_likely_score": "1-0",
-          "home_win_pct": 58.3,
+          "home_win_pct": 58.1,
           "draw_pct": 24.3,
-          "away_win_pct": 17.4,
-          "lambda_home": 1.655,
-          "lambda_away": 0.779,
+          "away_win_pct": 17.6,
+          "lambda_home": 1.656,
+          "lambda_away": 0.786,
           "score_tiles": [
             {
               "score": "1-0",
-              "pct": 14.5,
+              "pct": 14.4,
               "result": "home"
             },
             {
               "score": "2-0",
-              "pct": 12.0,
+              "pct": 11.9,
               "result": "home"
             },
             {
@@ -6238,7 +6238,7 @@
             },
             {
               "score": "0-0",
-              "pct": 8.8,
+              "pct": 8.7,
               "result": "draw"
             },
             {
@@ -6263,7 +6263,7 @@
             },
             {
               "score": "2-2",
-              "pct": 3.6,
+              "pct": 3.7,
               "result": "draw"
             },
             {
@@ -6288,14 +6288,14 @@
             },
             {
               "score": "1-3",
-              "pct": 1.1,
+              "pct": 1.2,
               "result": "away"
             }
           ],
           "outcome_bests": {
             "home": {
               "score": "1-0",
-              "pct": 14.5,
+              "pct": 14.4,
               "result": "home"
             },
             "draw": {
@@ -6310,13 +6310,13 @@
             }
           },
           "margin_pcts": {
-            "h3p": 14.1,
-            "h2": 18.1,
+            "h3p": 14.0,
+            "h2": 18.0,
             "h1": 26.1,
             "draw": 24.3,
-            "a1": 12.3,
-            "a2": 4.0,
-            "a3p": 1.1
+            "a1": 12.4,
+            "a2": 4.1,
+            "a3p": 1.2
           },
           "played": true,
           "actual_home": 0,
@@ -6463,7 +6463,7 @@
           "home_win_pct": 32.7,
           "draw_pct": 32.9,
           "away_win_pct": 34.4,
-          "lambda_home": 0.885,
+          "lambda_home": 0.884,
           "lambda_away": 0.915,
           "score_tiles": [
             {
@@ -6570,15 +6570,15 @@
           "home_flag": "\ud83c\uddf3\ud83c\uddff",
           "away_flag": "\ud83c\udde7\ud83c\uddea",
           "most_likely_score": "0-2",
-          "home_win_pct": 7.8,
+          "home_win_pct": 7.9,
           "draw_pct": 13.3,
-          "away_win_pct": 78.8,
-          "lambda_home": 0.785,
-          "lambda_away": 2.784,
+          "away_win_pct": 78.7,
+          "lambda_home": 0.792,
+          "lambda_away": 2.785,
           "score_tiles": [
             {
               "score": "0-2",
-              "pct": 10.9,
+              "pct": 10.8,
               "result": "away"
             },
             {
@@ -6603,7 +6603,7 @@
             },
             {
               "score": "0-4",
-              "pct": 7.1,
+              "pct": 7.0,
               "result": "away"
             },
             {
@@ -6613,7 +6613,7 @@
             },
             {
               "score": "1-4",
-              "pct": 5.5,
+              "pct": 5.6,
               "result": "away"
             },
             {
@@ -6627,12 +6627,12 @@
               "result": "draw"
             },
             {
-              "score": "1-5",
-              "pct": 3.1,
+              "score": "2-3",
+              "pct": 3.2,
               "result": "away"
             },
             {
-              "score": "2-3",
+              "score": "1-5",
               "pct": 3.1,
               "result": "away"
             },
@@ -6685,7 +6685,7 @@
             },
             "away": {
               "score": "0-2",
-              "pct": 10.9,
+              "pct": 10.8,
               "result": "away"
             }
           },
@@ -6696,7 +6696,7 @@
             "draw": 13.3,
             "a1": 20.2,
             "a2": 21.4,
-            "a3p": 37.3
+            "a3p": 37.2
           },
           "played": true,
           "actual_home": 1,
@@ -6725,10 +6725,10 @@
           "mean_losses": 0.0,
           "r32_pct": 100.0,
           "r16_pct": 79.9,
-          "qf_pct": 50.2,
-          "sf_pct": 36.1,
-          "final_pct": 22.3,
-          "winner_pct": 13.8
+          "qf_pct": 50.6,
+          "sf_pct": 36.3,
+          "final_pct": 22.8,
+          "winner_pct": 14.3
         },
         {
           "team": "Cape Verde",
@@ -6745,11 +6745,11 @@
           "mean_draws": 3.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 15.5,
-          "qf_pct": 5.6,
+          "r16_pct": 15.6,
+          "qf_pct": 5.9,
           "sf_pct": 1.6,
-          "final_pct": 0.3,
-          "winner_pct": 0.0
+          "final_pct": 0.4,
+          "winner_pct": 0.1
         },
         {
           "team": "Saudi Arabia",
@@ -6801,10 +6801,10 @@
           "home_flag": "\ud83c\uddea\ud83c\uddf8",
           "away_flag": "\ud83c\udde8\ud83c\uddfb",
           "most_likely_score": "2-0",
-          "home_win_pct": 79.7,
-          "draw_pct": 15.2,
+          "home_win_pct": 79.8,
+          "draw_pct": 15.1,
           "away_win_pct": 5.1,
-          "lambda_home": 2.228,
+          "lambda_home": 2.234,
           "lambda_away": 0.39,
           "score_tiles": [
             {
@@ -6814,12 +6814,12 @@
             },
             {
               "score": "1-0",
-              "pct": 16.3,
+              "pct": 16.2,
               "result": "home"
             },
             {
               "score": "3-0",
-              "pct": 13.4,
+              "pct": 13.5,
               "result": "home"
             },
             {
@@ -6829,7 +6829,7 @@
             },
             {
               "score": "0-0",
-              "pct": 7.3,
+              "pct": 7.2,
               "result": "draw"
             },
             {
@@ -6844,12 +6844,12 @@
             },
             {
               "score": "3-1",
-              "pct": 5.2,
+              "pct": 5.3,
               "result": "home"
             },
             {
               "score": "5-0",
-              "pct": 3.3,
+              "pct": 3.4,
               "result": "home"
             },
             {
@@ -6873,14 +6873,14 @@
               "result": "home"
             },
             {
+              "score": "6-0",
+              "pct": 1.3,
+              "result": "home"
+            },
+            {
               "score": "1-2",
               "pct": 1.2,
               "result": "away"
-            },
-            {
-              "score": "6-0",
-              "pct": 1.2,
-              "result": "home"
             },
             {
               "score": "3-2",
@@ -6896,7 +6896,7 @@
             },
             "draw": {
               "score": "0-0",
-              "pct": 7.3,
+              "pct": 7.2,
               "result": "draw"
             },
             "away": {
@@ -6906,10 +6906,10 @@
             }
           },
           "margin_pcts": {
-            "h3p": 31.4,
+            "h3p": 31.5,
             "h2": 24.0,
             "h1": 24.4,
-            "draw": 15.2,
+            "draw": 15.1,
             "a1": 4.3,
             "a2": 0.7,
             "a3p": 0.1
@@ -7022,7 +7022,7 @@
             "draw": 25.0,
             "a1": 28.8,
             "a2": 19.9,
-            "a3p": 14.8
+            "a3p": 14.7
           },
           "played": true,
           "actual_home": 1,
@@ -7036,15 +7036,15 @@
           "home_flag": "\ud83c\uddea\ud83c\uddf8",
           "away_flag": "\ud83c\uddf8\ud83c\udde6",
           "most_likely_score": "2-0",
-          "home_win_pct": 82.5,
-          "draw_pct": 13.2,
+          "home_win_pct": 82.6,
+          "draw_pct": 13.1,
           "away_win_pct": 4.3,
-          "lambda_home": 2.413,
-          "lambda_away": 0.383,
+          "lambda_home": 2.42,
+          "lambda_away": 0.384,
           "score_tiles": [
             {
               "score": "2-0",
-              "pct": 17.8,
+              "pct": 17.7,
               "result": "home"
             },
             {
@@ -7059,7 +7059,7 @@
             },
             {
               "score": "4-0",
-              "pct": 8.6,
+              "pct": 8.7,
               "result": "home"
             },
             {
@@ -7126,7 +7126,7 @@
           "outcome_bests": {
             "home": {
               "score": "2-0",
-              "pct": 17.8,
+              "pct": 17.7,
               "result": "home"
             },
             "draw": {
@@ -7141,10 +7141,10 @@
             }
           },
           "margin_pcts": {
-            "h3p": 35.9,
+            "h3p": 36.1,
             "h2": 23.9,
-            "h1": 22.7,
-            "draw": 13.2,
+            "h1": 22.6,
+            "draw": 13.1,
             "a1": 3.6,
             "a2": 0.6,
             "a3p": 0.1
@@ -7319,7 +7319,7 @@
             },
             {
               "score": "2-2",
-              "pct": 2.2,
+              "pct": 2.1,
               "result": "draw"
             },
             {
@@ -7381,11 +7381,11 @@
           "home_flag": "\ud83c\uddfa\ud83c\uddfe",
           "away_flag": "\ud83c\uddea\ud83c\uddf8",
           "most_likely_score": "0-1",
-          "home_win_pct": 18.7,
-          "draw_pct": 27.4,
-          "away_win_pct": 53.9,
-          "lambda_home": 0.706,
-          "lambda_away": 1.412,
+          "home_win_pct": 18.6,
+          "draw_pct": 27.3,
+          "away_win_pct": 54.0,
+          "lambda_home": 0.707,
+          "lambda_away": 1.416,
           "score_tiles": [
             {
               "score": "0-1",
@@ -7419,7 +7419,7 @@
             },
             {
               "score": "0-3",
-              "pct": 5.6,
+              "pct": 5.7,
               "result": "away"
             },
             {
@@ -7465,7 +7465,7 @@
               "result": "home"
             },
             "draw": {
-              "score": "0-0",
+              "score": "1-1",
               "pct": 12.0,
               "result": "draw"
             },
@@ -7479,7 +7479,7 @@
             "h3p": 1.1,
             "h2": 4.1,
             "h1": 13.5,
-            "draw": 27.4,
+            "draw": 27.3,
             "a1": 27.0,
             "a2": 16.5,
             "a3p": 10.5
@@ -7510,11 +7510,11 @@
           "mean_draws": 0.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 75.3,
-          "qf_pct": 48.0,
-          "sf_pct": 30.9,
-          "final_pct": 17.1,
-          "winner_pct": 9.1
+          "r16_pct": 76.0,
+          "qf_pct": 48.3,
+          "sf_pct": 31.4,
+          "final_pct": 18.0,
+          "winner_pct": 9.3
         },
         {
           "team": "Norway",
@@ -7531,28 +7531,28 @@
           "mean_draws": 0.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 56.6,
-          "qf_pct": 17.8,
-          "sf_pct": 6.6,
-          "final_pct": 2.4,
-          "winner_pct": 0.8
+          "r16_pct": 56.7,
+          "qf_pct": 17.7,
+          "sf_pct": 7.0,
+          "final_pct": 2.3,
+          "winner_pct": 0.7
         },
         {
           "team": "Senegal",
           "flag": "\ud83c\uddf8\ud83c\uddf3",
-          "prog_pct": 76.6,
+          "prog_pct": 76.5,
           "mean_pts": 3.0,
           "colour": "green",
           "first_pct": 0.0,
           "second_pct": 0.0,
-          "elim_pct": 23.4,
+          "elim_pct": 23.5,
           "mean_gf": 8.0,
           "mean_ga": 6.0,
           "mean_wins": 1.0,
           "mean_draws": 0.0,
           "mean_losses": 2.0,
-          "r32_pct": 76.6,
-          "r16_pct": 26.3,
+          "r32_pct": 76.5,
+          "r16_pct": 26.1,
           "qf_pct": 13.5,
           "sf_pct": 3.7,
           "final_pct": 1.4,
@@ -8106,7 +8106,7 @@
           "draw_pct": 20.6,
           "away_win_pct": 63.7,
           "lambda_home": 0.888,
-          "lambda_away": 2.022,
+          "lambda_away": 2.021,
           "score_tiles": [
             {
               "score": "0-2",
@@ -8350,7 +8350,7 @@
             "h3p": 21.7,
             "h2": 21.3,
             "h1": 25.8,
-            "draw": 20.0,
+            "draw": 20.1,
             "a1": 8.4,
             "a2": 2.2,
             "a3p": 0.5
@@ -8381,10 +8381,10 @@
           "mean_draws": 0.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 84.5,
-          "qf_pct": 64.0,
-          "sf_pct": 43.7,
-          "final_pct": 24.9,
+          "r16_pct": 84.4,
+          "qf_pct": 63.9,
+          "sf_pct": 43.3,
+          "final_pct": 24.8,
           "winner_pct": 14.7
         },
         {
@@ -8403,10 +8403,10 @@
           "mean_losses": 1.0,
           "r32_pct": 100.0,
           "r16_pct": 36.1,
-          "qf_pct": 12.7,
-          "sf_pct": 3.8,
+          "qf_pct": 12.6,
+          "sf_pct": 3.5,
           "final_pct": 0.9,
-          "winner_pct": 0.1
+          "winner_pct": 0.2
         },
         {
           "team": "Austria",
@@ -8424,9 +8424,9 @@
           "mean_losses": 1.0,
           "r32_pct": 100.0,
           "r16_pct": 20.1,
-          "qf_pct": 6.3,
-          "sf_pct": 2.8,
-          "final_pct": 1.0,
+          "qf_pct": 6.5,
+          "sf_pct": 2.6,
+          "final_pct": 0.8,
           "winner_pct": 0.3
         },
         {
@@ -8891,7 +8891,7 @@
             },
             {
               "score": "0-0",
-              "pct": 5.8,
+              "pct": 5.9,
               "result": "draw"
             },
             {
@@ -8984,7 +8984,7 @@
             "draw": 22.7,
             "a1": 24.2,
             "a2": 17.5,
-            "a3p": 15.4
+            "a3p": 15.3
           },
           "played": true,
           "actual_home": 1,
@@ -9001,7 +9001,7 @@
           "home_win_pct": 32.3,
           "draw_pct": 24.9,
           "away_win_pct": 42.8,
-          "lambda_home": 1.303,
+          "lambda_home": 1.302,
           "lambda_away": 1.535,
           "score_tiles": [
             {
@@ -9282,10 +9282,10 @@
           "mean_draws": 2.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 65.1,
-          "qf_pct": 31.4,
-          "sf_pct": 20.1,
-          "final_pct": 11.1,
+          "r16_pct": 64.7,
+          "qf_pct": 30.9,
+          "sf_pct": 20.2,
+          "final_pct": 11.4,
           "winner_pct": 5.9
         },
         {
@@ -9303,8 +9303,8 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 21.5,
-          "qf_pct": 7.2,
+          "r16_pct": 21.3,
+          "qf_pct": 6.9,
           "sf_pct": 2.0,
           "final_pct": 0.5,
           "winner_pct": 0.1
@@ -9324,11 +9324,11 @@
           "mean_draws": 1.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 75.5,
-          "qf_pct": 49.7,
-          "sf_pct": 25.5,
-          "final_pct": 12.6,
-          "winner_pct": 5.8
+          "r16_pct": 75.6,
+          "qf_pct": 49.0,
+          "sf_pct": 25.0,
+          "final_pct": 11.9,
+          "winner_pct": 5.7
         },
         {
           "team": "Uzbekistan",
@@ -9359,11 +9359,11 @@
           "home_flag": "\ud83c\uddf5\ud83c\uddf9",
           "away_flag": "\ud83c\udde8\ud83c\udde9",
           "most_likely_score": "1-0",
-          "home_win_pct": 68.1,
+          "home_win_pct": 68.2,
           "draw_pct": 21.1,
           "away_win_pct": 10.8,
           "lambda_home": 1.853,
-          "lambda_away": 0.577,
+          "lambda_away": 0.576,
           "score_tiles": [
             {
               "score": "1-0",
@@ -9897,7 +9897,7 @@
             },
             {
               "score": "2-2",
-              "pct": 3.5,
+              "pct": 3.4,
               "result": "draw"
             },
             {
@@ -10108,11 +10108,11 @@
           "mean_draws": 1.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 78.5,
-          "qf_pct": 50.3,
-          "sf_pct": 28.9,
-          "final_pct": 16.9,
-          "winner_pct": 9.1
+          "r16_pct": 78.7,
+          "qf_pct": 49.3,
+          "sf_pct": 28.0,
+          "final_pct": 16.2,
+          "winner_pct": 8.4
         },
         {
           "team": "Croatia",
@@ -10129,11 +10129,11 @@
           "mean_draws": 0.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 34.9,
-          "qf_pct": 12.1,
-          "sf_pct": 6.1,
-          "final_pct": 2.6,
-          "winner_pct": 1.1
+          "r16_pct": 35.3,
+          "qf_pct": 12.0,
+          "sf_pct": 6.4,
+          "final_pct": 2.9,
+          "winner_pct": 1.2
         },
         {
           "team": "Ghana",
@@ -10150,10 +10150,10 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 24.5,
-          "qf_pct": 8.4,
+          "r16_pct": 24.4,
+          "qf_pct": 8.3,
           "sf_pct": 2.2,
-          "final_pct": 0.5,
+          "final_pct": 0.4,
           "winner_pct": 0.1
         },
         {
@@ -10433,7 +10433,7 @@
           "home_win_pct": 70.3,
           "draw_pct": 20.6,
           "away_win_pct": 9.1,
-          "lambda_home": 1.851,
+          "lambda_home": 1.85,
           "lambda_away": 0.494,
           "score_tiles": [
             {
@@ -10553,7 +10553,7 @@
           "home_win_pct": 13.9,
           "draw_pct": 20.8,
           "away_win_pct": 65.3,
-          "lambda_home": 0.768,
+          "lambda_home": 0.767,
           "lambda_away": 1.955,
           "score_tiles": [
             {
@@ -10683,7 +10683,7 @@
           "home_win_pct": 6.7,
           "draw_pct": 15.5,
           "away_win_pct": 77.8,
-          "lambda_home": 0.516,
+          "lambda_home": 0.515,
           "lambda_away": 2.296,
           "score_tiles": [
             {
@@ -11056,7 +11056,7 @@
             "draw_pct": 29.5,
             "away_win_pct": 32.2,
             "lambda_home": 1.131,
-            "lambda_away": 1.011,
+            "lambda_away": 1.01,
             "score_tiles": [
               {
                 "score": "1-1",
@@ -11476,7 +11476,7 @@
               },
               {
                 "score": "0-1",
-                "pct": 6.4,
+                "pct": 6.5,
                 "result": "away"
               },
               {
@@ -11533,7 +11533,7 @@
               },
               "away": {
                 "score": "0-1",
-                "pct": 6.4,
+                "pct": 6.5,
                 "result": "away"
               }
             },
@@ -11931,25 +11931,25 @@
             "home_flag": "\ud83c\uddea\ud83c\uddf8",
             "away_flag": "\ud83c\udde9\ud83c\uddff",
             "most_likely_score": "2-0",
-            "home_win_pct": 77.0,
+            "home_win_pct": 77.1,
             "draw_pct": 14.9,
-            "away_win_pct": 8.1,
-            "lambda_home": 2.489,
+            "away_win_pct": 8.0,
+            "lambda_home": 2.498,
             "lambda_away": 0.677,
             "score_tiles": [
               {
                 "score": "2-0",
-                "pct": 13.1,
+                "pct": 13.0,
                 "result": "home"
               },
               {
                 "score": "3-0",
-                "pct": 10.8,
+                "pct": 10.9,
                 "result": "home"
               },
               {
                 "score": "1-0",
-                "pct": 10.5,
+                "pct": 10.4,
                 "result": "home"
               },
               {
@@ -11959,7 +11959,7 @@
               },
               {
                 "score": "3-1",
-                "pct": 7.3,
+                "pct": 7.4,
                 "result": "home"
               },
               {
@@ -11969,7 +11969,7 @@
               },
               {
                 "score": "4-0",
-                "pct": 6.7,
+                "pct": 6.8,
                 "result": "home"
               },
               {
@@ -11994,7 +11994,7 @@
               },
               {
                 "score": "0-1",
-                "pct": 2.9,
+                "pct": 2.8,
                 "result": "away"
               },
               {
@@ -12014,7 +12014,7 @@
               },
               {
                 "score": "4-2",
-                "pct": 1.5,
+                "pct": 1.6,
                 "result": "home"
               },
               {
@@ -12026,7 +12026,7 @@
             "outcome_bests": {
               "home": {
                 "score": "2-0",
-                "pct": 13.1,
+                "pct": 13.0,
                 "result": "home"
               },
               "draw": {
@@ -12036,14 +12036,14 @@
               },
               "away": {
                 "score": "0-1",
-                "pct": 2.9,
+                "pct": 2.8,
                 "result": "away"
               }
             },
             "margin_pcts": {
-              "h3p": 32.7,
+              "h3p": 32.9,
               "h2": 22.1,
-              "h1": 22.2,
+              "h1": 22.1,
               "draw": 14.9,
               "a1": 6.0,
               "a2": 1.6,
@@ -12061,7 +12061,7 @@
             "home_win_pct": 19.4,
             "draw_pct": 26.3,
             "away_win_pct": 54.3,
-            "lambda_home": 0.775,
+            "lambda_home": 0.774,
             "lambda_away": 1.492,
             "score_tiles": [
               {
@@ -12160,7 +12160,7 @@
             "margin_pcts": {
               "h3p": 1.3,
               "h2": 4.5,
-              "h1": 13.7,
+              "h1": 13.6,
               "draw": 26.3,
               "a1": 26.3,
               "a2": 16.7,
@@ -12178,7 +12178,7 @@
             "home_win_pct": 34.1,
             "draw_pct": 25.8,
             "away_win_pct": 40.1,
-            "lambda_home": 1.278,
+            "lambda_home": 1.277,
             "lambda_away": 1.409,
             "score_tiles": [
               {
@@ -12253,7 +12253,7 @@
               },
               {
                 "score": "3-2",
-                "pct": 2.4,
+                "pct": 2.3,
                 "result": "home"
               },
               {
@@ -12299,7 +12299,7 @@
               "h2": 9.7,
               "h1": 19.3,
               "draw": 25.8,
-              "a1": 21.2,
+              "a1": 21.3,
               "a2": 11.8,
               "a3p": 7.0
             },
@@ -12312,30 +12312,30 @@
             "home_flag": "\ud83c\udde7\ud83c\uddea",
             "away_flag": "\ud83c\udde8\ud83c\uddff",
             "most_likely_score": "2-0",
-            "home_win_pct": 65.7,
+            "home_win_pct": 65.6,
             "draw_pct": 20.3,
-            "away_win_pct": 14.0,
+            "away_win_pct": 14.1,
             "lambda_home": 2.022,
-            "lambda_away": 0.806,
+            "lambda_away": 0.813,
             "score_tiles": [
               {
                 "score": "2-0",
-                "pct": 12.1,
-                "result": "home"
-              },
-              {
-                "score": "1-0",
                 "pct": 12.0,
                 "result": "home"
               },
               {
+                "score": "1-0",
+                "pct": 11.9,
+                "result": "home"
+              },
+              {
                 "score": "2-1",
-                "pct": 9.7,
+                "pct": 9.8,
                 "result": "home"
               },
               {
                 "score": "1-1",
-                "pct": 9.6,
+                "pct": 9.7,
                 "result": "draw"
               },
               {
@@ -12364,14 +12364,14 @@
                 "result": "home"
               },
               {
+                "score": "2-2",
+                "pct": 4.0,
+                "result": "draw"
+              },
+              {
                 "score": "1-2",
                 "pct": 3.9,
                 "result": "away"
-              },
-              {
-                "score": "2-2",
-                "pct": 3.9,
-                "result": "draw"
               },
               {
                 "score": "4-1",
@@ -12380,7 +12380,7 @@
               },
               {
                 "score": "3-2",
-                "pct": 2.6,
+                "pct": 2.7,
                 "result": "home"
               },
               {
@@ -12395,7 +12395,7 @@
               },
               {
                 "score": "4-2",
-                "pct": 1.3,
+                "pct": 1.4,
                 "result": "home"
               },
               {
@@ -12404,25 +12404,25 @@
                 "result": "home"
               },
               {
-                "score": "2-3",
+                "score": "1-3",
                 "pct": 1.1,
                 "result": "away"
               },
               {
-                "score": "1-3",
-                "pct": 1.0,
+                "score": "2-3",
+                "pct": 1.1,
                 "result": "away"
               }
             ],
             "outcome_bests": {
               "home": {
                 "score": "2-0",
-                "pct": 12.1,
+                "pct": 12.0,
                 "result": "home"
               },
               "draw": {
                 "score": "1-1",
-                "pct": 9.6,
+                "pct": 9.7,
                 "result": "draw"
               },
               "away": {
@@ -12432,13 +12432,13 @@
               }
             },
             "margin_pcts": {
-              "h3p": 20.9,
+              "h3p": 20.8,
               "h2": 20.1,
               "h1": 24.7,
               "draw": 20.3,
               "a1": 9.9,
               "a2": 3.2,
-              "a3p": 0.9
+              "a3p": 1.0
             },
             "pred_winner": "Belgium",
             "pred_winner_flag": "\ud83c\udde7\ud83c\uddea"
@@ -12452,7 +12452,7 @@
             "home_win_pct": 76.0,
             "draw_pct": 17.9,
             "away_win_pct": 6.1,
-            "lambda_home": 1.99,
+            "lambda_home": 1.989,
             "lambda_away": 0.382,
             "score_tiles": [
               {
@@ -12793,7 +12793,7 @@
               },
               {
                 "score": "2-0",
-                "pct": 15.6,
+                "pct": 15.7,
                 "result": "home"
               },
               {
@@ -13033,7 +13033,7 @@
             "draw_pct": 24.9,
             "away_win_pct": 46.3,
             "lambda_home": 1.196,
-            "lambda_away": 1.582,
+            "lambda_away": 1.581,
             "score_tiles": [
               {
                 "score": "1-1",
@@ -13194,7 +13194,7 @@
               },
               {
                 "score": "3-0",
-                "pct": 8.2,
+                "pct": 8.1,
                 "result": "home"
               },
               {
@@ -13303,7 +13303,7 @@
             "home_flag": "\ud83c\uddf2\ud83c\uddfd",
             "away_flag": "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f",
             "most_likely_score": "0-1",
-            "home_win_pct": 24.8,
+            "home_win_pct": 24.7,
             "draw_pct": 27.9,
             "away_win_pct": 47.4,
             "lambda_home": 0.89,
@@ -13430,15 +13430,15 @@
             "home_flag": "\ud83c\uddea\ud83c\uddf8",
             "away_flag": "\ud83c\udded\ud83c\uddf7",
             "most_likely_score": "1-0",
-            "home_win_pct": 60.9,
-            "draw_pct": 22.9,
+            "home_win_pct": 61.0,
+            "draw_pct": 22.8,
             "away_win_pct": 16.2,
-            "lambda_home": 1.775,
-            "lambda_away": 0.788,
+            "lambda_home": 1.781,
+            "lambda_away": 0.789,
             "score_tiles": [
               {
                 "score": "1-0",
-                "pct": 13.7,
+                "pct": 13.6,
                 "result": "home"
               },
               {
@@ -13468,7 +13468,7 @@
               },
               {
                 "score": "0-1",
-                "pct": 6.1,
+                "pct": 6.0,
                 "result": "away"
               },
               {
@@ -13520,7 +13520,7 @@
             "outcome_bests": {
               "home": {
                 "score": "1-0",
-                "pct": 13.7,
+                "pct": 13.6,
                 "result": "home"
               },
               "draw": {
@@ -13530,15 +13530,15 @@
               },
               "away": {
                 "score": "0-1",
-                "pct": 6.1,
+                "pct": 6.0,
                 "result": "away"
               }
             },
             "margin_pcts": {
-              "h3p": 16.2,
+              "h3p": 16.3,
               "h2": 18.9,
-              "h1": 25.8,
-              "draw": 22.9,
+              "h1": 25.7,
+              "draw": 22.8,
               "a1": 11.4,
               "a2": 3.7,
               "a3p": 1.1
@@ -13552,10 +13552,10 @@
             "home_flag": "\ud83c\udde8\ud83c\udded",
             "away_flag": "\ud83c\udde7\ud83c\uddea",
             "most_likely_score": "1-1",
-            "home_win_pct": 27.4,
+            "home_win_pct": 27.7,
             "draw_pct": 25.8,
-            "away_win_pct": 46.8,
-            "lambda_home": 1.085,
+            "away_win_pct": 46.6,
+            "lambda_home": 1.094,
             "lambda_away": 1.501,
             "score_tiles": [
               {
@@ -13565,7 +13565,7 @@
               },
               {
                 "score": "0-1",
-                "pct": 11.3,
+                "pct": 11.2,
                 "result": "away"
               },
               {
@@ -13575,7 +13575,7 @@
               },
               {
                 "score": "0-2",
-                "pct": 8.5,
+                "pct": 8.4,
                 "result": "away"
               },
               {
@@ -13605,7 +13605,7 @@
               },
               {
                 "score": "2-0",
-                "pct": 4.4,
+                "pct": 4.5,
                 "result": "home"
               },
               {
@@ -13657,18 +13657,18 @@
               },
               "away": {
                 "score": "0-1",
-                "pct": 11.3,
+                "pct": 11.2,
                 "result": "away"
               }
             },
             "margin_pcts": {
-              "h3p": 3.1,
-              "h2": 7.4,
-              "h1": 16.9,
+              "h3p": 3.2,
+              "h2": 7.5,
+              "h1": 17.0,
               "draw": 25.8,
-              "a1": 23.4,
+              "a1": 23.3,
               "a2": 14.1,
-              "a3p": 9.3
+              "a3p": 9.2
             },
             "pred_winner": "Belgium",
             "pred_winner_flag": "\ud83c\udde7\ud83c\uddea"
@@ -13922,7 +13922,7 @@
             "draw_pct": 25.4,
             "away_win_pct": 47.6,
             "lambda_home": 1.092,
-            "lambda_away": 1.539,
+            "lambda_away": 1.538,
             "score_tiles": [
               {
                 "score": "1-1",
@@ -14036,7 +14036,7 @@
               "h3p": 3.1,
               "h2": 7.3,
               "h1": 16.6,
-              "draw": 25.4,
+              "draw": 25.5,
               "a1": 23.4,
               "a2": 14.4,
               "a3p": 9.8
@@ -14083,7 +14083,7 @@
               },
               {
                 "score": "2-1",
-                "pct": 7.3,
+                "pct": 7.2,
                 "result": "home"
               },
               {
@@ -14167,15 +14167,15 @@
             "home_flag": "\ud83c\uddea\ud83c\uddf8",
             "away_flag": "\ud83c\udde7\ud83c\uddea",
             "most_likely_score": "1-0",
-            "home_win_pct": 49.9,
-            "draw_pct": 25.9,
-            "away_win_pct": 24.2,
-            "lambda_home": 1.517,
-            "lambda_away": 0.971,
+            "home_win_pct": 50.4,
+            "draw_pct": 25.7,
+            "away_win_pct": 23.9,
+            "lambda_home": 1.536,
+            "lambda_away": 0.972,
             "score_tiles": [
               {
                 "score": "1-0",
-                "pct": 12.6,
+                "pct": 12.5,
                 "result": "home"
               },
               {
@@ -14195,12 +14195,12 @@
               },
               {
                 "score": "0-0",
-                "pct": 8.3,
+                "pct": 8.1,
                 "result": "draw"
               },
               {
                 "score": "0-1",
-                "pct": 8.1,
+                "pct": 7.9,
                 "result": "away"
               },
               {
@@ -14210,12 +14210,12 @@
               },
               {
                 "score": "3-0",
-                "pct": 4.8,
+                "pct": 4.9,
                 "result": "home"
               },
               {
                 "score": "3-1",
-                "pct": 4.7,
+                "pct": 4.8,
                 "result": "home"
               },
               {
@@ -14225,7 +14225,7 @@
               },
               {
                 "score": "0-2",
-                "pct": 3.9,
+                "pct": 3.8,
                 "result": "away"
               },
               {
@@ -14240,7 +14240,7 @@
               },
               {
                 "score": "4-0",
-                "pct": 1.8,
+                "pct": 1.9,
                 "result": "home"
               },
               {
@@ -14255,14 +14255,14 @@
               },
               {
                 "score": "0-3",
-                "pct": 1.3,
+                "pct": 1.2,
                 "result": "away"
               }
             ],
             "outcome_bests": {
               "home": {
                 "score": "1-0",
-                "pct": 12.6,
+                "pct": 12.5,
                 "result": "home"
               },
               "draw": {
@@ -14272,16 +14272,16 @@
               },
               "away": {
                 "score": "0-1",
-                "pct": 8.1,
+                "pct": 7.9,
                 "result": "away"
               }
             },
             "margin_pcts": {
-              "h3p": 10.3,
-              "h2": 15.2,
+              "h3p": 10.5,
+              "h2": 15.4,
               "h1": 24.5,
-              "draw": 25.9,
-              "a1": 15.7,
+              "draw": 25.7,
+              "a1": 15.5,
               "a2": 6.2,
               "a3p": 2.3
             },
@@ -14297,7 +14297,7 @@
             "home_win_pct": 40.9,
             "draw_pct": 29.4,
             "away_win_pct": 29.7,
-            "lambda_home": 1.181,
+            "lambda_home": 1.18,
             "lambda_away": 0.96,
             "score_tiles": [
               {
@@ -14419,7 +14419,7 @@
             "home_win_pct": 32.4,
             "draw_pct": 30.0,
             "away_win_pct": 37.7,
-            "lambda_home": 0.994,
+            "lambda_home": 0.993,
             "lambda_away": 1.097,
             "score_tiles": [
               {
@@ -14533,11 +14533,11 @@
             "home_flag": "\ud83c\uddea\ud83c\uddf8",
             "away_flag": "\ud83c\udde6\ud83c\uddf7",
             "most_likely_score": "1-0",
-            "home_win_pct": 37.4,
+            "home_win_pct": 37.5,
             "draw_pct": 30.2,
-            "away_win_pct": 32.4,
-            "lambda_home": 1.08,
-            "lambda_away": 0.983,
+            "away_win_pct": 32.3,
+            "lambda_home": 1.084,
+            "lambda_away": 0.984,
             "score_tiles": [
               {
                 "score": "1-0",
@@ -14551,12 +14551,12 @@
               },
               {
                 "score": "0-0",
-                "pct": 12.7,
+                "pct": 12.6,
                 "result": "draw"
               },
               {
                 "score": "0-1",
-                "pct": 12.5,
+                "pct": 12.4,
                 "result": "away"
               },
               {
@@ -14628,7 +14628,7 @@
               },
               "away": {
                 "score": "0-1",
-                "pct": 12.5,
+                "pct": 12.4,
                 "result": "away"
               }
             },
@@ -14655,11 +14655,11 @@
             "home_flag": "\ud83c\udde7\ud83c\uddf7",
             "away_flag": "\ud83c\uddea\ud83c\uddf8",
             "most_likely_score": "0-1",
-            "home_win_pct": 32.5,
+            "home_win_pct": 32.4,
             "draw_pct": 30.0,
-            "away_win_pct": 37.5,
-            "lambda_home": 0.995,
-            "lambda_away": 1.094,
+            "away_win_pct": 37.6,
+            "lambda_home": 0.996,
+            "lambda_away": 1.097,
             "score_tiles": [
               {
                 "score": "0-1",
@@ -14673,7 +14673,7 @@
               },
               {
                 "score": "0-0",
-                "pct": 12.4,
+                "pct": 12.3,
                 "result": "draw"
               },
               {
@@ -14757,7 +14757,7 @@
             "margin_pcts": {
               "h3p": 3.4,
               "h2": 8.7,
-              "h1": 20.4,
+              "h1": 20.3,
               "draw": 30.0,
               "a1": 22.4,
               "a2": 10.5,
