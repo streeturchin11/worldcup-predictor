@@ -4588,7 +4588,7 @@
             }
           },
           "margin_pcts": {
-            "h3p": 17.2,
+            "h3p": 17.1,
             "h2": 18.8,
             "h1": 25.0,
             "draw": 22.1,
@@ -6349,7 +6349,7 @@
           "draw_pct": 26.2,
           "away_win_pct": 50.4,
           "lambda_home": 0.922,
-          "lambda_away": 1.489,
+          "lambda_away": 1.488,
           "score_tiles": [
             {
               "score": "0-1",
@@ -6711,7 +6711,7 @@
             "draw": 13.4,
             "a1": 20.2,
             "a2": 21.4,
-            "a3p": 37.1
+            "a3p": 37.0
           },
           "played": true,
           "actual_home": 1,
@@ -7965,7 +7965,7 @@
             "h3p": 46.9,
             "h2": 22.3,
             "h1": 18.1,
-            "draw": 9.4,
+            "draw": 9.5,
             "a1": 2.6,
             "a2": 0.5,
             "a3p": 0.1
@@ -9608,9 +9608,9 @@
             "h2": 1.2,
             "h1": 5.8,
             "draw": 17.4,
-            "a1": 25.4,
+            "a1": 25.5,
             "a2": 23.1,
-            "a3p": 26.9
+            "a3p": 26.8
           },
           "played": true,
           "actual_home": 1,
@@ -9734,7 +9734,7 @@
             }
           },
           "margin_pcts": {
-            "h3p": 38.3,
+            "h3p": 38.2,
             "h2": 22.9,
             "h1": 21.1,
             "draw": 12.6,
@@ -10558,7 +10558,7 @@
             "h3p": 21.0,
             "h2": 21.9,
             "h1": 27.1,
-            "draw": 20.6,
+            "draw": 20.7,
             "a1": 7.4,
             "a2": 1.6,
             "a3p": 0.3
@@ -12189,7 +12189,7 @@
               "draw": 26.3,
               "a1": 26.3,
               "a2": 16.6,
-              "a3p": 11.3
+              "a3p": 11.2
             },
             "pred_winner": "Croatia",
             "pred_winner_flag": "\ud83c\udded\ud83c\uddf7"
@@ -12691,7 +12691,7 @@
             "home_win_pct": 34.2,
             "draw_pct": 28.9,
             "away_win_pct": 36.9,
-            "lambda_home": 1.085,
+            "lambda_home": 1.086,
             "lambda_away": 1.14,
             "score_tiles": [
               {
@@ -13180,7 +13180,7 @@
               "draw": 24.9,
               "a1": 22.4,
               "a2": 13.8,
-              "a3p": 9.5
+              "a3p": 9.4
             },
             "pred_winner": "France",
             "pred_winner_flag": "\ud83c\uddeb\ud83c\uddf7"
