@@ -137,7 +137,7 @@
       "home_win_pct": 48.4,
       "draw_pct": 24.9,
       "away_win_pct": 26.8,
-      "lambda_home": 1.6,
+      "lambda_home": 1.599,
       "lambda_away": 1.125,
       "score_tiles": [
         {
@@ -1608,7 +1608,7 @@
           "mean_losses": 0.25,
           "r32_pct": 100.0,
           "r16_pct": 68.4,
-          "qf_pct": 31.7,
+          "qf_pct": 31.8,
           "sf_pct": 13.4,
           "final_pct": 5.2,
           "winner_pct": 2.1
@@ -2341,7 +2341,7 @@
           "home_win_pct": 48.4,
           "draw_pct": 24.9,
           "away_win_pct": 26.8,
-          "lambda_home": 1.6,
+          "lambda_home": 1.599,
           "lambda_away": 1.125,
           "score_tiles": [
             {
@@ -2517,7 +2517,7 @@
           "qf_pct": 28.0,
           "sf_pct": 13.3,
           "final_pct": 5.9,
-          "winner_pct": 2.4
+          "winner_pct": 2.5
         },
         {
           "team": "Haiti",
@@ -6809,7 +6809,7 @@
           "home_win_pct": 80.2,
           "draw_pct": 14.9,
           "away_win_pct": 4.8,
-          "lambda_home": 2.235,
+          "lambda_home": 2.236,
           "lambda_away": 0.374,
           "score_tiles": [
             {
@@ -8405,7 +8405,7 @@
           "qf_pct": 64.8,
           "sf_pct": 45.1,
           "final_pct": 25.7,
-          "winner_pct": 15.5
+          "winner_pct": 15.4
         },
         {
           "team": "Algeria",
@@ -9311,7 +9311,7 @@
           "qf_pct": 30.5,
           "sf_pct": 20.0,
           "final_pct": 11.1,
-          "winner_pct": 5.9
+          "winner_pct": 6.0
         },
         {
           "team": "DR Congo",
@@ -10368,7 +10368,7 @@
             },
             {
               "score": "2-0",
-              "pct": 8.0,
+              "pct": 7.9,
               "result": "home"
             },
             {
@@ -10581,7 +10581,7 @@
           "away_flag": "\ud83c\udded\ud83c\uddf7",
           "most_likely_score": "0-1",
           "home_win_pct": 14.0,
-          "draw_pct": 20.9,
+          "draw_pct": 21.0,
           "away_win_pct": 65.1,
           "lambda_home": 0.765,
           "lambda_away": 1.941,
@@ -12683,7 +12683,7 @@
             "margin_pcts": {
               "h3p": 2.4,
               "h2": 7.7,
-              "h1": 21.4,
+              "h1": 21.3,
               "draw": 35.0,
               "a1": 22.4,
               "a2": 8.4,
