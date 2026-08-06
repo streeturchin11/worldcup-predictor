@@ -5617,7 +5617,7 @@
             },
             {
               "score": "1-0",
-              "pct": 9.9,
+              "pct": 10.0,
               "result": "home"
             },
             {
@@ -5704,7 +5704,7 @@
           "outcome_bests": {
             "home": {
               "score": "1-0",
-              "pct": 9.9,
+              "pct": 10.0,
               "result": "home"
             },
             "draw": {
@@ -6253,7 +6253,7 @@
             },
             {
               "score": "3-0",
-              "pct": 6.6,
+              "pct": 6.5,
               "result": "home"
             },
             {
@@ -6451,7 +6451,7 @@
             "draw": 26.2,
             "a1": 24.9,
             "a2": 15.3,
-            "a3p": 10.2
+            "a3p": 10.1
           },
           "played": true,
           "actual_home": 1,
