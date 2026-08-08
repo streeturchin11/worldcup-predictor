@@ -5479,7 +5479,7 @@
           "home_flag": "\ud83c\uddf9\ud83c\uddf3",
           "away_flag": "\ud83c\uddef\ud83c\uddf5",
           "most_likely_score": "0-1",
-          "home_win_pct": 18.0,
+          "home_win_pct": 17.9,
           "draw_pct": 23.8,
           "away_win_pct": 58.2,
           "lambda_home": 0.824,
@@ -9627,7 +9627,7 @@
           "home_win_pct": 82.2,
           "draw_pct": 12.6,
           "away_win_pct": 5.2,
-          "lambda_home": 2.616,
+          "lambda_home": 2.615,
           "lambda_away": 0.515,
           "score_tiles": [
             {
@@ -11852,7 +11852,7 @@
             "home_win_pct": 57.0,
             "draw_pct": 24.9,
             "away_win_pct": 18.1,
-            "lambda_home": 1.607,
+            "lambda_home": 1.606,
             "lambda_away": 0.783,
             "score_tiles": [
               {
@@ -11951,7 +11951,7 @@
             "margin_pcts": {
               "h3p": 13.2,
               "h2": 17.6,
-              "h1": 26.1,
+              "h1": 26.2,
               "draw": 24.9,
               "a1": 12.7,
               "a2": 4.2,
