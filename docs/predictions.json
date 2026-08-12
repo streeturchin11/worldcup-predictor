@@ -134,7 +134,7 @@
       "home_flag": "\ud83c\udde7\ud83c\udde6",
       "away_flag": "\ud83c\uddf6\ud83c\udde6",
       "most_likely_score": "1-1",
-      "home_win_pct": 48.4,
+      "home_win_pct": 48.3,
       "draw_pct": 24.8,
       "away_win_pct": 26.8,
       "lambda_home": 1.601,
@@ -408,7 +408,7 @@
         },
         {
           "score": "3-0",
-          "pct": 11.7,
+          "pct": 11.6,
           "result": "home"
         },
         {
@@ -2338,7 +2338,7 @@
           "home_flag": "\ud83c\udde7\ud83c\udde6",
           "away_flag": "\ud83c\uddf6\ud83c\udde6",
           "most_likely_score": "1-1",
-          "home_win_pct": 48.4,
+          "home_win_pct": 48.3,
           "draw_pct": 24.8,
           "away_win_pct": 26.8,
           "lambda_home": 1.601,
@@ -3187,7 +3187,7 @@
             },
             {
               "score": "3-0",
-              "pct": 11.7,
+              "pct": 11.6,
               "result": "home"
             },
             {
@@ -4606,7 +4606,7 @@
           "score_tiles": [
             {
               "score": "1-0",
-              "pct": 17.9,
+              "pct": 17.8,
               "result": "home"
             },
             {
@@ -4678,7 +4678,7 @@
           "outcome_bests": {
             "home": {
               "score": "1-0",
-              "pct": 17.9,
+              "pct": 17.8,
               "result": "home"
             },
             "draw": {
