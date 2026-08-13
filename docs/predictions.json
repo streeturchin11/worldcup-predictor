@@ -752,7 +752,7 @@
           "first_pct": 100.0,
           "second_pct": 0.0,
           "elim_pct": 0.0,
-          "mean_gf": 4.33,
+          "mean_gf": 4.34,
           "mean_ga": 0.84,
           "mean_wins": 2.49,
           "mean_draws": 0.27,
@@ -761,8 +761,8 @@
           "r16_pct": 56.1,
           "qf_pct": 26.0,
           "sf_pct": 10.6,
-          "final_pct": 4.3,
-          "winner_pct": 1.9
+          "final_pct": 4.4,
+          "winner_pct": 1.7
         },
         {
           "team": "South Africa",
@@ -779,10 +779,10 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 30.0,
-          "qf_pct": 7.8,
-          "sf_pct": 1.8,
-          "final_pct": 0.4,
+          "r16_pct": 30.4,
+          "qf_pct": 8.0,
+          "sf_pct": 1.7,
+          "final_pct": 0.3,
           "winner_pct": 0.1
         },
         {
@@ -795,14 +795,14 @@
           "second_pct": 24.2,
           "elim_pct": 75.8,
           "mean_gf": 2.84,
-          "mean_ga": 4.33,
+          "mean_ga": 4.34,
           "mean_wins": 0.24,
           "mean_draws": 1.27,
           "mean_losses": 1.49,
           "r32_pct": 24.2,
-          "r16_pct": 9.5,
-          "qf_pct": 2.7,
-          "sf_pct": 0.6,
+          "r16_pct": 9.4,
+          "qf_pct": 2.6,
+          "sf_pct": 0.7,
           "final_pct": 0.1,
           "winner_pct": 0.0
         },
@@ -1565,11 +1565,11 @@
           "mean_draws": 1.26,
           "mean_losses": 0.49,
           "r32_pct": 100.0,
-          "r16_pct": 60.8,
-          "qf_pct": 25.1,
-          "sf_pct": 8.5,
-          "final_pct": 2.9,
-          "winner_pct": 1.0
+          "r16_pct": 60.2,
+          "qf_pct": 25.2,
+          "sf_pct": 8.3,
+          "final_pct": 2.6,
+          "winner_pct": 0.8
         },
         {
           "team": "Bosnia & Herzegovina",
@@ -1587,9 +1587,9 @@
           "mean_losses": 1.0,
           "r32_pct": 100.0,
           "r16_pct": 25.2,
-          "qf_pct": 5.9,
-          "sf_pct": 0.9,
-          "final_pct": 0.1,
+          "qf_pct": 5.8,
+          "sf_pct": 0.8,
+          "final_pct": 0.2,
           "winner_pct": 0.0
         },
         {
@@ -1608,10 +1608,10 @@
           "mean_losses": 0.25,
           "r32_pct": 100.0,
           "r16_pct": 68.3,
-          "qf_pct": 31.2,
-          "sf_pct": 13.1,
-          "final_pct": 5.4,
-          "winner_pct": 1.9
+          "qf_pct": 31.1,
+          "sf_pct": 12.5,
+          "final_pct": 5.2,
+          "winner_pct": 2.0
         },
         {
           "team": "Qatar",
@@ -2494,9 +2494,9 @@
           "r32_pct": 100.0,
           "r16_pct": 73.2,
           "qf_pct": 55.7,
-          "sf_pct": 35.8,
-          "final_pct": 22.3,
-          "winner_pct": 12.3
+          "sf_pct": 35.6,
+          "final_pct": 22.0,
+          "winner_pct": 12.6
         },
         {
           "team": "Morocco",
@@ -2514,9 +2514,9 @@
           "mean_losses": 0.0,
           "r32_pct": 100.0,
           "r16_pct": 46.8,
-          "qf_pct": 28.5,
-          "sf_pct": 12.4,
-          "final_pct": 5.6,
+          "qf_pct": 28.4,
+          "sf_pct": 13.2,
+          "final_pct": 6.1,
           "winner_pct": 2.5
         },
         {
@@ -3303,11 +3303,11 @@
           "mean_draws": 0.26,
           "mean_losses": 0.33,
           "r32_pct": 100.0,
-          "r16_pct": 74.8,
-          "qf_pct": 31.7,
-          "sf_pct": 8.5,
-          "final_pct": 3.5,
-          "winner_pct": 1.2
+          "r16_pct": 74.7,
+          "qf_pct": 31.9,
+          "sf_pct": 8.8,
+          "final_pct": 3.8,
+          "winner_pct": 1.3
         },
         {
           "team": "Paraguay",
@@ -3326,9 +3326,9 @@
           "r32_pct": 100.0,
           "r16_pct": 27.6,
           "qf_pct": 8.1,
-          "sf_pct": 2.8,
-          "final_pct": 0.9,
-          "winner_pct": 0.1
+          "sf_pct": 3.1,
+          "final_pct": 1.0,
+          "winner_pct": 0.3
         },
         {
           "team": "Australia",
@@ -3345,11 +3345,11 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 50.1,
-          "qf_pct": 15.2,
-          "sf_pct": 6.5,
-          "final_pct": 1.8,
-          "winner_pct": 0.7
+          "r16_pct": 50.6,
+          "qf_pct": 14.8,
+          "sf_pct": 6.2,
+          "final_pct": 1.7,
+          "winner_pct": 0.5
         },
         {
           "team": "Turkey",
@@ -4132,9 +4132,9 @@
           "r32_pct": 100.0,
           "r16_pct": 72.5,
           "qf_pct": 37.7,
-          "sf_pct": 22.5,
-          "final_pct": 11.1,
-          "winner_pct": 4.9
+          "sf_pct": 21.8,
+          "final_pct": 10.9,
+          "winner_pct": 5.2
         },
         {
           "team": "Ivory Coast",
@@ -4153,8 +4153,8 @@
           "r32_pct": 100.0,
           "r16_pct": 43.5,
           "qf_pct": 11.9,
-          "sf_pct": 4.4,
-          "final_pct": 1.5,
+          "sf_pct": 4.3,
+          "final_pct": 1.4,
           "winner_pct": 0.4
         },
         {
@@ -4174,9 +4174,9 @@
           "r32_pct": 100.0,
           "r16_pct": 43.9,
           "qf_pct": 17.6,
-          "sf_pct": 6.9,
-          "final_pct": 2.9,
-          "winner_pct": 1.0
+          "sf_pct": 7.2,
+          "final_pct": 3.1,
+          "winner_pct": 1.1
         },
         {
           "team": "Cura\u00e7ao",
@@ -4606,7 +4606,7 @@
           "score_tiles": [
             {
               "score": "1-0",
-              "pct": 17.8,
+              "pct": 17.9,
               "result": "home"
             },
             {
@@ -4678,7 +4678,7 @@
           "outcome_bests": {
             "home": {
               "score": "1-0",
-              "pct": 17.8,
+              "pct": 17.9,
               "result": "home"
             },
             "draw": {
@@ -4978,10 +4978,10 @@
           "mean_losses": 0.0,
           "r32_pct": 100.0,
           "r16_pct": 53.2,
-          "qf_pct": 35.2,
-          "sf_pct": 17.2,
+          "qf_pct": 35.5,
+          "sf_pct": 17.1,
           "final_pct": 8.3,
-          "winner_pct": 3.4
+          "winner_pct": 3.5
         },
         {
           "team": "Japan",
@@ -5001,8 +5001,8 @@
           "r16_pct": 26.8,
           "qf_pct": 14.7,
           "sf_pct": 6.1,
-          "final_pct": 2.5,
-          "winner_pct": 0.9
+          "final_pct": 2.4,
+          "winner_pct": 0.8
         },
         {
           "team": "Sweden",
@@ -5021,8 +5021,8 @@
           "r32_pct": 100.0,
           "r16_pct": 26.1,
           "qf_pct": 9.4,
-          "sf_pct": 3.9,
-          "final_pct": 1.4,
+          "sf_pct": 3.8,
+          "final_pct": 1.2,
           "winner_pct": 0.3
         },
         {
@@ -5891,8 +5891,8 @@
           "r16_pct": 69.0,
           "qf_pct": 47.0,
           "sf_pct": 19.9,
-          "final_pct": 10.2,
-          "winner_pct": 4.8
+          "final_pct": 10.4,
+          "winner_pct": 5.2
         },
         {
           "team": "Egypt",
@@ -5909,11 +5909,11 @@
           "mean_draws": 2.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 49.9,
-          "qf_pct": 14.3,
+          "r16_pct": 49.4,
+          "qf_pct": 14.4,
           "sf_pct": 6.0,
           "final_pct": 1.6,
-          "winner_pct": 0.4
+          "winner_pct": 0.5
         },
         {
           "team": "Iran",
@@ -6732,8 +6732,8 @@
           "r16_pct": 81.1,
           "qf_pct": 52.0,
           "sf_pct": 38.4,
-          "final_pct": 25.2,
-          "winner_pct": 16.2
+          "final_pct": 24.9,
+          "winner_pct": 15.5
         },
         {
           "team": "Cape Verde",
@@ -6751,8 +6751,8 @@
           "mean_losses": 0.0,
           "r32_pct": 100.0,
           "r16_pct": 15.0,
-          "qf_pct": 5.6,
-          "sf_pct": 1.4,
+          "qf_pct": 5.9,
+          "sf_pct": 1.9,
           "final_pct": 0.3,
           "winner_pct": 0.0
         },
@@ -7079,7 +7079,7 @@
             },
             {
               "score": "3-1",
-              "pct": 5.3,
+              "pct": 5.4,
               "result": "home"
             },
             {
@@ -7507,9 +7507,9 @@
           "r32_pct": 100.0,
           "r16_pct": 73.9,
           "qf_pct": 44.7,
-          "sf_pct": 28.2,
-          "final_pct": 15.7,
-          "winner_pct": 8.4
+          "sf_pct": 28.8,
+          "final_pct": 15.9,
+          "winner_pct": 8.2
         },
         {
           "team": "Norway",
@@ -7529,7 +7529,7 @@
           "r16_pct": 56.5,
           "qf_pct": 17.7,
           "sf_pct": 6.9,
-          "final_pct": 2.1,
+          "final_pct": 2.3,
           "winner_pct": 0.6
         },
         {
@@ -7547,10 +7547,10 @@
           "mean_draws": 0.0,
           "mean_losses": 2.0,
           "r32_pct": 75.8,
-          "r16_pct": 25.7,
+          "r16_pct": 25.8,
           "qf_pct": 13.4,
-          "sf_pct": 3.9,
-          "final_pct": 1.5,
+          "sf_pct": 3.6,
+          "final_pct": 1.3,
           "winner_pct": 0.5
         },
         {
@@ -8403,9 +8403,9 @@
           "r32_pct": 100.0,
           "r16_pct": 85.0,
           "qf_pct": 64.9,
-          "sf_pct": 44.5,
-          "final_pct": 25.3,
-          "winner_pct": 15.0
+          "sf_pct": 44.6,
+          "final_pct": 24.7,
+          "winner_pct": 14.8
         },
         {
           "team": "Algeria",
@@ -8422,9 +8422,9 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 36.7,
-          "qf_pct": 12.7,
-          "sf_pct": 3.8,
+          "r16_pct": 36.9,
+          "qf_pct": 12.6,
+          "sf_pct": 3.6,
           "final_pct": 0.9,
           "winner_pct": 0.2
         },
@@ -8445,8 +8445,8 @@
           "r32_pct": 100.0,
           "r16_pct": 18.9,
           "qf_pct": 5.6,
-          "sf_pct": 2.1,
-          "final_pct": 0.7,
+          "sf_pct": 2.3,
+          "final_pct": 0.9,
           "winner_pct": 0.2
         },
         {
@@ -9167,7 +9167,7 @@
           "draw_pct": 11.2,
           "away_win_pct": 84.9,
           "lambda_home": 0.435,
-          "lambda_away": 2.7,
+          "lambda_away": 2.699,
           "score_tiles": [
             {
               "score": "0-2",
@@ -9309,9 +9309,9 @@
           "r32_pct": 100.0,
           "r16_pct": 64.8,
           "qf_pct": 30.3,
-          "sf_pct": 19.7,
-          "final_pct": 11.0,
-          "winner_pct": 6.0
+          "sf_pct": 19.8,
+          "final_pct": 11.1,
+          "winner_pct": 5.9
         },
         {
           "team": "DR Congo",
@@ -9330,9 +9330,9 @@
           "r32_pct": 100.0,
           "r16_pct": 21.8,
           "qf_pct": 7.1,
-          "sf_pct": 2.0,
-          "final_pct": 0.5,
-          "winner_pct": 0.1
+          "sf_pct": 2.1,
+          "final_pct": 0.6,
+          "winner_pct": 0.2
         },
         {
           "team": "Colombia",
@@ -9349,11 +9349,11 @@
           "mean_draws": 1.0,
           "mean_losses": 0.0,
           "r32_pct": 100.0,
-          "r16_pct": 75.6,
-          "qf_pct": 50.0,
-          "sf_pct": 25.1,
-          "final_pct": 10.8,
-          "winner_pct": 5.4
+          "r16_pct": 74.8,
+          "qf_pct": 49.8,
+          "sf_pct": 24.7,
+          "final_pct": 11.5,
+          "winner_pct": 5.8
         },
         {
           "team": "Uzbekistan",
@@ -10135,8 +10135,8 @@
           "r32_pct": 100.0,
           "r16_pct": 78.2,
           "qf_pct": 49.3,
-          "sf_pct": 27.3,
-          "final_pct": 15.8,
+          "sf_pct": 27.2,
+          "final_pct": 15.6,
           "winner_pct": 8.1
         },
         {
@@ -10156,9 +10156,9 @@
           "r32_pct": 100.0,
           "r16_pct": 35.2,
           "qf_pct": 12.1,
-          "sf_pct": 6.3,
-          "final_pct": 3.0,
-          "winner_pct": 1.1
+          "sf_pct": 6.1,
+          "final_pct": 2.5,
+          "winner_pct": 1.0
         },
         {
           "team": "Ghana",
@@ -10175,10 +10175,10 @@
           "mean_draws": 1.0,
           "mean_losses": 1.0,
           "r32_pct": 100.0,
-          "r16_pct": 24.4,
+          "r16_pct": 25.2,
           "qf_pct": 8.7,
-          "sf_pct": 2.1,
-          "final_pct": 0.4,
+          "sf_pct": 2.4,
+          "final_pct": 0.5,
           "winner_pct": 0.1
         },
         {
@@ -10974,7 +10974,7 @@
             "draw_pct": 30.4,
             "away_win_pct": 33.2,
             "lambda_home": 1.051,
-            "lambda_away": 0.992,
+            "lambda_away": 0.991,
             "score_tiles": [
               {
                 "score": "1-0",
@@ -11207,7 +11207,7 @@
             "home_win_pct": 58.9,
             "draw_pct": 23.0,
             "away_win_pct": 18.1,
-            "lambda_home": 1.786,
+            "lambda_home": 1.785,
             "lambda_away": 0.876,
             "score_tiles": [
               {
@@ -11319,7 +11319,7 @@
               }
             },
             "margin_pcts": {
-              "h3p": 15.6,
+              "h3p": 15.5,
               "h2": 18.2,
               "h1": 25.1,
               "draw": 23.0,
@@ -11574,7 +11574,7 @@
             },
             "margin_pcts": {
               "h3p": 15.4,
-              "h2": 19.0,
+              "h2": 18.9,
               "h1": 26.5,
               "draw": 23.7,
               "a1": 11.2,
@@ -12802,7 +12802,7 @@
               "h2": 9.5,
               "h1": 20.7,
               "draw": 28.9,
-              "a1": 21.7,
+              "a1": 21.6,
               "a2": 10.4,
               "a3p": 4.8
             },
