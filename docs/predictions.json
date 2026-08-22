@@ -8,7 +8,7 @@
       "most_likely_score": "1-1",
       "home_win_pct": 49.3,
       "draw_pct": 25.8,
-      "away_win_pct": 24.9,
+      "away_win_pct": 25.0,
       "lambda_home": 1.52,
       "lambda_away": 1.002,
       "score_tiles": [
@@ -135,7 +135,7 @@
       "away_flag": "\ud83c\uddf6\ud83c\udde6",
       "most_likely_score": "1-1",
       "home_win_pct": 48.3,
-      "draw_pct": 24.8,
+      "draw_pct": 24.9,
       "away_win_pct": 26.8,
       "lambda_home": 1.6,
       "lambda_away": 1.127,
@@ -903,7 +903,7 @@
             },
             {
               "score": "4-1",
-              "pct": 1.9,
+              "pct": 2.0,
               "result": "home"
             },
             {
@@ -2214,7 +2214,7 @@
           "most_likely_score": "1-1",
           "home_win_pct": 49.3,
           "draw_pct": 25.8,
-          "away_win_pct": 24.9,
+          "away_win_pct": 25.0,
           "lambda_home": 1.52,
           "lambda_away": 1.002,
           "score_tiles": [
@@ -2339,7 +2339,7 @@
           "away_flag": "\ud83c\uddf6\ud83c\udde6",
           "most_likely_score": "1-1",
           "home_win_pct": 48.3,
-          "draw_pct": 24.8,
+          "draw_pct": 24.9,
           "away_win_pct": 26.8,
           "lambda_home": 1.6,
           "lambda_away": 1.127,
@@ -2727,7 +2727,7 @@
             },
             {
               "score": "2-2",
-              "pct": 4.1,
+              "pct": 4.2,
               "result": "draw"
             },
             {
@@ -4176,7 +4176,7 @@
           "qf_pct": 17.2,
           "sf_pct": 6.7,
           "final_pct": 2.7,
-          "winner_pct": 1.0
+          "winner_pct": 1.1
         },
         {
           "team": "Cura\u00e7ao",
@@ -4606,7 +4606,7 @@
           "score_tiles": [
             {
               "score": "1-0",
-              "pct": 17.8,
+              "pct": 17.9,
               "result": "home"
             },
             {
@@ -4678,7 +4678,7 @@
           "outcome_bests": {
             "home": {
               "score": "1-0",
-              "pct": 17.8,
+              "pct": 17.9,
               "result": "home"
             },
             "draw": {
@@ -4981,7 +4981,7 @@
           "qf_pct": 35.4,
           "sf_pct": 17.2,
           "final_pct": 8.6,
-          "winner_pct": 4.1
+          "winner_pct": 4.2
         },
         {
           "team": "Japan",
@@ -6080,7 +6080,7 @@
           "home_flag": "\ud83c\uddee\ud83c\uddf7",
           "away_flag": "\ud83c\uddf3\ud83c\uddff",
           "most_likely_score": "1-0",
-          "home_win_pct": 52.6,
+          "home_win_pct": 52.5,
           "draw_pct": 24.8,
           "away_win_pct": 22.6,
           "lambda_home": 1.621,
@@ -6578,7 +6578,7 @@
           "home_win_pct": 8.0,
           "draw_pct": 13.4,
           "away_win_pct": 78.6,
-          "lambda_home": 0.792,
+          "lambda_home": 0.793,
           "lambda_away": 2.775,
           "score_tiles": [
             {
@@ -7509,7 +7509,7 @@
           "qf_pct": 45.4,
           "sf_pct": 28.8,
           "final_pct": 15.7,
-          "winner_pct": 7.8
+          "winner_pct": 7.7
         },
         {
           "team": "Norway",
@@ -8262,7 +8262,7 @@
           "home_flag": "\ud83c\uddf8\ud83c\uddf3",
           "away_flag": "\ud83c\uddee\ud83c\uddf6",
           "most_likely_score": "1-0",
-          "home_win_pct": 68.8,
+          "home_win_pct": 68.7,
           "draw_pct": 20.1,
           "away_win_pct": 11.2,
           "lambda_home": 1.959,
@@ -8609,7 +8609,7 @@
           "away_flag": "\ud83c\uddef\ud83c\uddf4",
           "most_likely_score": "1-0",
           "home_win_pct": 60.8,
-          "draw_pct": 22.3,
+          "draw_pct": 22.4,
           "away_win_pct": 16.9,
           "lambda_home": 1.841,
           "lambda_away": 0.851,
@@ -9353,7 +9353,7 @@
           "qf_pct": 50.0,
           "sf_pct": 25.3,
           "final_pct": 12.2,
-          "winner_pct": 6.2
+          "winner_pct": 6.3
         },
         {
           "team": "Uzbekistan",
@@ -9505,7 +9505,7 @@
           "away_flag": "\ud83c\udde8\ud83c\uddf4",
           "most_likely_score": "0-2",
           "home_win_pct": 7.2,
-          "draw_pct": 17.4,
+          "draw_pct": 17.5,
           "away_win_pct": 75.3,
           "lambda_home": 0.478,
           "lambda_away": 2.092,
