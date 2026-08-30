@@ -4819,7 +4819,7 @@
             "draw": 21.7,
             "a1": 27.1,
             "a2": 21.1,
-            "a3p": 19.1
+            "a3p": 19.0
           },
           "played": true,
           "actual_home": 0,
@@ -8265,7 +8265,7 @@
           "home_win_pct": 68.7,
           "draw_pct": 20.1,
           "away_win_pct": 11.2,
-          "lambda_home": 1.96,
+          "lambda_home": 1.959,
           "lambda_away": 0.638,
           "score_tiles": [
             {
@@ -12683,7 +12683,7 @@
             "margin_pcts": {
               "h3p": 2.4,
               "h2": 7.7,
-              "h1": 21.3,
+              "h1": 21.4,
               "draw": 35.0,
               "a1": 22.4,
               "a2": 8.5,
