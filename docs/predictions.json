@@ -120,7 +120,7 @@
         "h2": 15.0,
         "h1": 24.2,
         "draw": 25.8,
-        "a1": 15.9,
+        "a1": 16.0,
         "a2": 6.5,
         "a3p": 2.5
       },
@@ -556,7 +556,7 @@
         },
         {
           "score": "2-0",
-          "pct": 4.1,
+          "pct": 4.0,
           "result": "home"
         },
         {
@@ -1363,7 +1363,7 @@
             },
             {
               "score": "2-0",
-              "pct": 4.1,
+              "pct": 4.0,
               "result": "home"
             },
             {
@@ -1608,7 +1608,7 @@
           "mean_losses": 0.25,
           "r32_pct": 100.0,
           "r16_pct": 67.5,
-          "qf_pct": 31.5,
+          "qf_pct": 31.6,
           "sf_pct": 13.0,
           "final_pct": 5.4,
           "winner_pct": 2.0
@@ -2326,7 +2326,7 @@
             "h2": 15.0,
             "h1": 24.2,
             "draw": 25.8,
-            "a1": 15.9,
+            "a1": 16.0,
             "a2": 6.5,
             "a3p": 2.5
           },
@@ -5002,7 +5002,7 @@
           "qf_pct": 14.6,
           "sf_pct": 6.6,
           "final_pct": 2.4,
-          "winner_pct": 0.9
+          "winner_pct": 0.8
         },
         {
           "team": "Sweden",
@@ -6733,7 +6733,7 @@
           "qf_pct": 52.2,
           "sf_pct": 38.4,
           "final_pct": 24.8,
-          "winner_pct": 15.6
+          "winner_pct": 15.7
         },
         {
           "team": "Cape Verde",
@@ -8423,7 +8423,7 @@
           "mean_losses": 1.0,
           "r32_pct": 100.0,
           "r16_pct": 36.7,
-          "qf_pct": 12.9,
+          "qf_pct": 12.8,
           "sf_pct": 3.5,
           "final_pct": 0.7,
           "winner_pct": 0.2
@@ -9310,7 +9310,7 @@
           "r16_pct": 64.8,
           "qf_pct": 30.8,
           "sf_pct": 19.4,
-          "final_pct": 11.1,
+          "final_pct": 11.0,
           "winner_pct": 6.2
         },
         {
@@ -9351,7 +9351,7 @@
           "r32_pct": 100.0,
           "r16_pct": 75.2,
           "qf_pct": 49.2,
-          "sf_pct": 24.0,
+          "sf_pct": 23.9,
           "final_pct": 11.0,
           "winner_pct": 5.3
         },
