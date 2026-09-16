@@ -2795,7 +2795,7 @@
             "draw": 22.8,
             "a1": 25.3,
             "a2": 18.5,
-            "a3p": 16.0
+            "a3p": 15.9
           },
           "played": true,
           "actual_home": 0,
@@ -3307,7 +3307,7 @@
           "qf_pct": 31.8,
           "sf_pct": 8.5,
           "final_pct": 3.4,
-          "winner_pct": 1.2
+          "winner_pct": 1.1
         },
         {
           "team": "Paraguay",
@@ -4134,7 +4134,7 @@
           "qf_pct": 36.1,
           "sf_pct": 21.4,
           "final_pct": 11.0,
-          "winner_pct": 5.1
+          "winner_pct": 5.0
         },
         {
           "team": "Ivory Coast",
@@ -5892,7 +5892,7 @@
           "qf_pct": 47.0,
           "sf_pct": 20.8,
           "final_pct": 10.4,
-          "winner_pct": 5.0
+          "winner_pct": 5.1
         },
         {
           "team": "Egypt",
@@ -5913,7 +5913,7 @@
           "qf_pct": 14.4,
           "sf_pct": 6.2,
           "final_pct": 1.8,
-          "winner_pct": 0.6
+          "winner_pct": 0.7
         },
         {
           "team": "Iran",
@@ -6577,7 +6577,7 @@
           "most_likely_score": "0-2",
           "home_win_pct": 8.0,
           "draw_pct": 13.4,
-          "away_win_pct": 78.6,
+          "away_win_pct": 78.5,
           "lambda_home": 0.794,
           "lambda_away": 2.775,
           "score_tiles": [
@@ -7018,7 +7018,7 @@
           "margin_pcts": {
             "h3p": 0.4,
             "h2": 2.0,
-            "h1": 9.1,
+            "h1": 9.2,
             "draw": 24.9,
             "a1": 28.8,
             "a2": 19.9,
@@ -7985,7 +7985,7 @@
           "home_win_pct": 37.1,
           "draw_pct": 25.8,
           "away_win_pct": 37.0,
-          "lambda_home": 1.35,
+          "lambda_home": 1.349,
           "lambda_away": 1.347,
           "score_tiles": [
             {
@@ -8404,7 +8404,7 @@
           "r16_pct": 84.9,
           "qf_pct": 64.6,
           "sf_pct": 44.8,
-          "final_pct": 25.4,
+          "final_pct": 25.5,
           "winner_pct": 15.3
         },
         {
@@ -8446,7 +8446,7 @@
           "r16_pct": 19.2,
           "qf_pct": 6.2,
           "sf_pct": 2.7,
-          "final_pct": 1.0,
+          "final_pct": 0.9,
           "winner_pct": 0.2
         },
         {
@@ -12683,7 +12683,7 @@
             "margin_pcts": {
               "h3p": 2.4,
               "h2": 7.7,
-              "h1": 21.4,
+              "h1": 21.3,
               "draw": 35.0,
               "a1": 22.4,
               "a2": 8.5,
