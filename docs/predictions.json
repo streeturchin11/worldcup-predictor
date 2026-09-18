@@ -1611,7 +1611,7 @@
           "qf_pct": 31.6,
           "sf_pct": 13.1,
           "final_pct": 5.0,
-          "winner_pct": 1.8
+          "winner_pct": 1.7
         },
         {
           "team": "Qatar",
@@ -2114,14 +2114,14 @@
               "result": "home"
             },
             {
-              "score": "0-0",
-              "pct": 3.1,
-              "result": "draw"
-            },
-            {
               "score": "5-0",
               "pct": 3.1,
               "result": "home"
+            },
+            {
+              "score": "0-0",
+              "pct": 3.0,
+              "result": "draw"
             },
             {
               "score": "1-2",
@@ -2517,7 +2517,7 @@
           "qf_pct": 28.2,
           "sf_pct": 13.0,
           "final_pct": 6.1,
-          "winner_pct": 2.7
+          "winner_pct": 2.8
         },
         {
           "team": "Haiti",
@@ -4155,7 +4155,7 @@
           "qf_pct": 12.5,
           "sf_pct": 4.5,
           "final_pct": 1.4,
-          "winner_pct": 0.3
+          "winner_pct": 0.4
         },
         {
           "team": "Ecuador",
@@ -5892,7 +5892,7 @@
           "qf_pct": 47.1,
           "sf_pct": 20.3,
           "final_pct": 10.6,
-          "winner_pct": 5.1
+          "winner_pct": 5.2
         },
         {
           "team": "Egypt",
@@ -5913,7 +5913,7 @@
           "qf_pct": 13.8,
           "sf_pct": 5.9,
           "final_pct": 1.7,
-          "winner_pct": 0.6
+          "winner_pct": 0.7
         },
         {
           "team": "Iran",
@@ -6732,8 +6732,8 @@
           "r16_pct": 80.8,
           "qf_pct": 52.0,
           "sf_pct": 38.0,
-          "final_pct": 24.4,
-          "winner_pct": 15.3
+          "final_pct": 24.6,
+          "winner_pct": 15.4
         },
         {
           "team": "Cape Verde",
@@ -7509,7 +7509,7 @@
           "qf_pct": 45.5,
           "sf_pct": 28.8,
           "final_pct": 16.5,
-          "winner_pct": 8.9
+          "winner_pct": 8.8
         },
         {
           "team": "Norway",
@@ -8404,8 +8404,8 @@
           "r16_pct": 84.9,
           "qf_pct": 65.2,
           "sf_pct": 44.0,
-          "final_pct": 25.2,
-          "winner_pct": 14.5
+          "final_pct": 25.1,
+          "winner_pct": 14.6
         },
         {
           "team": "Algeria",
@@ -9310,8 +9310,8 @@
           "r16_pct": 65.0,
           "qf_pct": 30.3,
           "sf_pct": 19.8,
-          "final_pct": 11.3,
-          "winner_pct": 6.3
+          "final_pct": 11.2,
+          "winner_pct": 6.2
         },
         {
           "team": "DR Congo",
@@ -9353,7 +9353,7 @@
           "qf_pct": 50.0,
           "sf_pct": 25.5,
           "final_pct": 11.6,
-          "winner_pct": 6.0
+          "winner_pct": 5.8
         },
         {
           "team": "Uzbekistan",
@@ -12683,7 +12683,7 @@
             "margin_pcts": {
               "h3p": 2.4,
               "h2": 7.7,
-              "h1": 21.4,
+              "h1": 21.3,
               "draw": 35.0,
               "a1": 22.4,
               "a2": 8.5,
@@ -13050,7 +13050,7 @@
               "h3p": 0.5,
               "h2": 2.3,
               "h1": 8.4,
-              "draw": 19.9,
+              "draw": 20.0,
               "a1": 25.7,
               "a2": 21.3,
               "a3p": 21.9
