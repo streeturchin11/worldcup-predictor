@@ -1568,7 +1568,7 @@
           "r16_pct": 60.4,
           "qf_pct": 25.2,
           "sf_pct": 8.4,
-          "final_pct": 2.7,
+          "final_pct": 2.6,
           "winner_pct": 0.8
         },
         {
@@ -5608,7 +5608,7 @@
           "draw_pct": 25.8,
           "away_win_pct": 32.3,
           "lambda_home": 1.44,
-          "lambda_away": 1.233,
+          "lambda_away": 1.232,
           "score_tiles": [
             {
               "score": "1-1",
@@ -6928,7 +6928,7 @@
           "most_likely_score": "0-1",
           "home_win_pct": 11.5,
           "draw_pct": 24.9,
-          "away_win_pct": 63.6,
+          "away_win_pct": 63.5,
           "lambda_home": 0.492,
           "lambda_away": 1.55,
           "score_tiles": [
@@ -9627,7 +9627,7 @@
           "home_win_pct": 82.2,
           "draw_pct": 12.6,
           "away_win_pct": 5.2,
-          "lambda_home": 2.617,
+          "lambda_home": 2.616,
           "lambda_away": 0.516,
           "score_tiles": [
             {
@@ -11475,7 +11475,7 @@
             "most_likely_score": "1-0",
             "home_win_pct": 60.8,
             "draw_pct": 23.7,
-            "away_win_pct": 15.5,
+            "away_win_pct": 15.6,
             "lambda_home": 1.691,
             "lambda_away": 0.718,
             "score_tiles": [
