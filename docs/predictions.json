@@ -1659,14 +1659,14 @@
               "result": "home"
             },
             {
-              "score": "1-1",
-              "pct": 9.9,
-              "result": "draw"
-            },
-            {
               "score": "2-1",
               "pct": 9.9,
               "result": "home"
+            },
+            {
+              "score": "1-1",
+              "pct": 9.8,
+              "result": "draw"
             },
             {
               "score": "3-0",
@@ -1757,7 +1757,7 @@
             },
             "draw": {
               "score": "1-1",
-              "pct": 9.9,
+              "pct": 9.8,
               "result": "draw"
             },
             "away": {
@@ -4717,7 +4717,7 @@
           "draw_pct": 21.8,
           "away_win_pct": 67.2,
           "lambda_home": 0.566,
-          "lambda_away": 1.795,
+          "lambda_away": 1.794,
           "score_tiles": [
             {
               "score": "0-1",
@@ -13981,7 +13981,7 @@
               },
               {
                 "score": "0-2",
-                "pct": 7.7,
+                "pct": 7.6,
                 "result": "away"
               },
               {
