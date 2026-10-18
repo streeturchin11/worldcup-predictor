@@ -116,7 +116,7 @@
         }
       },
       "margin_pcts": {
-        "h3p": 10.6,
+        "h3p": 10.5,
         "h2": 15.4,
         "h1": 24.5,
         "draw": 25.7,
@@ -391,7 +391,7 @@
       "away_flag": "\ud83c\udded\ud83c\uddf9",
       "most_likely_score": "2-0",
       "home_win_pct": 75.1,
-      "draw_pct": 17.2,
+      "draw_pct": 17.3,
       "away_win_pct": 7.6,
       "lambda_home": 2.134,
       "lambda_away": 0.515,
@@ -2307,7 +2307,7 @@
             }
           },
           "margin_pcts": {
-            "h3p": 10.6,
+            "h3p": 10.5,
             "h2": 15.4,
             "h1": 24.5,
             "draw": 25.7,
@@ -3155,7 +3155,7 @@
           "away_flag": "\ud83c\udded\ud83c\uddf9",
           "most_likely_score": "2-0",
           "home_win_pct": 75.1,
-          "draw_pct": 17.2,
+          "draw_pct": 17.3,
           "away_win_pct": 7.6,
           "lambda_home": 2.134,
           "lambda_away": 0.515,
@@ -6789,7 +6789,7 @@
           "home_win_pct": 82.1,
           "draw_pct": 13.5,
           "away_win_pct": 4.4,
-          "lambda_home": 2.379,
+          "lambda_home": 2.378,
           "lambda_away": 0.382,
           "score_tiles": [
             {
@@ -7374,7 +7374,7 @@
           "score_tiles": [
             {
               "score": "0-1",
-              "pct": 16.9,
+              "pct": 16.8,
               "result": "away"
             },
             {
@@ -7456,7 +7456,7 @@
             },
             "away": {
               "score": "0-1",
-              "pct": 16.9,
+              "pct": 16.8,
               "result": "away"
             }
           },
@@ -9609,7 +9609,7 @@
           "home_flag": "\ud83c\uddf5\ud83c\uddf9",
           "away_flag": "\ud83c\uddfa\ud83c\uddff",
           "most_likely_score": "2-0",
-          "home_win_pct": 82.2,
+          "home_win_pct": 82.1,
           "draw_pct": 12.6,
           "away_win_pct": 5.3,
           "lambda_home": 2.621,
