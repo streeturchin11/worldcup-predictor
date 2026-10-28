@@ -771,7 +771,7 @@
           "mean_pts": 4.0,
           "colour": "green",
           "first_pct": 0.0,
-          "second_pct": 76.3,
+          "second_pct": 76.2,
           "elim_pct": 0.0,
           "mean_gf": 2.0,
           "mean_ga": 3.0,
@@ -788,18 +788,18 @@
         {
           "team": "Czech Republic",
           "flag": "\ud83c\udde8\ud83c\uddff",
-          "prog_pct": 23.7,
+          "prog_pct": 23.8,
           "mean_pts": 1.99,
           "colour": "red",
           "first_pct": 0.0,
-          "second_pct": 23.7,
-          "elim_pct": 76.3,
+          "second_pct": 23.8,
+          "elim_pct": 76.2,
           "mean_gf": 2.84,
           "mean_ga": 4.33,
           "mean_wins": 0.24,
           "mean_draws": 1.28,
           "mean_losses": 1.48,
-          "r32_pct": 23.7,
+          "r32_pct": 23.8,
           "r16_pct": 9.0,
           "qf_pct": 2.4,
           "sf_pct": 0.6,
@@ -1551,7 +1551,7 @@
           "prog_pct": 100.0,
           "mean_pts": 4.98,
           "colour": "green",
-          "first_pct": 49.6,
+          "first_pct": 49.7,
           "second_pct": 50.3,
           "elim_pct": 0.0,
           "mean_gf": 7.99,
@@ -1560,7 +1560,7 @@
           "mean_draws": 1.26,
           "mean_losses": 0.5,
           "r32_pct": 100.0,
-          "r16_pct": 60.7,
+          "r16_pct": 60.8,
           "qf_pct": 25.1,
           "sf_pct": 8.6,
           "final_pct": 2.9,
@@ -1603,7 +1603,7 @@
           "mean_losses": 0.24,
           "r32_pct": 100.0,
           "r16_pct": 69.3,
-          "qf_pct": 32.6,
+          "qf_pct": 32.5,
           "sf_pct": 14.5,
           "final_pct": 5.9,
           "winner_pct": 2.4
@@ -3477,7 +3477,7 @@
           "margin_pcts": {
             "h3p": 8.1,
             "h2": 14.1,
-            "h1": 25.0,
+            "h1": 25.1,
             "draw": 28.2,
             "a1": 16.4,
             "a2": 6.1,
@@ -3499,7 +3499,7 @@
           "draw_pct": 28.2,
           "away_win_pct": 33.5,
           "lambda_home": 1.209,
-          "lambda_away": 1.111,
+          "lambda_away": 1.11,
           "score_tiles": [
             {
               "score": "1-1",
@@ -4673,7 +4673,7 @@
             }
           },
           "margin_pcts": {
-            "h3p": 23.3,
+            "h3p": 23.2,
             "h2": 22.6,
             "h1": 26.7,
             "draw": 19.3,
@@ -4756,7 +4756,7 @@
             },
             {
               "score": "1-4",
-              "pct": 2.4,
+              "pct": 2.3,
               "result": "away"
             },
             {
@@ -7525,18 +7525,18 @@
         {
           "team": "Senegal",
           "flag": "\ud83c\uddf8\ud83c\uddf3",
-          "prog_pct": 76.3,
+          "prog_pct": 76.2,
           "mean_pts": 3.0,
           "colour": "green",
           "first_pct": 0.0,
           "second_pct": 0.0,
-          "elim_pct": 23.7,
+          "elim_pct": 23.8,
           "mean_gf": 8.0,
           "mean_ga": 6.0,
           "mean_wins": 1.0,
           "mean_draws": 0.0,
           "mean_losses": 2.0,
-          "r32_pct": 76.3,
+          "r32_pct": 76.2,
           "r16_pct": 26.2,
           "qf_pct": 13.0,
           "sf_pct": 3.7,
@@ -11008,7 +11008,7 @@
               },
               {
                 "score": "1-2",
-                "pct": 6.8,
+                "pct": 6.7,
                 "result": "away"
               },
               {
