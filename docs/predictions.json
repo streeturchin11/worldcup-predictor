@@ -1765,7 +1765,7 @@
             "h3p": 17.8,
             "h2": 18.5,
             "h1": 24.0,
-            "draw": 21.5,
+            "draw": 21.4,
             "a1": 12.0,
             "a2": 4.6,
             "a3p": 1.7
@@ -2902,7 +2902,7 @@
           "home_win_pct": 90.1,
           "draw_pct": 7.3,
           "away_win_pct": 2.5,
-          "lambda_home": 3.323,
+          "lambda_home": 3.322,
           "lambda_away": 0.456,
           "score_tiles": [
             {
@@ -13920,7 +13920,7 @@
             "draw_pct": 28.6,
             "away_win_pct": 50.3,
             "lambda_home": 0.743,
-            "lambda_away": 1.318,
+            "lambda_away": 1.317,
             "score_tiles": [
               {
                 "score": "0-1",
